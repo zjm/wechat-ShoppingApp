@@ -1,13 +1,236 @@
 <!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+<view class="index-body">
+  <view class="search-bar">
+    <view class="area">
+      <text class="area-text">佛山等待的市</text>
+      <view class="iconfont icon-xiangxiazhankai"></view>
+    </view>
+
+    <view class="search-box">
+      <view class="search-input">
+        <icon type="search" size="12" />
+        <text>请输入搜索内容</text>
+      </view>
+    </view>
+
+    <view class="scan">
+      <view class="iconfont icon-saomiao"></view>
+      <view>扫一扫</view>
+    </view>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+
+  <swiper class="has-header" catchtap="onSwiperTap" vertical="{{false}}" indicator-dots="true" autoplay="true" interval="5000">
+    <swiper-item>
+      <image src="http://img.onbus.cn:9001/uploads/shopping/27/images/FF71EC7B-9464-4FCE-ACF6-003A68F8CBB2.JPG" data-postId="3"></image>
+    </swiper-item>
+    <swiper-item>
+      <image src="http://img.onbus.cn:9001/uploads/shopping/27/images/FD2D0BCD-4712-4986-BA47-953961598F29.jpg" data-postId="4"></image>
+    </swiper-item>
+    <swiper-item>
+      <image src="http://img.onbus.cn:9001/uploads/shopping/27/images/5CA9226F-24F9-4E73-AAD1-C9A613CCE89F.JPG" data-postId="5"></image>
+    </swiper-item>
+  </swiper>
+
+  <view class="index-menu">
+    <view class="index-menu-row">
+      <view class="index-menu-a">
+        <view>
+          <image src="http://www.qcrj.shop/fileSystem/langzi/article/20171108/fe5dd252-6c64-472b-9a14-0cc5353c7514.png"></image>
+        </view>
+        <view>
+          <text>菜单一</text>
+        </view>
+      </view>
+      <view class="index-menu-a">
+        <view>
+          <image src="http://www.qcrj.shop/fileSystem/langzi/article/20171108/fe5dd252-6c64-472b-9a14-0cc5353c7514.png"></image>
+        </view>
+        <view>
+          <text>菜单一</text>
+        </view>
+      </view>
+      <view class="index-menu-a">
+        <view>
+          <image src="http://www.qcrj.shop/fileSystem/langzi/article/20171108/fe5dd252-6c64-472b-9a14-0cc5353c7514.png"></image>
+        </view>
+        <view>
+          <text>菜单一</text>
+        </view>
+      </view>
+      <view class="index-menu-a">
+        <view>
+          <image src="http://www.qcrj.shop/fileSystem/langzi/article/20171108/fe5dd252-6c64-472b-9a14-0cc5353c7514.png"></image>
+        </view>
+        <view>
+          <text>菜单一</text>
+        </view>
+      </view>
+    </view>
+    <view class="index-menu-row">
+      <view class="index-menu-a">
+        <view>
+          <image src="http://www.qcrj.shop/fileSystem/langzi/article/20171108/00025066-8477-4a65-8370-0b5f280741c0.png"></image>
+        </view>
+        <view>
+          <text>菜单五</text>
+        </view>
+      </view>
+      <view class="index-menu-a">
+        <view>
+          <image src="http://www.qcrj.shop/fileSystem/langzi/article/20171108/00025066-8477-4a65-8370-0b5f280741c0.png"></image>
+        </view>
+        <view>
+          <text>菜单五</text>
+        </view>
+      </view>
+      <view class="index-menu-a">
+        <view>
+          <image src="http://www.qcrj.shop/fileSystem/langzi/article/20171108/00025066-8477-4a65-8370-0b5f280741c0.png"></image>
+        </view>
+        <view>
+          <text>菜单五</text>
+        </view>
+      </view>
+      <view class="index-menu-a">
+        <view>
+          <image src="http://www.qcrj.shop/fileSystem/langzi/article/20171108/00025066-8477-4a65-8370-0b5f280741c0.png"></image>
+        </view>
+        <view>
+          <text>菜单五</text>
+        </view>
+      </view>
+
+    </view>
   </view>
+
+
+  <view class="top-select">
+    <view class="fl-row">
+        <view class="item {{num==1&&isChecked?'active':''}}" data-num='1' data-is-checked="{{true}}"  bindtap="changeClass">
+            <view>
+                <text>产品</text> <text class="angle" animation="{{animationData}}"><text class="iconfont icon-xiangxiazhankai"></text></text>
+            </view>
+
+        </view>
+        <view class="item {{num==2?'active':''}}" data-num='2' bindtap="changeClass">
+            <view>
+                <text>空间</text> <text class="angle" animation="{{animationData}}"><text class="iconfont icon-xiangxiazhankai"></text></text>
+            </view>
+
+        </view>
+        <view class="item {{num==3?'active':''}}" data-num='3' bindtap="changeClass">
+            <view>
+                <text>风格</text> <text class="angle" animation="{{animationData}}"><text class="iconfont icon-xiangxiazhankai"></text></text>
+            </view>
+
+        </view>
+          <view class="item {{num==4?'active':''}}" data-num='4' bindtap="changeClass">
+            <view>
+                <text>最新</text> <text class="angle" animation="{{animationData}}"><text class="iconfont icon-xiangxiazhankai"></text></text>
+            </view>
+
+        </view>  
+    </view>
+    <view bindtap="changeClass2">
+        <view class="show-list  {{num==1?'actived':''}}" >
+            <view class="{{listId==1?'select':''}}" data-list-id='1' >
+                所有产品
+            </view>
+            <view class="{{listId==2?'select':''}}" data-list-id='2'>
+                冠珠MAX
+            </view>
+            <view class="{{listId==3?'select':''}}" data-list-id='3'>
+                冠珠真石
+            </view>
+            <view class="{{listId==4?'select':''}}" data-list-id='4'>
+                天然石
+            </view>
+            <view class="{{listId==5?'select':''}}" data-list-id='5'>
+                大理石瓷砖
+            </view>
+            <view class="{{listId==6?'select':''}}" data-list-id='6'>
+                瓷片
+            </view>
+            <view>
+                冠珠真石
+            </view>
+            <view>
+                天然石
+            </view>
+            <view>
+                大理石瓷砖
+            </view>
+            <view>
+                瓷片
+            </view>
+
+        </view>
+        <view class="show-list {{num==2?'actived':''}}">
+            <view>
+                所有空间
+            </view>
+            <view>
+                套间
+            </view>
+            <view>
+                客厅
+            </view>
+            <view>
+                厨房
+            </view>
+            <view>
+                卫生间
+            </view>
+            <view>
+                套间
+            </view>
+            <view>
+                客厅
+            </view>
+            <view>
+                厨房
+            </view>
+            <view>
+                卫生间
+            </view>
+        </view>
+        <view class="show-list {{num==3?'actived':''}}">
+            <view>
+                所有风格
+            </view>
+            <view>
+                工业风
+            </view>
+            <view>
+                欧式
+            </view>
+            <view>
+                地中海
+            </view><view>
+            田园
+        </view>
+            <view>
+                北欧
+            </view>
+            <view>
+                现代简约
+            </view>
+        </view>
+        <view class="show-list {{num==4?'actived':''}}">
+            <view>
+                最新
+            </view>
+            <view>
+                点赞
+            </view>
+            <view>
+                浏览
+            </view>
+        </view>
+    </view>
+
+</view>
+
+
+
 </view>

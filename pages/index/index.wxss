@@ -1,21 +1,194 @@
 /**index.wxss**/
-.userinfo {
+
+.search-bar {
+  display: flex;
+  flex-direction: row;
+  background-color: #229bc9;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 1000;
+}
+
+.area {
+  display: flex;
+  flex-direction: row;
+  width: 160rpx;
+  color: #fff;
+  line-height: 80rpx;
+  text-align: center;
+}
+
+.area-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 130rpx;
+  color: #fff;
+  margin-left: 10rpx;
+}
+
+.search-box {
+  flex: 1;
+}
+
+.search-input {
+  box-sizing: border-box;
+  height: 60rpx;
+  line-height: 60rpx;
+  background: #fff;
+  border-radius: 30rpx;
+  color: #333;
+  margin: 10rpx;
+  padding: 0 10rpx;
+}
+
+.search-input icon, .search-input text {
+  margin-left: 16rpx;
+  font-size: 26rpx;
+}
+
+.icon-saomiao {
+  font-size: 50rpx;
+}
+
+.scan {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  width: 100rpx;
+  text-align: center;
+  color: #fff;
 }
 
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+swiper swiper-item image {
+  height: 100%;
+  width: 100%;
 }
 
-.userinfo-nickname {
-  color: #aaa;
+/*菜单导航  */
+
+.index-menu {
+  padding: 20rpx 0;
+  background-color: #fff;
 }
 
-.usermotto {
-  margin-top: 200px;
+.index-menu-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.index-menu-row+.index-menu-row {
+  margin-top: 20rpx;
+}
+
+.index-menu-a {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  text-align: center;
+}
+
+.index-menu-a image {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+/*折叠菜单  */
+
+.fl-row {
+  display: flex;
+  flex-direction: row;
+  margin: 20rpx 0 0 0;
+  /* justify-content: space-around;  */
+}
+
+.top-select .item {
+  flex: 1;
+  /* width: 100%;  */
+  text-align: center;
+  font-weight: bold;
+  line-height: 40rpx;
+  padding: 20rpx 0;
+}
+
+/* .top-select .item view{
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+}  */
+
+.top-select .item text {
+  font-size: 30rpx;
+}
+
+.top-select .item .angle {
+  font-size: 20rpx;
+}
+
+/* .top-select .item+.item view::before {
+  content: ""; 
+  text-align: left;
+  border-left: 2rpx solid red;#525252
+} */
+
+.active {
+  background-color: #229bc9;
+}
+
+.active text {
+  color: #fff;
+}
+.angle{
+animation: 0.3s rotatereturn ;
+}
+.active .angle {
+  display: inline-block;
+  /* transition: rotateZ;
+  transform: rotateZ(180deg); */
+  animation: 0.3s rotatestart forwards;
+}
+
+@keyframes rotatestart {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(180deg);
+    transition: 0.3s;
+  }
+}
+@keyframes rotatereturn {
+  from {
+    transform: rotate(180deg);
+  }
+  to {
+    transform: rotate(0deg);
+    transition: 0.3s;
+  }
+}
+
+/*菜单子项  */
+
+.show-list {
+  display: none;
+  background: #229bc9;
+  /* padding: 0 20rpx; */
+   padding-bottom: 20rpx; 
+}
+
+.show-list view {
+  display: inline-block;
+  font-size: 26rpx;
+  padding: 20rpx;
+    padding-bottom: 10rpx;  
+  color: #fff;
+}
+
+.actived {
+  display: block;
+}
+
+.actived .select {
+  color: #f72424;
 }
