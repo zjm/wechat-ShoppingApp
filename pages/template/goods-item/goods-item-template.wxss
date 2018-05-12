@@ -1,0 +1,32 @@
+.goods-item-container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 11.5rpx;
+  background-color: #fefefe;
+  box-shadow: 6rpx 6rpx 10rpx #C1C1C1;
+}
+
+.goods-item-img {
+  width: 345rpx;
+  height: 345rpx;
+  padding-bottom: 20rpx;
+}
+
+.goods-item-title {
+  margin-bottom: 16rpx;
+  font-size: 28rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 300rpx;
+  padding: 0 20rpx;
+  color:#333;
+}
+
+.goods-item-price {
+  margin-bottom: 16rpx;
+  font-size: 26rpx;
+  color: #f23232;
+  font-weight: bold;
+  padding: 0 20rpx;
+}

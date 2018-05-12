@@ -1,0 +1,19 @@
+<!-- <template name="goodsList">
+  <view>
+    <view>
+    <image src="{{}}"></image>
+    </view>
+    <view>
+    <view>{{title}}</view>
+    <text>{{price}}</text>    
+    </view>
+  </view>
+</template> -->
+
+<template name="goodsItemTemplate">
+    <view class="goods-item-container" catchtap="goodsItemTap" data-goods-id="{{id}}">
+        <image class="goods-item-img" src="{{imgSrc}}"></image>
+        <text class="goods-item-title">{{title}}</text>
+        <text class="goods-item-price">￥{{price}}</text>
+    </view>
+</template>

@@ -1,3 +1,4 @@
+<import src="../template/goods-item/goods-item-template.wxml" />
 <!--index.wxml-->
 <view class="index-body">
   <view class="search-bar">
@@ -106,131 +107,42 @@
 
   <view class="top-select">
     <view class="fl-row">
-        <view class="item {{num==1&&isChecked?'active':''}}" data-num='1' data-is-checked="{{true}}"  bindtap="changeClass">
-            <view>
-                <text>产品</text> <text class="angle" animation="{{animationData}}"><text class="iconfont icon-xiangxiazhankai"></text></text>
-            </view>
-
+      <block wx:for="{{menuList}}" wx:for-item="listItem" wx:for-index="listIndex" wx:key="key">
+        <!--//template 一级菜单-->
+        <view bindtap="changeClass" class="item {{num==listItem.listId?'active':''}}" data-num="{{listItem.listId}}">
+          <view>
+            <text>{{listItem.title}}</text>
+            <text class="angle" animation="{{animationData}}"><text class="iconfont icon-xiangxiazhankai"></text></text>
+          </view>
         </view>
-        <view class="item {{num==2?'active':''}}" data-num='2' bindtap="changeClass">
-            <view>
-                <text>空间</text> <text class="angle" animation="{{animationData}}"><text class="iconfont icon-xiangxiazhankai"></text></text>
-            </view>
 
-        </view>
-        <view class="item {{num==3?'active':''}}" data-num='3' bindtap="changeClass">
-            <view>
-                <text>风格</text> <text class="angle" animation="{{animationData}}"><text class="iconfont icon-xiangxiazhankai"></text></text>
-            </view>
-
-        </view>
-          <view class="item {{num==4?'active':''}}" data-num='4' bindtap="changeClass">
-            <view>
-                <text>最新</text> <text class="angle" animation="{{animationData}}"><text class="iconfont icon-xiangxiazhankai"></text></text>
-            </view>
-
-        </view>  
+      </block>
     </view>
     <view bindtap="changeClass2">
-        <view class="show-list  {{num==1?'actived':''}}" >
-            <view class="{{listId==1?'select':''}}" data-list-id='1' >
-                所有产品
-            </view>
-            <view class="{{listId==2?'select':''}}" data-list-id='2'>
-                冠珠MAX
-            </view>
-            <view class="{{listId==3?'select':''}}" data-list-id='3'>
-                冠珠真石
-            </view>
-            <view class="{{listId==4?'select':''}}" data-list-id='4'>
-                天然石
-            </view>
-            <view class="{{listId==5?'select':''}}" data-list-id='5'>
-                大理石瓷砖
-            </view>
-            <view class="{{listId==6?'select':''}}" data-list-id='6'>
-                瓷片
-            </view>
-            <view>
-                冠珠真石
-            </view>
-            <view>
-                天然石
-            </view>
-            <view>
-                大理石瓷砖
-            </view>
-            <view>
-                瓷片
-            </view>
+      <block wx:for="{{menuList}}" wx:for-item="listItem" wx:for-index="listIndex" wx:key="key">
+        <!--//template 二级菜单-->
+        <view class="show-list  {{num==listItem.listId?'actived':''}}">
+          <view wx:for="{{listItem.item}}" wx:for-item="childItem" class="{{listId==childItem.ID?'select':''}}" data-list-id="{{childItem.ID}}" data-name="{{childItem.Name}}" wx:key="key">
+            {{childItem.Name}}
+          </view>
+        </view>
+      </block>
 
-        </view>
-        <view class="show-list {{num==2?'actived':''}}">
-            <view>
-                所有空间
-            </view>
-            <view>
-                套间
-            </view>
-            <view>
-                客厅
-            </view>
-            <view>
-                厨房
-            </view>
-            <view>
-                卫生间
-            </view>
-            <view>
-                套间
-            </view>
-            <view>
-                客厅
-            </view>
-            <view>
-                厨房
-            </view>
-            <view>
-                卫生间
-            </view>
-        </view>
-        <view class="show-list {{num==3?'actived':''}}">
-            <view>
-                所有风格
-            </view>
-            <view>
-                工业风
-            </view>
-            <view>
-                欧式
-            </view>
-            <view>
-                地中海
-            </view><view>
-            田园
-        </view>
-            <view>
-                北欧
-            </view>
-            <view>
-                现代简约
-            </view>
-        </view>
-        <view class="show-list {{num==4?'actived':''}}">
-            <view>
-                最新
-            </view>
-            <view>
-                点赞
-            </view>
-            <view>
-                浏览
-            </view>
-        </view>
     </view>
 
-</view>
+  </view>
 
+  <view class="goods-title">{{isTitle?goodsTitle:"实景案例"}}</view>
+
+  <view class="goods-container clearfix">
+    <block wx:for="{{goodsItem}}" wx:for-item="goods" wx:key="key">
+      <view class="single-view-container">
+        <template is="goodsItemTemplate" data="{{...goods}}" />
+      </view>
+    </block>
+
+
+  </view>
 
 
 </view>

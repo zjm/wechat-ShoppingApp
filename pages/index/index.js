@@ -1,12 +1,16 @@
 //index.js
-
+var listData = require('../../data/test-data.js')
+console.log(listData)
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    animationData: {}
+    animationData: {},
+
+    // 判断标题title是否被修改过
+    isTitle:false
   },
 
   /**
@@ -16,18 +20,39 @@ Page({
     this.animation = wx.createAnimation({
       duration: 600,
       timingFunction: 'ease',
-    })
+    });
+
+    
+
+    this.setData({
+      menuList: listData.menuList,
+      goodsItem: listData.goodsItem
+    });
+    
   },
 
 
-
+// 一级列表点击事件
   changeClass: function (e) {
     
 
     // this.animation.rotate(180).step()
 
     var isChecked = e.currentTarget.dataset.isChecked;
-    console.log(isChecked);
+    // console.log(isChecked);
+
+    // for (var i = 0; i < initSubMenuDisplay.length; i++) {
+    //   if (i == index) {
+    //     if (this.data.subMenuDisplay[index] == "show") {
+    //       initSubMenuDisplay[index] = 'hidden'
+    //     } else {
+    //       initSubMenuDisplay[index] = 'show'
+    //     }
+    //   } else {
+    //     initSubMenuDisplay[i] = 'hidden'
+    //   }
+    // }  
+
     if (isChecked==true){
       this.setData({
         num: e.currentTarget.dataset.num,
@@ -36,6 +61,7 @@ Page({
     } else{
       this.setData({
         num: e.currentTarget.dataset.num,
+        listId: -1,
         isChecked: true
       })
     }
@@ -49,9 +75,15 @@ Page({
     //   // animationData: this.animation.export()
     // })
   },
+
+  // 二级列表点击事件
   changeClass2 : function(e){
+    // var titleName = listData.menuList[][];
+
     this.setData({
-      listId: e.target.dataset.listId
+      listId: e.target.dataset.listId,
+      goodsTitle: e.target.dataset.name,
+      isTitle: true
     })
   },
 

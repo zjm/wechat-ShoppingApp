@@ -1,3 +1,4 @@
+@import "../template/goods-item/goods-item-template.wxss" ;
 /**index.wxss**/
 
 .search-bar {
@@ -191,4 +192,24 @@ animation: 0.3s rotatereturn ;
 
 .actived .select {
   color: #f72424;
+}
+
+/*商品列表  */
+.goods-title::before{
+  content: " ";
+  padding-left: 10rpx;
+  border-left: 10rpx solid #C1C1C1;
+}
+.goods-title{
+  margin: 30rpx 20rpx 10rpx 20rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+}
+.goods-container{
+  padding: 10rpx;
+}
+.single-view-container{
+  float: left;
+  margin: 10rpx 0;
 }
