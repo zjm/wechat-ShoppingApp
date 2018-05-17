@@ -1,5 +1,6 @@
 //index.js
-var listData = require('../../data/test-data.js')
+var listData = require('../../data/test-data.js');
+
 console.log(listData)
 Page({
 
@@ -7,10 +8,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    animationData: {},
-
     // 判断标题title是否被修改过
-    isTitle:false
+    isTitle:false,
   },
 
   /**
@@ -21,15 +20,14 @@ Page({
       duration: 600,
       timingFunction: 'ease',
     });
-
-    
-
     this.setData({
       menuList: listData.menuList,
-      goodsItem: listData.goodsItem
+      goodsItem: listData.goodsItem,
+      bannerList: listData.bannerList
     });
-    
   },
+
+
 
 
 // 一级列表点击事件
@@ -38,56 +36,79 @@ Page({
 
     // this.animation.rotate(180).step()
 
-    var isChecked = e.currentTarget.dataset.isChecked;
+    // var isChecked = e.currentTarget.dataset.isChecked;
     // console.log(isChecked);
 
-    // for (var i = 0; i < initSubMenuDisplay.length; i++) {
-    //   if (i == index) {
-    //     if (this.data.subMenuDisplay[index] == "show") {
-    //       initSubMenuDisplay[index] = 'hidden'
-    //     } else {
-    //       initSubMenuDisplay[index] = 'show'
-    //     }
-    //   } else {
-    //     initSubMenuDisplay[i] = 'hidden'
-    //   }
-    // }  
+    var idx = e.currentTarget.dataset.num;
 
-    if (isChecked==true){
-      this.setData({
-        num: e.currentTarget.dataset.num,
-        isChecked : false
-      })
-    } else{
-      this.setData({
-        num: e.currentTarget.dataset.num,
-        listId: -1,
-        isChecked: true
-      })
+
+    // 给一级菜单添加自定义属性isChecked；
+    for (var i in listData.menuList) {
+      var Item = listData.menuList[i];
+      if(Item.listId == idx){
+        Item.isChecked = !Item.isChecked;
+      }
+      else{
+        Item.isChecked = false;
+      }
+
     }
+
+      this.setData({
+        num: e.currentTarget.dataset.num,
+        menuList: listData.menuList,
+        listId : -1
+      })
  
     
-
-
-    // this.setData({
-    //   num: e.currentTarget.dataset.num,
-    //   isChecked: true
-    //   // animationData: this.animation.export()
-    // })
   },
 
   // 二级列表点击事件
   changeClass2 : function(e){
-    // var titleName = listData.menuList[][];
-
+    // var listId = e.target.dataset.listId;
+    // console.log(listId)
+    // for (var i in listData.menuList) {
+    //   // 给二级菜单添加自定义属性isSelected；
+    //   for (var j in listData.menuList[i].item) {
+    //     var item = listData.menuList[i].item[j];
+    //     if (item.ID == listId) {
+    //       item.isSelected = !item.isSelected;
+    //     }
+    //     else {
+    //       item.isSelected = false;
+    //     }
+    //     console.log(item)
+    //   }
+    // }
     this.setData({
       listId: e.target.dataset.listId,
       goodsTitle: e.target.dataset.name,
       isTitle: true
+      // menuList: listData.menuList
     })
+
+
+  },
+// 商品点击
+  goodsItemTap: function (event){
+
+    var goodsId = event.currentTarget.dataset.goodsId;
+    wx.navigateTo({
+      // 此时?后面的id为其他页面接收时参数后的变量名
+      url: "../detail/detail?id=" + goodsId
+    })
+    console.log(goodsId)
   },
 
+// 广告条点击
+  onSwiperTap: function (event) {
 
+    var numId = event.target.dataset.num;
+    wx.navigateTo({
+      url: "../detail/detail?id=" + numId
+    })
+    console.log(numId)
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

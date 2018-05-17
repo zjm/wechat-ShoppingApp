@@ -21,15 +21,11 @@
   </view>
 
   <swiper class="has-header" catchtap="onSwiperTap" vertical="{{false}}" indicator-dots="true" autoplay="true" interval="5000">
-    <swiper-item>
-      <image src="http://img.onbus.cn:9001/uploads/shopping/27/images/FF71EC7B-9464-4FCE-ACF6-003A68F8CBB2.JPG" data-postId="3"></image>
-    </swiper-item>
-    <swiper-item>
-      <image src="http://img.onbus.cn:9001/uploads/shopping/27/images/FD2D0BCD-4712-4986-BA47-953961598F29.jpg" data-postId="4"></image>
-    </swiper-item>
-    <swiper-item>
-      <image src="http://img.onbus.cn:9001/uploads/shopping/27/images/5CA9226F-24F9-4E73-AAD1-C9A613CCE89F.JPG" data-postId="5"></image>
-    </swiper-item>
+    <block wx:for="{{bannerList}}" wx:for-item="listItem" wx:for-index="listIndex" wx:key="key">
+        <swiper-item>
+          <image src="{{listItem.imgSrc}}" data-num="{{listItem.id}}" mode="widthFix"></image>
+        </swiper-item>
+    </block>
   </swiper>
 
   <view class="index-menu">
@@ -109,20 +105,22 @@
     <view class="fl-row">
       <block wx:for="{{menuList}}" wx:for-item="listItem" wx:for-index="listIndex" wx:key="key">
         <!--//template 一级菜单-->
-        <view bindtap="changeClass" class="item {{num==listItem.listId?'active':''}}" data-num="{{listItem.listId}}">
+        <view bindtap="changeClass" class="item {{listItem.isChecked?'active':''}}" data-num="{{listItem.listId}}" data-is-checked="{{listItem.isChecked}}">
           <view>
             <text>{{listItem.title}}</text>
-            <text class="angle" animation="{{animationData}}"><text class="iconfont icon-xiangxiazhankai"></text></text>
+            <text class="angle"><text class="iconfont icon-xiangxiazhankai"></text></text>
           </view>
         </view>
 
       </block>
     </view>
     <view bindtap="changeClass2">
-      <block wx:for="{{menuList}}" wx:for-item="listItem" wx:for-index="listIndex" wx:key="key">
+      <block wx:for="{{menuList}}" wx:for-item="listItem" wx:for-index="childIndex" wx:key="key">
         <!--//template 二级菜单-->
-        <view class="show-list  {{num==listItem.listId?'actived':''}}">
-          <view wx:for="{{listItem.item}}" wx:for-item="childItem" class="{{listId==childItem.ID?'select':''}}" data-list-id="{{childItem.ID}}" data-name="{{childItem.Name}}" wx:key="key">
+        <view class="show-list  {{listItem.isChecked?'actived':''}}">
+          <!-- <view class="show-list  " wx:if="{{listItem.isChecked?'active':''}}"> -->
+          <!-- childItem.isSelected -->
+          <view wx:for="{{listItem.item}}" wx:for-item="childItem" class="{{listId==childItem.ID?'select':''}}" data-list-id="{{childItem.ID}}" data-name="{{childItem.Name}}" data-is-selected="{{childItem.isSelected}}" wx:key="key">
             {{childItem.Name}}
           </view>
         </view>

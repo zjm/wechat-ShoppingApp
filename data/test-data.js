@@ -184,52 +184,234 @@ var menulist = [
 
 ]
 
-var goodsitem = [
+ 
+    var goodsitem = [
+  {
+    title: "A3DFCE",
+    types: "ICC",
+    size: "600*600",
+    price: 128.99,
+    costprice: "",
+    id: 0,
+    coverImg: "http://img.onbus.cn:9001/uploads/shopping/27/images/E8452E49-498D-410F-94CD-51FB6F968400.jpg",
+    detailBannerImg: [
+      "http://img.onbus.cn:9001/uploads/shopping/27/images/E8452E49-498D-410F-94CD-51FB6F968400.jpg",
+      "http://img.onbus.cn:9001/uploads/shopping/27/images/A1B2B3C6-3F30-4807-8BA9-EB061CEEF5E9.jpg",
+      "http://img.onbus.cn:9001/uploads/shopping/27/images/E8452E49-498D-410F-94CD-51FB6F968400.jpg"
+    ],
+    detailImg: [
+      "http://rf.onbus.cn/uploads/shopping/27/images/5980FC83-136C-4AC7-96CA-19A03D94AFF9.JPG",
+      "http://img.onbus.cn:9001/uploads/shopping/27/images/E8452E49-498D-410F-94CD-51FB6F968400.jpg",
+      "http://img.onbus.cn:9001/uploads/shopping/27/images/E8452E49-498D-410F-94CD-51FB6F968400.jpg"
+    ],
+
+  },
   {
     title: "ABC",
-    price: 99,
-    id: 0,
-    imgSrc: "http://img.onbus.cn:9001/uploads/shopping/27/images/E8452E49-498D-410F-94CD-51FB6F968400.jpg"
-  },
-  {
-    title: "A231BC",
-    price: 299,
+    types: "IBC",
+    size: "600*600",
+    price: 229.00,
+    costprice: 299.00,
     id: 1,
-    imgSrc: "http://img.onbus.cn:9001/uploads/shopping/27/images/84190795-F51F-4F9A-9E8F-DDC84B3D5DAA.JPG"
+    coverImg: "http://img.onbus.cn:9001/uploads/shopping/27/images/84190795-F51F-4F9A-9E8F-DDC84B3D5DAA.JPG",
+    detailBannerImg: [
+      "http://img.onbus.cn:9001/uploads/shopping/27/images/84190795-F51F-4F9A-9E8F-DDC84B3D5DAA.JPG",
+      "http://img.onbus.cn:9001/uploads/shopping/27/images/84190795-F51F-4F9A-9E8F-DDC84B3D5DAA.JPG",
+      "http://img.onbus.cn:9001/uploads/shopping/27/images/84190795-F51F-4F9A-9E8F-DDC84B3D5DAA.JPG"
+    ],
+    detailImg: [
+      "http://img.onbus.cn:9001/uploads/shopping/27/images/84190795-F51F-4F9A-9E8F-DDC84B3D5DAA.JPG",
+      "http://img.onbus.cn:9001/uploads/shopping/27/images/84190795-F51F-4F9A-9E8F-DDC84B3D5DAA.JPG",
+      "http://img.onbus.cn:9001/uploads/shopping/27/images/84190795-F51F-4F9A-9E8F-DDC84B3D5DAA.JPG",
+      "http://img.onbus.cn:9001/uploads/shopping/27/images/84190795-F51F-4F9A-9E8F-DDC84B3D5DAA.JPG"
+    ],
+
   },
   {
-    title: "4ABC",
-    price: 399,
+    title: "3A4BC",
+    types: "IBB",
+    size: "700*700",
+    price: 199.00,
+    costprice: 399.00,
     id: 2,
-    imgSrc: "http://img.onbus.cn:9001/uploads/shopping/27/images/F51B9109-AD78-4EB0-9314-2DD86C461BD1.JPG"
+    coverImg: "http://img.onbus.cn:9001/uploads/shopping/27/images/F51B9109-AD78-4EB0-9314-2DD86C461BD1.JPG",
+    detailBannerImg: [
+      "http://img.onbus.cn:9001/uploads/shopping/27/images/F51B9109-AD78-4EB0-9314-2DD86C461BD1.JPG",
+      "http://img.onbus.cn:9001/uploads/shopping/27/images/F51B9109-AD78-4EB0-9314-2DD86C461BD1.JPG",
+      "http://img.onbus.cn:9001/uploads/shopping/27/images/F51B9109-AD78-4EB0-9314-2DD86C461BD1.JPG"
+    ],
+    detailImg: [
+      "http://img.onbus.cn:9001/uploads/shopping/27/images/F51B9109-AD78-4EB0-9314-2DD86C461BD1.JPG",
+      "http://img.onbus.cn:9001/uploads/shopping/27/images/F51B9109-AD78-4EB0-9314-2DD86C461BD1.JPG",
+      "http://img.onbus.cn:9001/uploads/shopping/27/images/F51B9109-AD78-4EB0-9314-2DD86C461BD1.JPG",
+      "http://img.onbus.cn:9001/uploads/shopping/27/images/F51B9109-AD78-4EB0-9314-2DD86C461BD1.JPG"
+    ],
+
   },
   {
-    title: "1A1BC",
-    price: 199,
+    title: "23BBA",
+    types: "ICC",
+    size: "600*600",
+    price: 99.80,
+    costprice: 199.00,
     id: 3,
-    imgSrc: "http://img.onbus.cn:9001/uploads/shopping/27/images/E8452E49-498D-410F-94CD-51FB6F968400.jpg"
+    coverImg: "http://img.onbus.cn:9001/uploads/shopping/27/images/E8452E49-498D-410F-94CD-51FB6F968400.jpg",
+    detailBannerImg: [
+      "http://img.onbus.cn:9001/uploads/shopping/27/images/E8452E49-498D-410F-94CD-51FB6F968400.jpg",
+      "http://img.onbus.cn:9001/uploads/shopping/27/images/E8452E49-498D-410F-94CD-51FB6F968400.jpg",
+      "http://img.onbus.cn:9001/uploads/shopping/27/images/E8452E49-498D-410F-94CD-51FB6F968400.jpg"
+    ],
+    detailImg: [
+      "http://img.onbus.cn:9001/uploads/shopping/27/images/E8452E49-498D-410F-94CD-51FB6F968400.jpg",
+      "http://img.onbus.cn:9001/uploads/shopping/27/images/E8452E49-498D-410F-94CD-51FB6F968400.jpg",
+      "http://img.onbus.cn:9001/uploads/shopping/27/images/E8452E49-498D-410F-94CD-51FB6F968400.jpg",
+      "http://img.onbus.cn:9001/uploads/shopping/27/images/E8452E49-498D-410F-94CD-51FB6F968400.jpg"
+    ],
+
   },
   {
-    title: "A23BC",
-    price: 99,
+    title: "2213BBA",
+    types: "ICC",
+    size: "600*600",
+    price: 234.00,
+    costprice: 499.00,
     id: 4,
-    imgSrc: "http://img.onbus.cn:9001/uploads/shopping/27/images/E4B0ECBB-0852-4D12-93D2-791C98282835.jpg"
+    coverImg: "http://img.onbus.cn:9001/uploads/shopping/27/images/E4B0ECBB-0852-4D12-93D2-791C98282835.jpg",
+    detailBannerImg: [
+      "http://img.onbus.cn:9001/uploads/shopping/27/images/E4B0ECBB-0852-4D12-93D2-791C98282835.jpg",
+      "http://img.onbus.cn:9001/uploads/shopping/27/images/E4B0ECBB-0852-4D12-93D2-791C98282835.jpg",
+      "http://img.onbus.cn:9001/uploads/shopping/27/images/E4B0ECBB-0852-4D12-93D2-791C98282835.jpg"
+    ],
+    detailImg: [
+      "http://img.onbus.cn:9001/uploads/shopping/27/images/E4B0ECBB-0852-4D12-93D2-791C98282835.jpg",
+      "http://img.onbus.cn:9001/uploads/shopping/27/images/E4B0ECBB-0852-4D12-93D2-791C98282835.jpg",
+      "http://img.onbus.cn:9001/uploads/shopping/27/images/E4B0ECBB-0852-4D12-93D2-791C98282835.jpg",
+      "http://img.onbus.cn:9001/uploads/shopping/27/images/E4B0ECBB-0852-4D12-93D2-791C98282835.jpg"
+    ],
+
   },
   {
-    title: "A4BC",
-    price: 89,
+    title: "22BA",
+    types: "ICC",
+    size: "300*300",
+    price: 99.80,
+    costprice: "",
     id: 5,
-    imgSrc: "http://img.onbus.cn:9001/uploads/shopping/27/images/5EE93301-1F3E-4425-9469-9491BE26C7CA.JPG"
+    coverImg: "http://img.onbus.cn:9001/uploads/shopping/27/images/E8452E49-498D-410F-94CD-51FB6F968400.jpg",
+    detailBannerImg: [
+      "http://img.onbus.cn:9001/uploads/shopping/27/images/E8452E49-498D-410F-94CD-51FB6F968400.jpg",
+      "http://img.onbus.cn:9001/uploads/shopping/27/images/E8452E49-498D-410F-94CD-51FB6F968400.jpg",
+      "http://img.onbus.cn:9001/uploads/shopping/27/images/E8452E49-498D-410F-94CD-51FB6F968400.jpg"
+    ],
+    detailImg: [
+      "http://img.onbus.cn:9001/uploads/shopping/27/images/E8452E49-498D-410F-94CD-51FB6F968400.jpg",
+      "http://img.onbus.cn:9001/uploads/shopping/27/images/E8452E49-498D-410F-94CD-51FB6F968400.jpg",
+      "http://img.onbus.cn:9001/uploads/shopping/27/images/E8452E49-498D-410F-94CD-51FB6F968400.jpg",
+      "http://img.onbus.cn:9001/uploads/shopping/27/images/E8452E49-498D-410F-94CD-51FB6F968400.jpg"
+    ],
+
   },
   {
-    title: "5A3BC",
-    price: 439,
+    title: "123BA",
+    types: "ICC",
+    size: "400*400",
+    price: 99.90,
+    costprice: 199,
     id: 6,
-    imgSrc: "http://img.onbus.cn:9001/uploads/shopping/27/images/A03A5A4E-55F3-4AF4-95D3-2CBAC1CB5511.jpg"
+    coverImg: "http://img.onbus.cn:9001/uploads/shopping/27/images/E8452E49-498D-410F-94CD-51FB6F968400.jpg",
+    detailBannerImg: [
+      "http://img.onbus.cn:9001/uploads/shopping/27/images/E8452E49-498D-410F-94CD-51FB6F968400.jpg",
+      "http://img.onbus.cn:9001/uploads/shopping/27/images/E8452E49-498D-410F-94CD-51FB6F968400.jpg",
+      "http://img.onbus.cn:9001/uploads/shopping/27/images/E8452E49-498D-410F-94CD-51FB6F968400.jpg"
+    ],
+    detailImg: [
+      "http://img.onbus.cn:9001/uploads/shopping/27/images/E8452E49-498D-410F-94CD-51FB6F968400.jpg",
+      "http://img.onbus.cn:9001/uploads/shopping/27/images/E8452E49-498D-410F-94CD-51FB6F968400.jpg",
+      "http://img.onbus.cn:9001/uploads/shopping/27/images/E8452E49-498D-410F-94CD-51FB6F968400.jpg",
+      "http://img.onbus.cn:9001/uploads/shopping/27/images/E8452E49-498D-410F-94CD-51FB6F968400.jpg"
+    ],
+
+  },
+  {
+    title: "ABC",
+    types: "ICC",
+    size: "600*600",
+    price: 99.00,
+    costprice: 199.00,
+    id: 7,
+    coverImg: "http://img.onbus.cn:9001/uploads/shopping/27/images/A03A5A4E-55F3-4AF4-95D3-2CBAC1CB5511.jpg",
+    detailBannerImg: [
+      "http://img.onbus.cn:9001/uploads/shopping/27/images/A03A5A4E-55F3-4AF4-95D3-2CBAC1CB5511.jpg",
+      "http://img.onbus.cn:9001/uploads/shopping/27/images/A03A5A4E-55F3-4AF4-95D3-2CBAC1CB5511.jpg",
+      "http://img.onbus.cn:9001/uploads/shopping/27/images/A03A5A4E-55F3-4AF4-95D3-2CBAC1CB5511.jpg"
+    ],
+    detailImg: [
+      "http://img.onbus.cn:9001/uploads/shopping/27/images/A03A5A4E-55F3-4AF4-95D3-2CBAC1CB5511.jpg",
+      "http://img.onbus.cn:9001/uploads/shopping/27/images/A03A5A4E-55F3-4AF4-95D3-2CBAC1CB5511.jpg",
+      "http://img.onbus.cn:9001/uploads/shopping/27/images/A03A5A4E-55F3-4AF4-95D3-2CBAC1CB5511.jpg",
+      "http://img.onbus.cn:9001/uploads/shopping/27/images/A03A5A4E-55F3-4AF4-95D3-2CBAC1CB5511.jpg"
+    ],
+
+  },
+  {
+    title: "3A4BC",
+    types: "IBB",
+    size: "700*700",
+    price: 19.90,
+    costprice: 39.90,
+    id: 8,
+    coverImg: "http://img.onbus.cn:9001/uploads/shopping/27/images/F51B9109-AD78-4EB0-9314-2DD86C461BD1.JPG",
+    detailBannerImg: [
+      "http://img.onbus.cn:9001/uploads/shopping/27/images/F51B9109-AD78-4EB0-9314-2DD86C461BD1.JPG",
+      "http://img.onbus.cn:9001/uploads/shopping/27/images/F51B9109-AD78-4EB0-9314-2DD86C461BD1.JPG",
+      "http://img.onbus.cn:9001/uploads/shopping/27/images/F51B9109-AD78-4EB0-9314-2DD86C461BD1.JPG"
+    ],
+    detailImg: [
+      "http://img.onbus.cn:9001/uploads/shopping/27/images/F51B9109-AD78-4EB0-9314-2DD86C461BD1.JPG",
+      "http://img.onbus.cn:9001/uploads/shopping/27/images/F51B9109-AD78-4EB0-9314-2DD86C461BD1.JPG",
+      "http://img.onbus.cn:9001/uploads/shopping/27/images/F51B9109-AD78-4EB0-9314-2DD86C461BD1.JPG",
+      "http://img.onbus.cn:9001/uploads/shopping/27/images/F51B9109-AD78-4EB0-9314-2DD86C461BD1.JPG"
+    ],
+
   }
 ]
 
+
+var bannerList = [
+  {
+    imgSrc:"http://img.onbus.cn:9001/uploads/shopping/27/images/FF71EC7B-9464-4FCE-ACF6-003A68F8CBB2.JPG",
+    id:2
+  },
+  {
+    imgSrc: "http://img.onbus.cn:9001/uploads/shopping/27/images/FD2D0BCD-4712-4986-BA47-953961598F29.jpg",
+    id: 3
+  },
+  {
+    imgSrc: "http://img.onbus.cn:9001/uploads/shopping/27/images/60066275-90CD-4A30-AB9F-B815C1D1FBD6.JPG",
+    id: 5
+  },
+  {
+    imgSrc: "http://img.onbus.cn:9001/uploads/shopping/27/images/5CA9226F-24F9-4E73-AAD1-C9A613CCE89F.JPG",
+    id: 8
+  }
+]
+
+
+// var detailsList = [
+//   {
+//     imgSrc: [
+//       "http://img.onbus.cn:9001/uploads/shopping/27/images/FF71EC7B-9464-4FCE-ACF6-003A68F8CBB2.JPG",
+//       "http://img.onbus.cn:9001/uploads/shopping/27/images/FF71EC7B-9464-4FCE-ACF6-003A68F8CBB2.JPG",
+//       "http://img.onbus.cn:9001/uploads/shopping/27/images/FF71EC7B-9464-4FCE-ACF6-003A68F8CBB2.JPG"
+//     ],
+//     id: 1111,
+//     title: "非凡演绎，超越自然",
+
+//   },
+// ]
+
 module.exports = {
   menuList: menulist,
-  goodsItem: goodsitem
+  goodsItem: goodsitem,
+  bannerList: bannerList
 }

@@ -31,9 +31,14 @@ App({
           })
         }
       }
-    })
+    }),
+      wx.setTabBarBadge({
+        index: 2,
+        text: '1'
+      })
   },
   globalData: {
     userInfo: null
   }
+
 })

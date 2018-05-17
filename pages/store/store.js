@@ -1,66 +1,43 @@
 // pages/store/stores.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
-  data: {
-  
+  data: { // 定义data
+    tempInfo: [{ // 模拟后台数据
+      id: 1,
+      subNum: 'C1609050001',
+      percentage: 30,
+      grade: 'SPCC',
+      spec: '2.5*1200*C',
+      weight: 500
+    }, {
+      id: 2,
+      subNum: 'A1609050001',
+      percentage: 80,
+      grade: 'SPCC',
+      spec: '3.5*1200*C',
+      weight: 100
+    }],
+    dataInfos: [] // 重组数组内容
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-  
+  // 展开详情
+  expandDetail: function (e) {
+    var idx = e.currentTarget.dataset.idx, // 获取当前下标
+      key = "dataInfo[" + idx + "].flag",
+      val = this.data.dataInfo[idx].flag;
+    console.log(val);
+      console.log([key]);
+    this.setData({
+      [key]: !val
+    });
+    console.log(!val);
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+  onLoad: function (opt) {
+    for (var i in this.data.tempInfo) {
+      this.data.tempInfo[i].flag = false; // 添加新属性
+    };
+    console.log(this.data.tempInfo)
+    this.setData({
+      dataInfo: this.data.tempInfo
+      
+    });
   }
 })

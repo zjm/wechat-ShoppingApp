@@ -1,2 +1,62 @@
 <!--pages/cart/cart.wxml-->
-<text>pages/cart/cart.wxml</text>
+<view class="cart-container">
+
+<view wx:if="{{goodsList.list.length == 0}}">
+
+  <view class="title-box">
+  <view class="iconfont icon-iconset0308"></view>
+    购物车空空如也～
+  </view>
+  <view class="to-index-btn" bindtap="toIndexPage">
+    去逛逛
+  </view>
+
+</view>
+
+<view wx:if="{{goodsList.list.length > 0}}">
+  <view class="list-top">
+    <view class="label">购物车列表</view>
+    <view class="edit-btn" hidden="{{!goodsList.edit}}" bindtap="editTap">编辑</view>
+    <view class="edit-btn" hidden="{{goodsList.edit}}" bindtap="saveTap">完成</view>
+  </view>
+  <view class="goodsList">
+    <view class="a-gooods" wx:for="{{goodsList.list}}" wx:key="{{index}}">
+      <view class="a-goods-row " bindtap="selectTap"   bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-index="{{index}}" style="{{item.left}}">
+        <view class="goods-info">
+        <view class="iconfont {{item.active? 'icon-zhengquewancheng-yuankuang':'icon-Raidobox-weixuan'}}"></view>
+          <view class="img-box">
+            <image src="{{item.img}}" class="img" />
+          </view>
+          <view class="text-box">
+            <view class="goods-title">{{item.title}}</view>
+            <view class="goods-label">{{item.label}}</view>
+            <view class="goods-price">¥ {{item.price}}</view>
+            <view class="buy-num" catchtap="inp">
+               <view class="jian-btn {{item.num<=1? 'disabled' : ''}}" catchtap="jianBtnTap" data-index="{{index}}">-</view>
+              <input type="number" value="{{item.num}}" bindblur="inputNum"  data-index="{{index}}"/>
+              <view class="jia-btn {{item.num>=9999? 'disabled' : ''}}" catchtap="jiaBtnTap" data-index="{{index}}">+</view> 
+
+            </view>
+          </view>
+        </view>
+        <view class="delete-btn" data-index="{{index}}" catchtap="delItem">
+          删除
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="jiesuan-box">
+    <view class="left-price">
+      <view class="all-selected" bindtap="bindAllSelect">
+      <text class="iconfont {{goodsList.allSelect? 'icon-zhengquewancheng-yuankuang':'icon-Raidobox-weixuan'}}"></text>
+      <view class="all-selected-txt">全选</view>
+      </view>
+      <view class="total" hidden="{{goodsList.noSelect}}">合计：¥{{goodsList.totalPrice}}</view>
+    </view>
+    <view class="to-pay-btn {{goodsList.noSelect?'no-select':''}}" hidden="{{!goodsList.edit}}" bindtap="toPayOrder">去结算</view>
+    <view class="to-pay-btn {{goodsList.noSelect?'no-select':''}}" hidden="{{goodsList.edit}}" bindtap="deleteSelected">删除</view>
+  </view>
+
+</view>
+
+</view>

@@ -14,6 +14,36 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+
+
+function showTip(info, icon, fun, time) {
+  if (!time) {
+    time = 1500;
+  }
+  wx.showToast({
+    title: info,
+    icon: icon,
+    duration: time,
+    success: fun
+  })
+}
+
+function showModal(c, t, f, fun) {
+  if (!t)
+    t = '提示'
+  wx.showModal({
+    title: t,
+    content: c,
+    showCancel: f,
+    success: fun
+  })
+}
+
+
+
+
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  showTip: showTip,
+  showModal: showModal
 }

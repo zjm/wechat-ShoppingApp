@@ -1,0 +1,104 @@
+<!--pages/detail/detail.wxml-->
+<import src="../template/cart-input/cart-input-template.wxml" />
+
+<view class="detail-container" style="height:{{clientHeight}};overflow:{{overflow}};">
+
+  <swiper vertical="{{false}}" indicator-dots="true" autoplay="true" interval="5000" indicator-active-color="#229BC9">
+    <block wx:for="{{goodsItem.detailBannerImg}}" wx:for-item="listItem" wx:for-index="listIndex" wx:key="key">
+      <swiper-item>
+        <image src="{{listItem}}" bindtap="viewImg" data-src="{{listItem}}" mode="widthFix"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="des">
+    <view class="des-title">型号：{{goodsItem.title}}</view>
+    <view class="des-price">￥{{goodsItem.price}}</view>
+  </view>
+
+  <view class="nav">
+    <block wx:for="{{navTitle}}" wx:key="key">
+      <view class="title {{num==item.id?'selected':''}}" data-num="{{item.id}}" bindtap="navTap">{{item.text}}</view>
+    </block>
+  </view>
+
+  <view class="details-img has-footer" wx:if="{{num==0}}">
+    <block wx:for="{{goodsItem.detailImg}}" wx:for-item="listItem" wx:for-index="listIndex" wx:key="key">
+      <image src="{{listItem}}" bindtap="viewImg" data-src="{{listItem}}" mode="widthFix"></image>
+    </block>
+  </view>
+  <view class="detalis-text" wx:if="{{num==1}}">
+    <view class="text">品牌：
+      <text>{{goodsItem.types}}</text>
+    </view>
+    <view class="text">型号：
+      <text>{{goodsItem.title}}</text>
+    </view>
+    <view class="text">规格：
+      <text>{{goodsItem.size}}</text>
+    </view>
+    <view class="text ">价格：
+      <text>{{goodsItem.price}}</text>
+    </view>
+  </view>
+  <view class="reviews" wx:if="{{num==2}}">
+    暂无评价
+  </view>
+
+  <!--下单-->
+  <view class="buy-nav">
+    <view class="buy-nav-left">
+      <view class="icon" bindtap="goCart">
+        <view class="iconfont icon-caigou "></view>
+        <view class="icon-txt">购物车</view>
+      </view>
+      <view class="icon" bindtap="goCollect">
+        <view class="iconfont icon-xihuan"></view>
+        <view class="icon-txt ">收藏</view>
+      </view>
+      <view class="icon" bindtap="goCompare">
+        <view class="iconfont icon-xianghujiaohuan"></view>
+        <view class="icon-txt">对比</view>
+      </view>
+    </view>
+    <view class="buy-nav-right">
+      <view class="to-cart " bindtap="buyTap" data-name="cart">
+        加入购物车
+      </view>
+      <view class="now-buy" bindtap="buyTap" data-name="order">
+        立即购买
+      </view>
+    </view>
+
+
+  </view>
+
+  <!--弹出框-->
+  <view class="mask" bindtap="hideLayer" wx:if="{{isShow}}"></view>
+  <view animation="{{animationData}}" class="hidden-layer " wx:if="{{isShow}}">
+    <!--对话框标题-->
+    <view class="goods-layer">
+      <view class="goods-row">
+        <image src="{{goodsItem.coverImg}}" />
+        <view class="goods-row-txt">
+          <view class="goods-title no-wrap">型号：{{goodsItem.title}}</view>
+          <view class="goods-price">￥{{price}}</view>
+        </view>
+        <view class="iconfont icon-cuowuguanbiquxiao-xianxingyuankuang" bindtap="hideLayer"></view>
+      </view>
+      <view class="goods-row input">
+        <view class="goods-num">
+          购买数量：
+        </view>
+        <view class="goods-input">
+          <template is="quantity" data="{{...Quantity, componentId: 'Quantity'}}" />
+        </view>
+      </view>
+    </view>
+    <!--对话框按钮-->
+    <view class="btn-next" bindtap="{{actionType}}">
+      下一步
+    </view>
+  </view>
+
+
+</view>

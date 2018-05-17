@@ -62,10 +62,10 @@
   color: #fff;
 }
 
-swiper swiper-item image {
-  height: 100%;
-  width: 100%;
+swiper{
+  height: 400rpx;
 }
+
 
 /*菜单导航  */
 
@@ -124,7 +124,7 @@ swiper swiper-item image {
 }
 
 .top-select .item .angle {
-  font-size: 20rpx;
+  font-size: 30rpx;
 }
 
 /* .top-select .item+.item view::before {
@@ -141,21 +141,23 @@ swiper swiper-item image {
   color: #fff;
 }
 .angle{
-animation: 0.3s rotatereturn ;
+display: inline-block;
+animation: 0.3s rotatereturn forwards;
 }
 .active .angle {
   display: inline-block;
   /* transition: rotateZ;
   transform: rotateZ(180deg); */
+   /* transform-origin: center 45%;  */
   animation: 0.3s rotatestart forwards;
 }
 
 @keyframes rotatestart {
   from {
-    transform: rotate(0deg);
+    transform: rotate(0deg) ;
   }
   to {
-    transform: rotate(180deg);
+    transform: rotate(180deg) ;
     transition: 0.3s;
   }
 }
@@ -172,10 +174,11 @@ animation: 0.3s rotatereturn ;
 /*菜单子项  */
 
 .show-list {
-  display: none;
+   display: none; 
   background: #229bc9;
   /* padding: 0 20rpx; */
    padding-bottom: 20rpx; 
+   color: #fff;
 }
 
 .show-list view {
@@ -183,14 +186,14 @@ animation: 0.3s rotatereturn ;
   font-size: 26rpx;
   padding: 20rpx;
     padding-bottom: 10rpx;  
-  color: #fff;
+  /* color: #fff; */
 }
 
 .actived {
   display: block;
 }
 
-.actived .select {
+.select {
   color: #f72424;
 }
 

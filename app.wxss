@@ -15,7 +15,10 @@ text {
 .has-header{
   margin-top: 85rpx;
 }
-
+ image {
+  /* height: 100%; */
+  width: 100%;
+}
 /* .flex{
   display: flex;
 } */
@@ -30,4 +33,10 @@ text {
 }
 .clearfix:after {
     clear: both;
+}
+
+.no-wrap{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
