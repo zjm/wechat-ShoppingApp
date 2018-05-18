@@ -1,1 +1,126 @@
 /* pages/user/user.wxss */
+
+page {
+  background-color: #f1f1f1;
+  height: 100%;
+}
+
+.my-header {
+  padding-top: 20rpx;
+  padding-bottom: 40rpx;
+  background-color: #229bc9;
+}
+
+.my-header-div {
+  text-align: center;
+}
+
+.my-header-div+.my-header-div {
+  margin-top: 20rpx;
+}
+
+.my-header-div .header-img {
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 5rpx;
+}
+
+.my-header-div text {
+  color: #fff;
+}
+
+.my-header-div .quote {
+  quotes: '[' ']';
+  color: #f3be52;
+}
+
+.quote::before {
+  color: #333;
+  content: open-quote;
+  font-size: 26rpx;
+}
+
+.quote:after {
+  color: #333;
+  content: close-quote;
+  font-size: 26rpx;
+}
+
+.my-header-div .share-idname {
+  color: #333;
+}
+
+.my-content-div {
+  display: flex;
+  flex-direction: row;
+}
+
+.content-space {
+  margin-bottom: 10rpx;
+}
+
+.my-point, .my-content-menu {
+  text-align: center;
+  flex: 1;
+  background-color: #fff;
+  padding-bottom: 15rpx;
+  padding-top: 15rpx;
+}
+
+.point-icon view, .menu-icon view {
+  font-size: 100rpx;
+  color: #c3d83c;
+}
+
+.personal .point-num {
+  margin-top: 10rpx;
+}
+
+.point-num text{
+  font-size: 32rpx;
+  color: #999;
+}
+
+.personal .point-type {
+  color: #999;
+}
+
+.my-point:nth-child(2) .point-text {
+  border-left: 1rpx solid #ccc;
+  border-right: 1rpx solid #ccc;
+}
+
+.my-content-menu {
+  margin: 5rpx;
+  height: 200rpx;
+  color: #3f3f3f;
+}
+
+.menu-type {
+  margin-top: 20rpx;
+}
+
+.menu-type-num {
+  height: 40rpx;
+  color: #ed3b3d;
+}
+
+.personal .icon-renwu {
+  color: #a5c9e9;
+}
+
+.personal .icon-shoucang {
+  color: #f6ccde;
+}
+
+.personal .icon-erweima {
+  color: #f6e291;
+}
+
+.personal .icon-qianbao {
+  color: #c8b6d7;
+}
+
+.personal .icon-shezhi {
+  color: #c4e4eb;
+}

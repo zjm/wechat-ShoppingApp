@@ -333,7 +333,7 @@ var menulist = [
 
   },
   {
-    title: "ABC",
+    title: "A2B4C",
     types: "ICC",
     size: "600*600",
     price: 99.00,

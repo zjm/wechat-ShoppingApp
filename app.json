@@ -6,7 +6,9 @@
     "pages/store/store",
     "pages/user/user",
     "pages/detail/detail",
-    "pages/order/order"
+    "pages/order/order",
+    "pages/orderlist/orderlist",    
+    "pages/location/location"    
   ],
   "window": {
     "backgroundTextStyle": "light",

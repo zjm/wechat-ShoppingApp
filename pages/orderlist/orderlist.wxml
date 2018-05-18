@@ -1,0 +1,16 @@
+<!--pages/orderlist/orderlist.wxml-->
+<view class="container">
+  <view class="tab">
+    <view  class="tab-nav">
+      <view class="tab-nav-row">
+        <view wx:for="{{navlist}}" wx:key="unique" class='{{selected==index?"on":""}}' data-current="{{index}}" bindtap="tab">{{item}}</view>
+      </view>
+    </view>
+    <swiper class="tab-box" current="{{selected}}" bindchange="eventchange">
+      <swiper-item wx:for="{{conlist}}" wx:key="unique">
+        {{item}}
+        <view>滑动我也可以切换噢</view>
+      </swiper-item>
+    </swiper>
+  </view>
+</view>

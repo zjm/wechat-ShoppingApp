@@ -2,7 +2,7 @@
 <!--index.wxml-->
 <view class="index-body">
   <view class="search-bar">
-    <view class="area">
+    <view class="area" bindtap="toAddr">
       <text class="area-text">佛山等待的市</text>
       <view class="iconfont icon-xiangxiazhankai"></view>
     </view>
@@ -14,7 +14,7 @@
       </view>
     </view>
 
-    <view class="scan">
+    <view class="scan" bindtap="scanTap">
       <view class="iconfont icon-saomiao"></view>
       <view>扫一扫</view>
     </view>

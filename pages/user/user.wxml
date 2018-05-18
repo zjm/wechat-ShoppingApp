@@ -1,2 +1,147 @@
 <!--pages/user/user.wxml-->
-<text>pages/user/user.wxml</text>
+<view class="personal">
+
+  <view class="my-header">
+    <view class="my-header-div">
+      <image src="http://rf.onbus.cn/shopping/mobile/img/touxiang.png" alt="" class="header-img" />
+    </view>
+    <view class="my-header-div">
+      <text class="my-idname">张三</text>
+      <text class="my-idgroup quote">普通会员</text>
+      <text class="my-idnum quote">ID:123456</text>
+    </view>
+    <view class="my-header-div">
+      <text class="join-text">加入时间：</text>
+      <text class="join-time">2018-01-01</text>
+    </view>
+    <view class="my-header-div">
+      <text class="share-text">我的分享人：</text>
+      <text class="share-idname">李ddd四</text>
+    </view>
+  </view>
+  <view class="my-content">
+    <view class="my-content-div content-space">
+      <view class="my-point">
+        <view class="point-icon">
+          <view class="iconfont icon-diamond"></view>
+        </view>
+        <view class="point-text">
+          <view class="point-type">
+            <text>累计积分</text>
+          </view>
+          <view class="point-num">
+            <text>1300.00</text>
+          </view>
+        </view>
+
+      </view>
+      <view class="my-point">
+        <view class="point-icon">
+          <view class="iconfont icon-ziyuan"></view>
+        </view>
+        <view class="point-text">
+          <view class="point-type">
+            <text>未提现积分</text>
+          </view>
+          <view class="point-num">
+            <text>300.00</text>
+          </view>
+        </view>
+      </view>
+      <view class="my-point">
+        <view class="point-icon">
+          <view class="iconfont icon-jifen"></view>
+        </view>
+        <view class="point-text">
+          <view class="point-type">
+            <text>可提现积分</text>
+          </view>
+          <view class="point-num">
+            <text>100.00</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="my-content-div">
+      <view class="my-content-menu" bindtap="goOrderList">
+
+        <view class="menu-icon">
+          <view class="iconfont icon-zhangdan"></view>
+        </view>
+        <view class="menu-text">
+          <view class="menu-type">
+            <text>我的订单</text>
+          </view>
+
+        </view>
+
+      </view>
+
+
+      <view class="my-content-menu">
+        <view class="menu-icon">
+          <view class="iconfont icon-renwu"></view>
+        </view>
+        <view class="menu-text">
+          <view class="menu-type">
+            <text>积分明细</text>
+          </view>
+
+        </view>
+
+      </view>
+      <view class="my-content-menu">
+        <view class="menu-icon">
+          <view class="iconfont icon-shoucang"></view>
+        </view>
+        <view class="menu-text">
+          <view class="menu-type">
+            <text>我的关注</text>
+          </view>
+          <view class="menu-type-num">
+            <text>10</text>
+          </view>
+        </view>
+
+      </view>
+    </view>
+    <view class="my-content-div">
+      <view class="my-content-menu">
+        <view class="menu-icon">
+          <view class="iconfont icon-erweima"></view>
+        </view>
+        <view class="menu-text">
+          <view class="menu-type">
+            <text>分享二维码</text>
+          </view>
+        </view>
+
+      </view>
+      <view class="my-content-menu">
+        <view class="menu-icon">
+          <view class="iconfont icon-qianbao"></view>
+        </view>
+        <view class="menu-text">
+          <view class="menu-type">
+            <text>我的钱包</text>
+          </view>
+        </view>
+      </view>
+      <view class="my-content-menu">
+        <view class="menu-icon">
+          <view class="iconfont icon-shezhi"></view>
+        </view>
+        <view class="menu-text">
+          <view class="menu-type">
+            <text>账户设置</text>
+          </view>
+        </view>
+
+      </view>
+    </view>
+
+  </view>
+
+
+</view>

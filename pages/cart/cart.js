@@ -1,5 +1,6 @@
 // pages/cart/cart.js
 var utils = require("../../utils/util.js");
+var app = getApp();
 Page({
 
   /**
@@ -13,7 +14,7 @@ Page({
       noSelect: false,  // 非全选状态
       list: []    // 购物车缓存数据
     },
-    delBtnWidth: 120,    //删除按钮宽度（rpx）
+    delBtnWidth: 140,    //删除按钮宽度（rpx）
   },
 
   /**
@@ -37,6 +38,8 @@ Page({
     console.log(cartInfo)
     // 数据更新到页面
     this.setGoodsList(this.getEdit(), this.totalPrice(), this.allSelect(), this.noSelect(), cartInfo);
+
+    utils.cartNum();
   },
   toIndexPage: function () {
     wx.navigateTo({
@@ -82,9 +85,9 @@ Page({
       var disX = this.data.startX - moveX;
       var delBtnWidth = this.data.delBtnWidth;
       var left = "";
-      if (disX == 0 || disX < 0) {//如果移动距离小于等于0，container位置不变
+      if (disX == 0 || disX < 50) {//如果移动距离小于等于0，container位置不变
         left = "margin-left:0px";
-      } else if (disX > 0) {//移动距离大于0，container left值等于手指移动距离
+      } else if (disX > 50) {//移动距离大于0，container left值等于手指移动距离
         left = "margin-left:-" + disX + "px";
         if (disX >= delBtnWidth) {
           left = "left:-" + delBtnWidth + "px";
@@ -97,7 +100,7 @@ Page({
       }
     }
   },
-// 按住结束
+  // 按住结束
   touchE: function (e) {
     var index = e.currentTarget.dataset.index;
     if (e.changedTouches.length == 1) {
@@ -121,7 +124,9 @@ Page({
     var list = this.data.goodsList.list;
     list.splice(index, 1);
     this.setGoodsList(this.getEdit(), this.totalPrice(), this.allSelect(), this.noSelect(), list);
+    utils.cartNum();
   },
+  // 每个元素的单独选择事件
   selectTap: function (e) {
     var index = e.currentTarget.dataset.index;
     var list = this.data.goodsList.list;
@@ -131,7 +136,7 @@ Page({
     }
   },
 
-
+  // 数量加
   jiaBtnTap: function (e) {
     var index = e.currentTarget.dataset.index;
     var list = this.data.goodsList.list;
@@ -142,6 +147,7 @@ Page({
       }
     }
   },
+  // 数量减
   jianBtnTap: function (e) {
     var index = e.currentTarget.dataset.index;
     var list = this.data.goodsList.list;
@@ -152,25 +158,26 @@ Page({
       }
     }
   },
-  inputNum: function(e){
+  // 数量输入
+  inputNum: function (e) {
     var index = e.currentTarget.dataset.index;
     var list = this.data.goodsList.list;
-    if (index !== "" && index != null) { 
+    if (index !== "" && index != null) {
       list[parseInt(index)].num = e.detail.value;
-      if (e.detail.value>=9999){
-        list[parseInt(index)].num =9999;
+      if (e.detail.value >= 9999) {
+        list[parseInt(index)].num = 9999;
       }
-      if (e.detail.value <= 1){
+      if (e.detail.value <= 1) {
         list[parseInt(index)].num = 1;
       }
-        this.setGoodsList(this.getEdit(), this.totalPrice(), this.allSelect(), this.noSelect(), list);
-      
+      this.setGoodsList(this.getEdit(), this.totalPrice(), this.allSelect(), this.noSelect(), list);
+
     }
   },
-  inp: function(){
+  inp: function () {
     console.log("(*^▽^*)");
   },
-  
+
 
   // 删除选中
   deleteSelected: function () {
@@ -183,11 +190,13 @@ Page({
       }
     }
     this.setGoodsList(this.getEdit(), this.totalPrice(), this.allSelect(), this.noSelect(), list);
+    utils.cartNum();
+
+
   },
 
   // 提交订单
   toPayOrder: function () {
-    var that = this;
     if (this.data.goodsList.noSelect) {
       utils.showTip("请至少选择一件商品！", "none");
       return;
@@ -219,11 +228,24 @@ Page({
       key: "orderData",
       data: orderData
     })
-    that.navigateToPayOrder();
+    this.clear();
   },
-  navigateToPayOrder: function () {
-    //清除购物车库存
-    wx.removeStorageSync('cartData')
+  //清除提交订单时选中的购物车商品缓存
+  clear: function () {
+
+    // wx.removeStorageSync('cartData')
+    var cartArr = wx.getStorageSync("cartData");
+    var newArr = [];
+    for (var i in cartArr) {
+      if (!cartArr[i].active) {
+        newArr.push(cartArr[i]);
+      }
+    }
+    wx.setStorage({
+      key: 'cartData',
+      data: newArr
+    })
+
     wx.hideLoading();
     wx.navigateTo({
       url: '../order/order'
@@ -336,10 +358,13 @@ Page({
       }
     });
     // var shopCarInfo = {};
-    wx.setStorage({
-      key: "cartData",
-      data: list
-    })
+    // wx.setStorage({
+    //   key: "cartData",
+    //   data: list
+    // })
+
+    // 改为同步，方便购物车数据刷新
+    wx.setStorageSync("cartData", list);
   }
- 
+
 })

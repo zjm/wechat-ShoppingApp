@@ -31,14 +31,19 @@ App({
           })
         }
       }
-    }),
-      wx.setTabBarBadge({
-        index: 2,
-        text: '1'
-      })
+    })
+
+     
   },
   globalData: {
-    userInfo: null
-  }
-
+    userInfo: null,
+    cartNum : 0
+  },
+  // onShow : function(){
+  //   var num = wx.getStorageSync("cartNum");
+  //   wx.setTabBarBadge({
+  //     index: 2,
+  //     text: num.toString()
+  //   })
+  // }
 })

@@ -143,11 +143,12 @@ page {
   height: 60rpx;
   line-height: 60rpx;
   position: absolute;
-  right: 30rpx;
-  bottom: 0;
+  right: 10rpx;
+  bottom: -20rpx;
   display: flex;
   font-size: 30rpx;
   text-align: center;
+  padding: 20rpx;
 }
 
 .goods-info .text-box .buy-num .jian-btn {

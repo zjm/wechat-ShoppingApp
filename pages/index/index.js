@@ -1,5 +1,6 @@
 //index.js
 var listData = require('../../data/test-data.js');
+var utils = require("../../utils/util.js");
 
 console.log(listData)
 Page({
@@ -16,6 +17,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    // wx.setTabBarBadge({
+    //   index: 2,
+    //   text: "0"
+    // })
     this.animation = wx.createAnimation({
       duration: 600,
       timingFunction: 'ease',
@@ -26,8 +31,18 @@ Page({
       bannerList: listData.bannerList
     });
   },
-
-
+  toAddr : function(){
+    wx.navigateTo({
+      url: '../location/location',
+    })
+  },
+scanTap:function(){
+  wx.scanCode({
+    success: (res) => {
+      console.log(res)
+    }
+  })
+},
 
 
 // 一级列表点击事件
@@ -120,7 +135,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+    utils.cartNum();
   },
 
   /**

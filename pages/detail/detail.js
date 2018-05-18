@@ -2,6 +2,7 @@
 var listData = require('../../data/test-data.js');
 var Quantity = require('../template/cart-input/cart-input-template.js');
 var utils = require("../../utils/util.js")
+var app = getApp();
 
 
 
@@ -32,7 +33,7 @@ Page(Object.assign({}, Quantity, {
     },
     clientHeight: "100%",
     overflow: "auto",
-    list:[]
+    list: []
   },
 
 
@@ -166,7 +167,7 @@ Page(Object.assign({}, Quantity, {
     var detailArr = { num: num, price: price, id: id, title: title, img: img, active: true };
     var oldCartData = [];
     oldCartData = wx.getStorageSync('cartData');
-    // 如果缓存没有购物车数据，新建，已存在时，push到旧数据
+    // 如果缓存没有购物车数据，新建，已存在时，把新数据push到旧数据
     if (!oldCartData) {
       cartData.push(detailArr);
       wx.setStorage({
@@ -176,21 +177,35 @@ Page(Object.assign({}, Quantity, {
     }
     else {
 
-      var cartInfo = wx.getStorageSync('cartData');
-      // 遍历缓存，查看是否存在id相等的同一商品，有就进行数量合并
-      // for (var i in cartInfo){
-      //   if (cartInfo[i].id == cartInfo[i].id){
-
-      //   }
-      // }
-
-
       oldCartData.push(detailArr);
+
+      // 遍历缓存，查看是否存在id相等的同一商品，有就进行数量合并
+      for (var i = 0; i < oldCartData.length; i++) {
+        for (var j = i + 1; j < oldCartData.length; j++) {
+          if (oldCartData[i].id == oldCartData[j].id) {
+            oldCartData[i].num += oldCartData[j].num;
+            oldCartData.splice(j, 1);
+          }
+        }
+        oldCartData[i].num > 9999 ? oldCartData[i].num = 9999 : oldCartData[i].num
+        console.log(oldCartData);
+      }
+
       wx.setStorage({
         key: "cartData",
         data: oldCartData
       })
     }
+
+    // // 获取购物车的商品数量，保存到缓存中
+    // var num = wx.getStorageSync("cartData").length;
+    // wx.setStorage({
+    //   key: "cartNum",
+    //   data: num
+    // });
+
+
+
     this.hideLayer();
     wx.showLoading({
       title: '加载中',

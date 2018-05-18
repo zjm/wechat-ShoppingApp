@@ -39,11 +39,21 @@ function showModal(c, t, f, fun) {
   })
 }
 
-
+function cartNum(){
+  // 动态改变购物车内的商品数量
+  // 注意同步与异步的区别，点击事件内进行时，购物车如果使用异步进行数据更新，此时的num可能还是未更新前的值
+  // 本程序只需在几个位置添加此事件，首页和购物车页onShow时，购物车内的商品被删除时
+  var num = wx.getStorageSync("cartData").length;
+  wx.setTabBarBadge({
+    index: 2,
+    text: num.toString()
+  })
+}
 
 
 module.exports = {
   formatTime: formatTime,
   showTip: showTip,
-  showModal: showModal
+  showModal: showModal,
+  cartNum: cartNum
 }
