@@ -10,7 +10,10 @@ page {
   padding-bottom: 40rpx;
   background-color: #229bc9;
 }
-
+.get-userinfo{
+  width: 300rpx;
+  margin:20rpx auto;
+}
 .my-header-div {
   text-align: center;
 }

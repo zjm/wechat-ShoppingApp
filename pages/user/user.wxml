@@ -2,14 +2,21 @@
 <view class="personal">
 
   <view class="my-header">
-    <view class="my-header-div">
-      <image src="http://rf.onbus.cn/shopping/mobile/img/touxiang.png" alt="" class="header-img" />
+    <view class="userinfo">
+      <button class="get-userinfo" wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+      <block wx:else>
+        <view class="my-header-div">
+          <!-- http://rf.onbus.cn/shopping/mobile/img/touxiang.png -->
+          <image src="{{userInfo.avatarUrl}}" class="header-img" />
+        </view>
+        <view class="my-header-div">
+          <text class="my-idname">{{userInfo.nickName}}</text>
+          <text class="my-idgroup quote">普通会员</text>
+          <text class="my-idnum quote">ID:123456</text>
+        </view>
+      </block>
     </view>
-    <view class="my-header-div">
-      <text class="my-idname">张三</text>
-      <text class="my-idgroup quote">普通会员</text>
-      <text class="my-idnum quote">ID:123456</text>
-    </view>
+
     <view class="my-header-div">
       <text class="join-text">加入时间：</text>
       <text class="join-time">2018-01-01</text>
