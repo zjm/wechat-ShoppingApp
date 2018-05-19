@@ -163,7 +163,7 @@ Page({
     var index = e.currentTarget.dataset.index;
     var list = this.data.goodsList.list;
     if (index !== "" && index != null) {
-      list[parseInt(index)].num = e.detail.value;
+      list[parseInt(index)].num = parseInt(e.detail.value);
       if (e.detail.value >= 9999) {
         list[parseInt(index)].num = 9999;
       }
