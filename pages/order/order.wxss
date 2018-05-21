@@ -1,1 +1,157 @@
 /* pages/order/order.wxss */
+
+.order-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  line-height: 60rpx;
+  align-items: center;
+  padding: 20rpx;
+  background-color: #fff;
+}
+
+.order-row+.order-row {
+  border-top: 1rpx solid #ddd;
+}
+
+.order {
+  border-top: 1rpx solid #ddd;
+  border-bottom: 1rpx solid #ddd;
+  margin-bottom: 15rpx;
+}
+
+.order-row-center {
+  flex: 1;
+  line-height: 40rpx;
+}
+
+.order-row-center view {
+  font-size: 26rpx;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.tel-num {
+  margin-right: 50rpx;
+}
+
+.icon-weizhi {
+  width: 40rpx;
+  margin-right: 10rpx;
+  /* line-height: 150rpx; */
+}
+
+.icon-xiayiyeqianjinchakangengduo {
+  width: 40rpx;
+  /* line-height: 150rpx; */
+}
+
+.order-row-left {
+  font-size: 28rpx;
+}
+
+/*订单列表  */
+
+.img {
+  width: 150rpx;
+  height: 150rpx;
+  margin-right: 20rpx;
+}
+
+.item {
+  line-height: 70rpx;
+  height: 150rpx;
+}
+
+.item-title {
+  font-size: 28rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 500rpx;
+}
+
+.item-total {
+  color: #f23232;
+  font-size: 28rpx;
+}
+
+/*  */
+
+.date view,.invoice view {
+  width: 350rpx;
+}
+
+.date view,.invoice view {
+  display: inline-block;
+}
+
+.picker {
+  text-align: right;
+}
+
+.order-remark {
+  padding: 20rpx;
+  margin-bottom: 100rpx;
+}
+
+.order-remark view {
+  font-size: 28rpx;
+  line-height: 40rpx;
+}
+
+.remark {
+  border: 1rpx solid #ddd;
+  border-radius: 10rpx;
+  width: 100%;
+  margin-top: 10rpx;
+  font-size: 26rpx;
+  padding-left: 10rpx;
+}
+/*底部  */
+.footer {
+  width: 100%;
+  height: 100rpx;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  border-bottom: 1px solid #eee;
+  border-top: 1px solid #eee;
+  background-color: #fff;
+  z-index: 999;
+  box-sizing: border-box;
+}
+
+.footer-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.box-cart {
+  margin-left: 20rpx;
+  line-height: 100rpx;
+  font-size: 28rpx;
+}
+
+.box-cart text {
+  color: #f23232;
+  font-size: 30rpx;
+}
+
+.box-right {
+  width: 300rpx;
+  height: 100rpx;
+  background: #e64340;
+  position: absolute;
+  right: 0;
+  top: 0;
+  border-radius: 0;
+  color: #fff;
+  text-align: center;
+  font-size: 30rpx;
+  line-height: 100rpx;
+}

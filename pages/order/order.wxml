@@ -1,2 +1,91 @@
 <!--pages/order/order.wxml-->
-<text>pages/order/order.wxml</text>
+<view class="container">
+  <form bindsubmit="placeOrder">
+    <!-- wx:if="{{showAddr}}"  -->
+    <view class="order" bindtap='getAddress' wx:if="{{showAddr}}">
+      <view class="order-row order-addr">
+        <text class="iconfont icon-weizhi"></text>
+        <view class="order-row-center">
+          <view class="row">
+            <view>收货人：{{name}}</view>
+            <view class="tel-num">{{tel}}</view>
+          </view>
+          <view class="smallsize">收货地址：{{addrdetail}}</view>
+        </view>
+        <text class="iconfont icon-xiayiyeqianjinchakangengduo"></text>
+      </view>
+    </view>
+    <!-- wx:if="{{showAddAddr}}" -->
+    <view class="order order-" bindtap='getAddress' wx:if="{{showAddAddr}}">
+      <view class="order-row order-addr">
+        <view class="order-row-left">请选择地址</view>
+        <text class="iconfont icon-xiayiyeqianjinchakangengduo"></text>
+      </view>
+    </view>
+
+    <view class="order">
+      <view class="order-row" wx:for="{{detail}}" wx:key="key">
+        <image src="{{item.img}}" class="img" />
+
+        <view class="item">
+          <view class="item-title">型号：{{item.title}}</view>
+          <view class="item-total">￥{{item.price}} * {{item.num}}</view>
+        </view>
+
+      </view>
+      
+      <picker class="order-row invoice" bindchange="bindPickerChange" value="{{index}}" range="{{invoice}}" range-key="name">
+      <view class="order-row-left">发票信息</view>
+        <view class="picker">
+          {{invoice[index].name?invoice[index].name:invoice[0].name}}
+        </view>
+      </picker>
+      
+
+      <view class="order-row">
+        <view class="order-row-left">
+          优惠券
+        </view>
+        <view class="order-row-right" style="color:red">
+          ￥{{totalMoney}}
+        </view>
+      </view>
+      <view class="order-row">
+        <view class="order-row-left">积分</view>
+        <view class="order-row-right ">未使用</view>
+      </view>
+      <view class="order-row">
+        <view class="order-row-left">
+          余额支付
+        </view>
+        
+      </view>
+    </view>
+
+    <view class="order">
+      <picker mode="date" class="order-row date" value="{{date}}" bindchange="bindDateChange">
+        <view class="order-row-left">交货日期</view>
+        <view class="picker">{{date?date:"请填写交货日期"}}</view>
+      </picker>
+    </view>
+
+
+    <view class="order-remark">
+      <view class="">备注</view>
+      <textarea class="remark" placeholder="点击给商家留言" name="remark" />
+    </view>
+
+    <!--下单-->
+    <view class="mask" wx:if="{{showCart&&sumNum>0}}" bindtap="hiddenLayer"></view>
+    <view class="footer">
+      <view class="footer-row {{showCart?'':'bdt'}}">
+        <view class="box-cart">合计：
+          <text>￥{{totalMoney}}</text>
+        </view>
+        <button class="box-right" formType="submit">
+          提交订单
+        </button>
+      </view>
+    </view>
+  </form>
+</view>

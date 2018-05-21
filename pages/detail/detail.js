@@ -21,7 +21,7 @@ Page(Object.assign({}, Quantity, {
       id: 1
     },
     {
-      text: "商品评价",
+      text: "售后服务",
       id: 2
     }],
     isShow: false,
@@ -188,7 +188,7 @@ Page(Object.assign({}, Quantity, {
           }
         }
         oldCartData[i].num > 9999 ? oldCartData[i].num = 9999 : oldCartData[i].num
-        console.log(oldCartData);
+        // console.log(oldCartData);
       }
 
       wx.setStorage({

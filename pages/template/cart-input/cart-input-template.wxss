@@ -2,15 +2,17 @@
   color: #666;
 }
 .zan-quantity view {
-  display: inline-block;
-  line-height: 40rpx;
-  padding: 5px 0;
+   display: inline-block; 
+  line-height: 60rpx;
+  /* padding: 5px 0; */
   text-align: center;
   min-width: 60rpx;
   box-sizing: border-box;
-  vertical-align: middle;
+   vertical-align: bottom; 
   font-size: 26rpx;
   border: 1rpx solid #999;
+  padding: 0;
+  margin: 0;
 }
 .zan-quantity .zan-quantity__minus {
   border-right: none;
@@ -20,11 +22,14 @@
   border: 1rpx solid #999;
   display: inline-block;
   text-align: center;
-  vertical-align: middle;
+  vertical-align: bottom;
   height: 60rpx;
   width: 80rpx;
   font-size: 26rpx;
   line-height: 60rpx;
+  /* box-sizing: border-box; */
+  padding: 0;
+  margin: 0;
 }
 .zan-quantity .zan-quantity__plus {
   border-left: none;
@@ -35,7 +40,7 @@
   color: #bbb;
   border-color: #e8e8e8;
 }
-.zan-quantity--small view {
+/* .zan-quantity--small view {
   min-width: 72rpx;
   line-height: 36rpx;
 }
@@ -43,4 +48,4 @@
   width: 72rpx;
   line-height: 56rpx;
   height: 56rpx;
-}
+} */

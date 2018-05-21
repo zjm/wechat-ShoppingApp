@@ -41,7 +41,7 @@
     </view>
   </view>
   <view class="reviews" wx:if="{{num==2}}">
-    暂无评价
+    担保交易，提供完整售后服务
   </view>
 
   <!--下单-->

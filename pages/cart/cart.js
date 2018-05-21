@@ -85,9 +85,9 @@ Page({
       var disX = this.data.startX - moveX;
       var delBtnWidth = this.data.delBtnWidth;
       var left = "";
-      if (disX == 0 || disX < 50) {//如果移动距离小于等于0，container位置不变
+      if (disX == 0 || disX < 50) {//如果移动距离小于等于50，container位置不变
         left = "margin-left:0px";
-      } else if (disX > 50) {//移动距离大于0，container left值等于手指移动距离
+      } else if (disX > 50) {//移动距离大于50，container left值等于手指移动距离
         left = "margin-left:-" + disX + "px";
         if (disX >= delBtnWidth) {
           left = "left:-" + delBtnWidth + "px";

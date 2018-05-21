@@ -39,7 +39,9 @@ page {
 /* 有商品时 */
 
 .list-top {
-  width: 100%;
+  background-color: #F3F3F3;
+  margin: 0 -10rpx;
+  width: 750rpx;
   height: 88rpx;
   line-height: 88rpx;
   box-sizing: border-box;
@@ -60,7 +62,9 @@ page {
   height: 100%;
   font-size: 28rpx;
 }
+
 /*购物车单行  */
+
 .goodsList {
   width: 100%;
   background-color: #fff;
@@ -212,6 +216,7 @@ page {
 }
 
 /*结算栏  */
+
 .jiesuan-box {
   display: flex;
   justify-content: space-between;
