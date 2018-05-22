@@ -1,13 +1,20 @@
 // pages/order/order.js
+var listData = require('../../data/test-data.js');
 var utils = require("../../utils/util.js");
 var app = getApp();
 var that;
+var pointData = {
+  sum: 1000,
+  canUse: 100,
+  isUse: false
+}
 Page({
   data: {
+    oldTotalMoney:0,
     showAddr: false,
     showAddAddr: true,
     totalMoney: 0,
-    date:"",
+    date: "",
     invoice: [
       {
         id: 0,
@@ -30,6 +37,16 @@ Page({
         name: '电子发票--企业'
       }
     ],
+    point: {
+      sum: pointData.sum,
+      canUse: pointData.canUse,
+      offMoney: parseInt(pointData.canUse / 100),
+      isUse: pointData.isUse
+    },
+    clientHeight: "100%",
+    overflow: "auto",
+    isSelected: true,
+    id: -1
   },
   onShow() {
     that = this;
@@ -43,6 +60,7 @@ Page({
           total += res.data[i].num * res.data[i].price;
         }
         that.setData({
+          oldTotalMoney: total,
           totalMoney: total,
           detail: res.data
         })
@@ -60,59 +78,19 @@ Page({
           addrdetail: res.provinceName + res.cityName + res.countyName + res.detailInfo,
           tel: res.telNumber
         })
-        // let User = Bmob.Object.extend("_User");
-        // let query = new Bmob.Query(User);
-        // let currentUser = Bmob.User.current();
-        // let objectid = currentUser.id;
-        // query.get(objectid, {
-        //   success: (result) => {
-        //     result.set('name', res.userName);
-        //     result.set('tel', res.telNumber);
-        //     result.set('addrdetail', res.provinceName + res.cityName + res.countyName + res.detailInfo);
-        //     result.set('mailcode', res.nationalCode);
-        //     result.save(null, {
-        //       success: (result) => { },
-        //       error: (result, error) => {
-        //         console.log('地址创建失败');
-        //       }
-        //     });
-        //   },
-        //   error: (object, error) => {
-        //     console.log(object)
-        //   },
-        // });
       },
     })
   },
   onLoad() {
-    // that = this;
-    // //获取用户的信息
-    // var User = Bmob.Object.extend("_User");
-    // var currentUser = Bmob.User.current();
-    // var objectid = currentUser.id;
-    // var query = new Bmob.Query(User);
-    // query.get(objectid, {
-    //   success: function (result) {
-    //     // 查询成功，调用get方法获取对应属性的值
-    //     var name = result.get("name");
-    //     if (name) {
-    //       that.setData({
-    //         showAddr: true,
-    //         showAddAddr: false
-    //       })
-    //     }
-    //     var tel = result.get("tel");
-    //     var addrdetail = result.get("addrdetail");
-    //     that.setData({
-    //       name: name,
-    //       tel: tel,
-    //       addrdetail: addrdetail,
-    //     })
-    //   },
-    //   error: function (object, error) {
-    //     // 查询失败
-    //   }
-    // });
+    for (var i in listData.ticketData) {
+      listData.ticketData[i].checked = false;
+
+    }
+
+    console.log(listData.ticketData)
+    this.setData({
+      ticketData: listData.ticketData
+    })
   },
   // 日期选择器
   bindDateChange: function (e) {
@@ -120,12 +98,149 @@ Page({
       date: e.detail.value
     })
   },
-// 发票选择
+  // 发票选择
   bindPickerChange: function (e) {
     this.setData({
       index: e.detail.value
     })
   },
+  // checkboxChange: function (e) {
+  //   console.log('checkbox发生change事件，携带value值为：', e.detail.value)
+  // },
+
+  // 积分按钮
+  pointUseTap: function () {
+    var isUse = this.data.point.isUse;
+    isUse = !isUse;
+    this.setData({
+      point: {
+        sum: pointData.sum,
+        canUse: pointData.canUse,
+        offMoney: parseInt(pointData.canUse / 100),
+        isUse: isUse
+      }
+    })
+    var oldTotalMoney = this.data.oldTotalMoney;
+    
+    // 判断是否选中，选中则优惠，未选中还原
+    if (isUse) {
+      var money = this.data.totalMoney - this.data.point.offMoney;
+      this.setData({
+        totalMoney: money
+      })
+    }
+    else {
+      var money = this.data.totalMoney + this.data.point.offMoney;
+      this.setData({
+        totalMoney: money
+      })
+    }
+  },
+
+
+
+  showLayer: function () {
+
+    // 显示遮罩层  
+    var animation = wx.createAnimation({
+      duration: 200,
+      timingFunction: "ease-out",
+      delay: 0
+    })
+    this.animation = animation
+    animation.translateY(300).step()
+    this.setData({
+      animationData: animation.export(),
+      isShow: true,
+      // 禁止背景滚动
+      clientHeight: "100%",
+      overflow: "hidden"
+    })
+    setTimeout(function () {
+      animation.translateY(0).step()
+      this.setData({
+        animationData: animation.export()
+      })
+    }.bind(this), 50)
+
+
+  },
+
+  hideLayer: function () {
+    // 隐藏遮罩层  
+    var animation = wx.createAnimation({
+      duration: 200,
+      timingFunction: "linear",
+      delay: 0
+    })
+    this.animation = animation
+    animation.translateY(300).step()
+    this.setData({
+      animationData: animation.export(),
+    })
+    setTimeout(function () {
+      animation.translateY(0).step()
+      this.setData({
+        animationData: animation.export(),
+        isShow: false,
+        // 恢复背景滚动
+        clientHeight: "100%",
+        overflow: "auto"
+      })
+    }.bind(this), 200)
+  },
+
+  ticketTap: function () {
+    if (this.data.isShow) {
+      this.hideLayer();
+    }
+    else {
+      this.showLayer();
+    }
+  },
+
+  // 点击时，如果自定义的id=原数据自带的id，说明点中了当前radio
+  // 开for循环，把当前点击的radio的checked值设为true，其余的为false
+  // 
+  ticketItemTap: function (e) {
+    var id = e.currentTarget.dataset.id;
+    this.setData({
+      id: id
+    })
+    var nowMoney = this.data.totalMoney;
+    var oldMoney = this.data.oldTotalMoney;
+    for (var i in listData.ticketData){
+      if (id == listData.ticketData[i].id && this.data.totalMoney > listData.ticketData[i].goal) {
+        if (listData.ticketData[i].checked) {
+          break;
+        }
+        var money = oldMoney - listData.ticketData[i].off;
+        this.setData({
+          // ticketData: listData.ticketData,
+          totalMoney: money
+        })
+        listData.ticketData[i].checked = true;
+        break;
+      }
+      else {
+        listData.ticketData[i].checked = false;
+        var money = nowMoney + listData.ticketData[i].off;
+        this.setData({
+          // ticketData:listData.ticketData,
+          totalMoney: nowMoney
+        })
+      }
+    }
+    
+    console.log('radio发生change事件，携带checked值为：', e)
+    // this.hideLayer();
+  },
+
+
+
+
+
+
 
 
   placeOrder: function (event) {

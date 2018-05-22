@@ -1,5 +1,9 @@
 /* pages/order/order.wxss */
 
+page {
+  height: 100%;
+}
+
 .order-row {
   display: flex;
   flex-direction: row;
@@ -42,12 +46,10 @@
 .icon-weizhi {
   width: 40rpx;
   margin-right: 10rpx;
-  /* line-height: 150rpx; */
 }
 
 .icon-xiayiyeqianjinchakangengduo {
   width: 40rpx;
-  /* line-height: 150rpx; */
 }
 
 .order-row-left {
@@ -82,11 +84,11 @@
 
 /*  */
 
-.date view,.invoice view {
+.date view, .invoice view {
   width: 350rpx;
 }
 
-.date view,.invoice view {
+.date view, .invoice view {
   display: inline-block;
 }
 
@@ -94,25 +96,28 @@
   text-align: right;
 }
 
-.order-remark {
-  padding: 20rpx;
-  margin-bottom: 100rpx;
+.remark .order-row-left{
+flex: 0.15;
+}
+.remark .order-row-right{
+flex: 0.85;
+}
+.mark {
+  color: #f23232;
 }
 
-.order-remark view {
-  font-size: 28rpx;
-  line-height: 40rpx;
+
+
+.point-box .iconfont {
+  font-size: 45rpx;
 }
 
-.remark {
-  border: 1rpx solid #ddd;
-  border-radius: 10rpx;
-  width: 100%;
-  margin-top: 10rpx;
-  font-size: 26rpx;
-  padding-left: 10rpx;
+.point-box .icon-zhengquewancheng-yuankuang {
+  color: #f23232;
 }
+
 /*底部  */
+
 .footer {
   width: 100%;
   height: 100rpx;
@@ -122,7 +127,7 @@
   border-bottom: 1px solid #eee;
   border-top: 1px solid #eee;
   background-color: #fff;
-  z-index: 999;
+  z-index: 777;
   box-sizing: border-box;
 }
 
@@ -155,3 +160,89 @@
   font-size: 30rpx;
   line-height: 100rpx;
 }
+
+/*隐藏层  */
+
+.mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.2;
+  z-index: 888;
+}
+
+.hidden-layer {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  background: #fff;
+}
+
+.ticket-layer {
+  padding: 20rpx;
+}
+.ticket-title{
+  font-size: 30rpx;
+  text-align: center;
+  padding: 10rpx 0;
+}
+.ticket-scroll{
+height: 500rpx;
+overflow: auto;
+}
+.ticket-layer .ticket-row {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  padding: 20rpx 0;
+  justify-content: space-between;
+  line-height: 50rpx;
+  border-bottom: 1rpx solid #ddd;
+}
+
+
+
+.ticket-row-txt {
+  display: flex;
+  flex-direction: column;
+  padding: 0 20rpx;
+}
+
+.ticket-row .ticket-name{
+  font-size: 30rpx;
+  color: #f23232;
+}
+
+.ticket-row .ticket-date {
+  color: #999;
+  font-size: 26rpx;
+}
+.ticket-row-btn{
+  display: flex;
+  align-items: center;
+}
+
+.ticket-row-btn .iconfont{
+  font-size: 45rpx;
+}
+
+.ticket-row-btn .icon-zhengquewancheng-yuankuang {
+  color: #f23232;
+}
+
+.close {
+  width: 100%;
+  height: 100rpx;
+  background: #f62424;
+  color: #fff;
+  line-height: 100rpx;
+  text-align: center;
+  font-size: 30rpx;
+}
+
+

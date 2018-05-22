@@ -397,21 +397,52 @@ var bannerList = [
 ]
 
 
-// var detailsList = [
-//   {
-//     imgSrc: [
-//       "http://img.onbus.cn:9001/uploads/shopping/27/images/FF71EC7B-9464-4FCE-ACF6-003A68F8CBB2.JPG",
-//       "http://img.onbus.cn:9001/uploads/shopping/27/images/FF71EC7B-9464-4FCE-ACF6-003A68F8CBB2.JPG",
-//       "http://img.onbus.cn:9001/uploads/shopping/27/images/FF71EC7B-9464-4FCE-ACF6-003A68F8CBB2.JPG"
-//     ],
-//     id: 1111,
-//     title: "非凡演绎，超越自然",
-
-//   },
-// ]
+var ticketData = [
+  {
+    name: "满1000减50",
+    id: 0,
+    startDate:"2018-05-21",
+    endDate:"2018-07-21",
+    goal:1000,
+    off:50
+  },
+  {
+    name: "满200减15",
+    id: 1,
+    startDate: "2018-05-21",
+    endDate: "2018-07-21",
+    goal: 200,
+    off: 15
+  },
+  {
+    name: "满500减100",
+    id: 2,
+    startDate: "2018-05-21",
+    endDate: "2018-07-21",
+    goal: 500,
+    off: 100
+  },
+  {
+    name: "满1000减50",
+    id: 3,
+    startDate: "2018-05-21",
+    endDate: "2018-07-21",
+    goal: 1000,
+    off: 50
+  },
+  {
+    name: "满100减10",
+    id: 4,
+    startDate: "2018-05-21",
+    endDate: "2018-07-21",
+    goal: 100,
+    off: 10
+  }
+]
 
 module.exports = {
   menuList: menulist,
   goodsItem: goodsitem,
-  bannerList: bannerList
+  bannerList: bannerList,
+  ticketData: ticketData
 }

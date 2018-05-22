@@ -1,5 +1,6 @@
 <!--pages/order/order.wxml-->
-<view class="container">
+<!-- style="height:{{clientHeight}};overflow:{{overflow}};" -->
+<view class="container" style="height:{{clientHeight}};overflow:{{overflow}};">
   <form bindsubmit="placeOrder">
     <!-- wx:if="{{showAddr}}"  -->
     <view class="order" bindtap='getAddress' wx:if="{{showAddr}}">
@@ -33,32 +34,36 @@
         </view>
 
       </view>
-      
+
       <picker class="order-row invoice" bindchange="bindPickerChange" value="{{index}}" range="{{invoice}}" range-key="name">
-      <view class="order-row-left">发票信息</view>
+        <view class="order-row-left">发票信息</view>
         <view class="picker">
           {{invoice[index].name?invoice[index].name:invoice[0].name}}
         </view>
       </picker>
-      
 
-      <view class="order-row">
+
+      <view class="order-row" bindtap="ticketTap">
         <view class="order-row-left">
           优惠券
         </view>
-        <view class="order-row-right" style="color:red">
-          ￥{{totalMoney}}
+        <view class="order-row-right" >
+          {{id==-1||totalMoney < ticketData[id].goal?"不使用":ticketData[id].name}}
         </view>
       </view>
-      <view class="order-row">
-        <view class="order-row-left">积分</view>
-        <view class="order-row-right ">未使用</view>
+      <view class="order-row point" bindtap="pointUseTap">
+        <view class="order-row-left">积分
+          <text class="point-info">可使用积分<text class="mark">{{point.canUse}}</text>，抵扣<text class="mark">{{point.offMoney}}</text>元</text>
+        </view>
+        <view class="order-row-right point-box">
+          <text class="iconfont {{point.isUse?'icon-zhengquewancheng-yuankuang':'icon-Raidobox-weixuan'}}"></text>
+        </view>
       </view>
       <view class="order-row">
         <view class="order-row-left">
           余额支付
         </view>
-        
+
       </view>
     </view>
 
@@ -67,16 +72,71 @@
         <view class="order-row-left">交货日期</view>
         <view class="picker">{{date?date:"请填写交货日期"}}</view>
       </picker>
+
+      <view class="order-row remark">
+        <view class="order-row-left">
+          备注
+        </view>
+        <view class="order-row-right">
+          <input type="text" placeholder="点击给商家留言" name="remark"></input>
+        </view>
+      </view>
     </view>
 
 
-    <view class="order-remark">
+
+    <!-- <view class="order-remark">
       <view class="">备注</view>
-      <textarea class="remark" placeholder="点击给商家留言" name="remark" />
+      <input type="text" class="remark" placeholder="点击给商家留言" name="remark" />
+    </view> -->
+
+
+    <!--弹出框-->
+    <view class="mask" bindtap="hideLayer" wx:if="{{isShow}}"></view>
+    <view animation="{{animationData}}" class="hidden-layer " wx:if="{{isShow}}">
+      <!--对话框标题-->
+      <view class="ticket-layer">
+        <view class="ticket-title">
+          优惠券
+        </view>
+        <view class="ticket-scroll">
+          <radio-group>
+            <label class="ticket-row" data-id="-1" bindtap="ticketItemTap">
+              <view class="ticket-row-txt">
+                <view class="ticket-name no-wrap">不使用</view>
+              </view>
+              <view class="ticket-row-btn">
+                <!-- <text class="iconfont {{isSelected?'icon-zhengquewancheng-yuankuang':'icon-Raidobox-weixuan'}}"></text> -->
+                <radio value="不使用" checked="{{}}" color="#f23232"/>
+              </view>
+            </label>
+
+            <label class="ticket-row" wx:for="{{ticketData}}" wx:for-item="ticketItem" wx:key="{{index}}" wx:for-index="ticketIndex" data-id="{{ticketItem.id}}"  bindtap="ticketItemTap" >
+              
+                <view class="ticket-row-txt">
+                  <view class="ticket-name no-wrap">{{ticketItem.name}}</view>
+                  <view class="ticket-date">有效期：{{ticketItem.startDate}} - {{ticketItem.endDate}} </view>
+                </view>
+                <view class="ticket-row-btn">
+                  <radio value="{{ticketItem.name}}" color="#f23232" disabled="{{totalMoney>ticketItem.goal? false:true}}"/>
+                  <!-- <text class="iconfont {{ticketItem.isChecked?'icon-zhengquewancheng-yuankuang':'icon-Raidobox-weixuan'}}"></text> -->
+                </view>
+            
+            </label>
+          </radio-group>
+
+          
+
+        </view>
+      </view>
+      <!--对话框按钮-->
+      <view class="close" bindtap="hideLayer">
+        关闭
+      </view>
     </view>
 
     <!--下单-->
-    <view class="mask" wx:if="{{showCart&&sumNum>0}}" bindtap="hiddenLayer"></view>
+    <!-- <view class="mask" wx:if="{{showCart&&sumNum>0}}" bindtap="hiddenLayer"></view> -->
     <view class="footer">
       <view class="footer-row {{showCart?'':'bdt'}}">
         <view class="box-cart">合计：
