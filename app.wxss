@@ -15,6 +15,9 @@ text {
 .has-header{
   margin-top: 85rpx;
 }
+.has-footer{
+  margin-bottom: 100rpx;
+}
  image {
   /* height: 100%; */
   width: 100%;

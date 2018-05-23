@@ -37,9 +37,7 @@
 
       <picker class="order-row invoice" bindchange="bindPickerChange" value="{{index}}" range="{{invoice}}" range-key="name">
         <view class="order-row-left">发票信息</view>
-        <view class="picker">
-          {{invoice[index].name?invoice[index].name:invoice[0].name}}
-        </view>
+        <view class="picker">{{invoice[index].name?invoice[index].name:invoice[0].name}}</view>
       </picker>
 
 
@@ -47,27 +45,31 @@
         <view class="order-row-left">
           优惠券
         </view>
-        <view class="order-row-right" >
-          {{id==-1||totalMoney < ticketData[id].goal?"不使用":ticketData[id].name}}
+        <view class="order-row-right fontcolor" >
+        {{id==-1?"不使用":ticketData[id].name}}
         </view>
       </view>
       <view class="order-row point" bindtap="pointUseTap">
         <view class="order-row-left">积分
           <text class="point-info">可使用积分<text class="mark">{{point.canUse}}</text>，抵扣<text class="mark">{{point.offMoney}}</text>元</text>
         </view>
-        <view class="order-row-right point-box">
+        <view class="order-row-right radio-box">
           <text class="iconfont {{point.isUse?'icon-zhengquewancheng-yuankuang':'icon-Raidobox-weixuan'}}"></text>
         </view>
       </view>
-      <view class="order-row">
+      <view class="order-row" bindtap="balanceTap">
         <view class="order-row-left">
           余额支付
+          <text class="mark-text">{{user.balance?user.balance:"0"}}元可用</text>
+        </view>
+        <view class="order-row-right radio-box">
+          <text class="iconfont {{isChecked?'icon-zhengquewancheng-yuankuang':'icon-Raidobox-weixuan'}}"></text>
         </view>
 
       </view>
     </view>
 
-    <view class="order">
+    <view class="order has-footer">
       <picker mode="date" class="order-row date" value="{{date}}" bindchange="bindDateChange">
         <view class="order-row-left">交货日期</view>
         <view class="picker">{{date?date:"请填写交货日期"}}</view>
@@ -85,12 +87,6 @@
 
 
 
-    <!-- <view class="order-remark">
-      <view class="">备注</view>
-      <input type="text" class="remark" placeholder="点击给商家留言" name="remark" />
-    </view> -->
-
-
     <!--弹出框-->
     <view class="mask" bindtap="hideLayer" wx:if="{{isShow}}"></view>
     <view animation="{{animationData}}" class="hidden-layer " wx:if="{{isShow}}">
@@ -100,25 +96,25 @@
           优惠券
         </view>
         <view class="ticket-scroll">
-          <radio-group>
-            <label class="ticket-row" data-id="-1" bindtap="ticketItemTap">
+          <radio-group bindchange="ticketItemTap">
+            <label class="ticket-row" data-id="-1" >
               <view class="ticket-row-txt">
                 <view class="ticket-name no-wrap">不使用</view>
               </view>
               <view class="ticket-row-btn">
                 <!-- <text class="iconfont {{isSelected?'icon-zhengquewancheng-yuankuang':'icon-Raidobox-weixuan'}}"></text> -->
-                <radio value="不使用" checked="{{}}" color="#f23232"/>
+                <radio value="-1" checked="{{isSelected}}"  color="#f23232"/>
               </view>
             </label>
 
-            <label class="ticket-row" wx:for="{{ticketData}}" wx:for-item="ticketItem" wx:key="{{index}}" wx:for-index="ticketIndex" data-id="{{ticketItem.id}}"  bindtap="ticketItemTap" >
+            <label class="ticket-row" wx:for="{{ticketData}}" wx:for-item="ticketItem" wx:key="{{index}}" wx:for-index="ticketIndex" data-id="{{ticketItem.id}}"   >
               
                 <view class="ticket-row-txt">
-                  <view class="ticket-name no-wrap">{{ticketItem.name}}</view>
+                  <view class="ticket-name no-wrap {{totalMoney>ticketItem.goal? '':'disabled'}}">{{ticketItem.name}}{{totalMoney>ticketItem.goal? '':'(不可使用)'}}</view>
                   <view class="ticket-date">有效期：{{ticketItem.startDate}} - {{ticketItem.endDate}} </view>
                 </view>
                 <view class="ticket-row-btn">
-                  <radio value="{{ticketItem.name}}" color="#f23232" disabled="{{totalMoney>ticketItem.goal? false:true}}"/>
+                  <radio value="{{ticketItem.id}}" checked="{{ticketItem.checked}}"    color="#f23232" disabled="{{totalMoney>ticketItem.goal? false:true}}"/>
                   <!-- <text class="iconfont {{ticketItem.isChecked?'icon-zhengquewancheng-yuankuang':'icon-Raidobox-weixuan'}}"></text> -->
                 </view>
             

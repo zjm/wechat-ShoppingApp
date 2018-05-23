@@ -10,7 +10,7 @@ page {
   justify-content: space-between;
   line-height: 60rpx;
   align-items: center;
-  padding: 20rpx;
+  padding: 25rpx;
   background-color: #fff;
 }
 
@@ -95,7 +95,9 @@ page {
 .picker {
   text-align: right;
 }
-
+.fontcolor{
+  color: #f23232;
+}
 .remark .order-row-left{
 flex: 0.15;
 }
@@ -105,14 +107,18 @@ flex: 0.85;
 .mark {
   color: #f23232;
 }
+.mark-text{
+  padding: 10rpx;
+  background-color: #f23232;
+  color: #fff;
+}
 
 
-
-.point-box .iconfont {
+.radio-box .iconfont {
   font-size: 45rpx;
 }
 
-.point-box .icon-zhengquewancheng-yuankuang {
+.radio-box .icon-zhengquewancheng-yuankuang {
   color: #f23232;
 }
 
@@ -213,7 +219,7 @@ overflow: auto;
   padding: 0 20rpx;
 }
 
-.ticket-row .ticket-name{
+.ticket-name{
   font-size: 30rpx;
   color: #f23232;
 }
@@ -245,4 +251,11 @@ overflow: auto;
   font-size: 30rpx;
 }
 
+.disabled{
+  color: #999;
+}
+
+.has-footer{
+  margin-bottom: 100rpx;
+}
 

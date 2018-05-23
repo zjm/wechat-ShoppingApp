@@ -7,14 +7,19 @@ var pointData = {
   sum: 1000,
   canUse: 100,
   isUse: false
+};
+var userData = {
+  balance: 1000
 }
 Page({
   data: {
-    oldTotalMoney:0,
+    oldTotalMoney: 0,
     showAddr: false,
     showAddAddr: true,
-    totalMoney: 0,
+    totalMoney: 0,   // 合计金额
     date: "",
+
+    // 发票信息 
     invoice: [
       {
         id: 0,
@@ -37,16 +42,23 @@ Page({
         name: '电子发票--企业'
       }
     ],
+    // 积分信息
     point: {
       sum: pointData.sum,
       canUse: pointData.canUse,
       offMoney: parseInt(pointData.canUse / 100),
       isUse: pointData.isUse
     },
+    // 个人余额
+    user: {
+      balance: userData.balance
+    },
     clientHeight: "100%",
     overflow: "auto",
-    isSelected: true,
-    id: -1
+    isSelected: true, //优惠券默认选中不使用
+    isChecked: false,  //默认不选择余额支付
+    id: -1,  // 优惠券栏默认显示不使用
+    offLast: 0  //上个折扣值
   },
   onShow() {
     that = this;
@@ -60,7 +72,6 @@ Page({
           total += res.data[i].num * res.data[i].price;
         }
         that.setData({
-          oldTotalMoney: total,
           totalMoney: total,
           detail: res.data
         })
@@ -68,6 +79,7 @@ Page({
       }
     })
   },
+  // 获取地址
   getAddress() {
     wx.chooseAddress({
       success: (res) => {
@@ -84,7 +96,6 @@ Page({
   onLoad() {
     for (var i in listData.ticketData) {
       listData.ticketData[i].checked = false;
-
     }
 
     console.log(listData.ticketData)
@@ -104,9 +115,7 @@ Page({
       index: e.detail.value
     })
   },
-  // checkboxChange: function (e) {
-  //   console.log('checkbox发生change事件，携带value值为：', e.detail.value)
-  // },
+
 
   // 积分按钮
   pointUseTap: function () {
@@ -120,8 +129,7 @@ Page({
         isUse: isUse
       }
     })
-    var oldTotalMoney = this.data.oldTotalMoney;
-    
+
     // 判断是否选中，选中则优惠，未选中还原
     if (isUse) {
       var money = this.data.totalMoney - this.data.point.offMoney;
@@ -137,10 +145,133 @@ Page({
     }
   },
 
+  // 余额按钮
+  balanceTap: function () {
+    var check = this.data.isChecked;
+    check = !check;
+    this.setData({
+      isChecked: check
+    })
+  },
+
+
+
+  // 优惠券栏点击
+  ticketTap: function () {
+    if (this.data.isShow) {
+      this.hideLayer();
+    }
+    else {
+      this.showLayer();
+    }
+  },
+
+
+  // 
+  // ticketItemTap: function (e) {
+  //   var id = e.currentTarget.dataset.id;
+  //   this.setData({
+  //     id: id
+  //   })
+  //   var nowMoney = this.data.totalMoney;
+  //   var oldMoney = this.data.oldTotalMoney;
+  //   for (var i in listData.ticketData){
+  //     if (id == listData.ticketData[i].id && this.data.totalMoney > listData.ticketData[i].goal) {
+  //       if (listData.ticketData[i].checked) {
+  //         break;
+  //       }
+  //       var money = oldMoney - listData.ticketData[i].off;
+  //       this.setData({
+  //         // ticketData: listData.ticketData,
+  //         totalMoney: money
+  //       })
+  //       listData.ticketData[i].checked = true;
+  //       break;
+  //     }
+  //     else {
+  //       listData.ticketData[i].checked = false;
+  //       var money = nowMoney + listData.ticketData[i].off;
+  //       this.setData({
+  //         // ticketData:listData.ticketData,
+  //         totalMoney: nowMoney
+  //       })
+  //     }
+  //   }
+
+  //   console.log('radio发生change事件，携带checked值为：', e)
+  //   // this.hideLayer();
+  // },
+
+
+  // radio切换事件触发时，如果自定义的id=原数据自带的id，说明点中了当前radio
+  // 开for循环，把所有的cheked改为false，当前点击的radio的checked值设为true
+  ticketItemTap: function (e) {
+    // radio选中清零
+    for (var i in listData.ticketData) {
+      listData.ticketData[i].checked = false;
+    }
+    // 页面显示优惠券选择状态
+    var id = parseInt(e.detail.value);
+    this.setData({
+      id: id
+    })
+
+    // 获取之前的折扣值 
+    var offLast = this.data.offLast;
+
+    var nowMoney = this.data.totalMoney;
+
+
+    // 点击切换到不使用时
+    if (id == -1) {
+      // radio选中清零
+      for (var i in listData.ticketData) {
+        listData.ticketData[i].checked = false;
+      }
+
+
+      // 合计金额还原 
+      var money = nowMoney + offLast;
+      offLast = 0;
+      this.setData({
+        ticketData: listData.ticketData,
+        offLast: offLast,
+        totalMoney: money
+      })
+    }
+
+    for (var i in listData.ticketData) {
+      if (id == listData.ticketData[i].id) {
+        // radio当前选中
+        listData.ticketData[i].checked = true;
+
+        // 先加上上次的折扣值，还原为点击优惠券前的总金额
+        var money = nowMoney + offLast;
+
+        // 记录当前点击的优惠券折扣值
+        offLast = listData.ticketData[i].off;
+        // 折扣后的总金额
+        money = money - listData.ticketData[i].off;
+
+        this.setData({
+          ticketData: listData.ticketData,
+          offLast: offLast,
+          totalMoney: money
+        })
+        break;
+      }
+
+    }
+
+    // console.log('radio发生change事件，携带value值为：', e)
+    this.hideLayer();
+  },
+
+
+
 
 
   showLayer: function () {
-
     // 显示遮罩层  
     var animation = wx.createAnimation({
       duration: 200,
@@ -162,8 +293,6 @@ Page({
         animationData: animation.export()
       })
     }.bind(this), 50)
-
-
   },
 
   hideLayer: function () {
@@ -189,58 +318,6 @@ Page({
       })
     }.bind(this), 200)
   },
-
-  ticketTap: function () {
-    if (this.data.isShow) {
-      this.hideLayer();
-    }
-    else {
-      this.showLayer();
-    }
-  },
-
-  // 点击时，如果自定义的id=原数据自带的id，说明点中了当前radio
-  // 开for循环，把当前点击的radio的checked值设为true，其余的为false
-  // 
-  ticketItemTap: function (e) {
-    var id = e.currentTarget.dataset.id;
-    this.setData({
-      id: id
-    })
-    var nowMoney = this.data.totalMoney;
-    var oldMoney = this.data.oldTotalMoney;
-    for (var i in listData.ticketData){
-      if (id == listData.ticketData[i].id && this.data.totalMoney > listData.ticketData[i].goal) {
-        if (listData.ticketData[i].checked) {
-          break;
-        }
-        var money = oldMoney - listData.ticketData[i].off;
-        this.setData({
-          // ticketData: listData.ticketData,
-          totalMoney: money
-        })
-        listData.ticketData[i].checked = true;
-        break;
-      }
-      else {
-        listData.ticketData[i].checked = false;
-        var money = nowMoney + listData.ticketData[i].off;
-        this.setData({
-          // ticketData:listData.ticketData,
-          totalMoney: nowMoney
-        })
-      }
-    }
-    
-    console.log('radio发生change事件，携带checked值为：', e)
-    // this.hideLayer();
-  },
-
-
-
-
-
-
 
 
   placeOrder: function (event) {
