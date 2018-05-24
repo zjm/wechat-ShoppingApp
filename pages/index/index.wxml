@@ -7,12 +7,12 @@
       <view class="iconfont icon-xiangxiazhankai"></view>
     </view>
 
-    <view class="search-box">
+    <navigator class="search-box" url="../search/search">
       <view class="search-input">
         <icon type="search" size="12" />
         <text>请输入搜索内容</text>
       </view>
-    </view>
+    </navigator>
 
     <view class="scan" bindtap="scanTap">
       <view class="iconfont icon-saomiao"></view>

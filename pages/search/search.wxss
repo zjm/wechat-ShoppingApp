@@ -1,4 +1,4 @@
-/* pages/store/stores.wxss */
+/* pages/search/search.wxss */
 @import "../../src/weui.wxss";
 .weui-search-bar {  
     position:relative;  
@@ -25,47 +25,13 @@
     line-height:60rpx;  
 }  
   
+.clear-search-log{  
+    padding-top: 20rpx;
+    text-align: center;  
+}  
 .weui-search-bar__cancel-btn{
   font-size: 30rpx;
 }
 .weui-panel__hd::after{
   border-bottom: none;
-}
-
-/*门店列表  */
-.store-list{
-  border-top: 1rpx solid #ddd;
-  border-bottom: 1rpx solid #ddd;
-  margin: 20rpx 10rpx;
-  
-}
-.goods-item {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  line-height: 60rpx;
-  align-items: center;
-  padding: 25rpx;
-  background-color: #fff;
-}
-.goods-item+.goods-item {
-  border-top: 1rpx solid #ddd;
-}
-.item-img {
-  width: 150rpx;
-  height: 150rpx;
-  margin-right: 20rpx;
-}
-
-.item {
-  line-height: 50rpx;
-  height: 150rpx;
-}
-
-.item-title,.item-text,.item-total {
-  font-size: 27rpx;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  width: 500rpx;
 }

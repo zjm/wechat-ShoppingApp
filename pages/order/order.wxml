@@ -1,5 +1,5 @@
 <!--pages/order/order.wxml-->
-<!-- style="height:{{clientHeight}};overflow:{{overflow}};" -->
+<import src="../template/goods-item-row/goods-item-row-template" />  
 <view class="container" style="height:{{clientHeight}};overflow:{{overflow}};">
   <form bindsubmit="placeOrder">
     <!-- wx:if="{{showAddr}}"  -->
@@ -25,15 +25,20 @@
     </view>
 
     <view class="order">
-      <view class="order-row" wx:for="{{detail}}" wx:key="key">
-        <image src="{{item.img}}" class="img" />
+      <!-- <view class=" goods-item" wx:for="{{detail}}" wx:key="key">
+        <image src="{{item.img}}" class="item-img" />
 
         <view class="item">
           <view class="item-title">型号：{{item.title}}</view>
+          <view class="item-text">型号：{{item.title}}</view>          
           <view class="item-total">￥{{item.price}} * {{item.num}}</view>
         </view>
 
-      </view>
+      </view> -->
+      <block wx:for="{{detail}}" wx:for-item="goods" wx:key="key">
+        <template is="goodsItemRowTemplate" data="{{...goods}}" /> 
+      </block>
+       
 
       <picker class="order-row invoice" bindchange="bindPickerChange" value="{{index}}" range="{{invoice}}" range-key="name">
         <view class="order-row-left">发票信息</view>

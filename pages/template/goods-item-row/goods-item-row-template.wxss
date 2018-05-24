@@ -1,0 +1,35 @@
+.goods-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  line-height: 60rpx;
+  align-items: center;
+  padding: 25rpx;
+  background-color: #fff;
+}
+.goods-item+.goods-item {
+  border-top: 1rpx solid #ddd;
+}
+.item-img {
+  width: 150rpx;
+  height: 150rpx;
+  margin-right: 20rpx;
+}
+
+.item {
+  line-height: 50rpx;
+  height: 150rpx;
+}
+
+.item-title,.item-text {
+  font-size: 28rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 500rpx;
+}
+
+.item-total {
+  color: #f23232;
+  font-size: 28rpx;
+}

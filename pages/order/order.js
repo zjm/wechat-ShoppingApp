@@ -72,7 +72,7 @@ Page({
           total += res.data[i].num * res.data[i].price;
         }
         that.setData({
-          totalMoney: total,
+          totalMoney: total.toFixed(2),
           detail: res.data
         })
 

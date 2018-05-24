@@ -438,11 +438,64 @@ var ticketData = [
     goal: 100,
     off: 10
   }
+];
+
+var storeList = [
+  {
+    name:"佛山店",
+    id:0,
+    telNum:"13456789010",
+    img:"http://img.onbus.cn:9001/uploads/shopping/27/images/5CA9226F-24F9-4E73-AAD1-C9A613CCE89F.JPG",
+    addr:"广东佛山市禅城区石湾镇街道XXX西区1234号"
+  },
+  {
+    name: "佛山店",
+    id: 1,
+    telNum: "13456789011",
+    img: "http://img.onbus.cn:9001/uploads/shopping/27/images/5CA9226F-24F9-4E73-AAD1-C9A613CCE89F.JPG",
+    addr: "123广东佛山市禅城区石湾镇街道XXX西区1234号"
+  },
+  {
+    name: "佛山店",
+    id: 2,
+    telNum: "13456789012",
+    img: "http://img.onbus.cn:9001/uploads/shopping/27/images/5CA9226F-24F9-4E73-AAD1-C9A613CCE89F.JPG",
+    addr: "456广东佛山市禅城区石湾镇街道XXX西区1234号"
+  },
+  {
+    name: "佛山店",
+    id: 3,
+    telNum: "13456789013",
+    img: "http://img.onbus.cn:9001/uploads/shopping/27/images/5CA9226F-24F9-4E73-AAD1-C9A613CCE89F.JPG",
+    addr: "789广东佛山市禅城区石湾镇街道XXX西区1234号"
+  },
+  {
+    name: "佛山店",
+    id: 4,
+    telNum: "13456789014",
+    img: "http://img.onbus.cn:9001/uploads/shopping/27/images/5CA9226F-24F9-4E73-AAD1-C9A613CCE89F.JPG",
+    addr: "666广东佛山市禅城区石湾镇街道XXX西区1234号"
+  },
+  {
+    name: "佛山店",
+    id: 5,
+    telNum: "13456789015",
+    img: "http://img.onbus.cn:9001/uploads/shopping/27/images/5CA9226F-24F9-4E73-AAD1-C9A613CCE89F.JPG",
+    addr: "456广东佛山市禅城区石湾镇街道XXX西区1234号"
+  },
+  {
+    name: "佛山店",
+    id: 6,
+    telNum: "13456789016",
+    img: "http://img.onbus.cn:9001/uploads/shopping/27/images/5CA9226F-24F9-4E73-AAD1-C9A613CCE89F.JPG",
+    addr: "广东佛山市禅城区石湾镇街道XXX西区1234号"
+  }
 ]
 
 module.exports = {
   menuList: menulist,
   goodsItem: goodsitem,
   bannerList: bannerList,
-  ticketData: ticketData
+  ticketData: ticketData,
+  storeList:storeList
 }

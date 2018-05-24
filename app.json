@@ -8,7 +8,8 @@
     "pages/detail/detail",
     "pages/order/order",
     "pages/orderlist/orderlist",    
-    "pages/location/location"    
+    "pages/location/location",
+    "pages/search/search"
   ],
   "window": {
     "backgroundTextStyle": "light",

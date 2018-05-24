@@ -232,7 +232,7 @@ Page(Object.assign({}, Quantity, {
     //   return false;
     // }
     var detailArr = [];
-    detailArr = { num: num, price: price, title: title, img: img };
+    detailArr = { num: num, price: price, id: id,title: title, img: img };
     var orderData = [];
     orderData.push(detailArr);
     // 保存在缓存中
