@@ -2,33 +2,33 @@
 <view class="personal">
 
   <view class="my-header">
-    <view class="userinfo">
-      <button class="get-userinfo" wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-      <block wx:else>
-        <view class="my-header-div">
-          <!-- http://rf.onbus.cn/shopping/mobile/img/touxiang.png -->
-          <image src="{{userInfo.avatarUrl}}" class="header-img" />
-        </view>
-        <view class="my-header-div">
-          <text class="my-idname">{{userInfo.nickName}}</text>
-          <text class="my-idgroup quote">普通会员</text>
-          <text class="my-idnum quote">ID:123456</text>
-        </view>
-      </block>
-    </view>
+    <!-- <view class="userinfo"> -->
+    <button class="get-userinfo" wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <view class="my-header-div">
+        <!-- http://rf.onbus.cn/shopping/mobile/img/touxiang.png -->
+        <image src="{{userInfo.avatarUrl}}" class="header-img" />
+      </view>
+      <view class="my-header-div">
+        <text class="my-idname">{{userInfo.nickName}}</text>
+        <text class="my-idgroup quote">{{userData.userVip}}</text>
+        <text class="my-idnum quote">ID:{{userData.userId}}</text>
+      </view>
+    </block>
+    <!-- </view> -->
 
     <view class="my-header-div">
       <text class="join-text">加入时间：</text>
-      <text class="join-time">2018-01-01</text>
+      <text class="join-time">{{userData.joinTime}}</text>
     </view>
     <view class="my-header-div">
       <text class="share-text">我的分享人：</text>
-      <text class="share-idname">李ddd四</text>
+      <text class="share-idname">{{userData.shareName}}</text>
     </view>
   </view>
   <view class="my-content">
     <view class="my-content-div content-space">
-      <view class="my-point">
+      <navigator url="../point/point?sum=true&id={{userData.userId}}" class="my-point">
         <view class="point-icon">
           <view class="iconfont icon-diamond"></view>
         </view>
@@ -37,12 +37,12 @@
             <text>累计积分</text>
           </view>
           <view class="point-num">
-            <text>1300.00</text>
+            <text>{{userData.point.sum}}</text>
           </view>
         </view>
 
-      </view>
-      <view class="my-point">
+      </navigator>
+      <navigator url="../point/point?notUsed=true&id={{userData.userId}}" class="my-point">
         <view class="point-icon">
           <view class="iconfont icon-ziyuan"></view>
         </view>
@@ -51,11 +51,11 @@
             <text>未提现积分</text>
           </view>
           <view class="point-num">
-            <text>300.00</text>
+            <text>{{userData.point.notUsed}}</text>
           </view>
         </view>
-      </view>
-      <view class="my-point">
+      </navigator>
+      <navigator class="my-point">
         <view class="point-icon">
           <view class="iconfont icon-jifen"></view>
         </view>
@@ -64,14 +64,14 @@
             <text>可提现积分</text>
           </view>
           <view class="point-num">
-            <text>100.00</text>
+            <text>{{userData.point.canUse}}</text>
           </view>
         </view>
-      </view>
+      </navigator>
     </view>
 
     <view class="my-content-div">
-      <view class="my-content-menu" bindtap="goOrderList">
+      <navigator url="../orderlist/orderlist?id={{userData.userId}}" class="my-content-menu">
 
         <view class="menu-icon">
           <view class="iconfont icon-zhangdan"></view>
@@ -83,10 +83,10 @@
 
         </view>
 
-      </view>
+      </navigator>
 
 
-      <view class="my-content-menu">
+      <navigator url="../point/point?notUsed=true&id={{userData.userId}}" class="my-content-menu">
         <view class="menu-icon">
           <view class="iconfont icon-renwu"></view>
         </view>
@@ -97,8 +97,8 @@
 
         </view>
 
-      </view>
-      <view class="my-content-menu">
+      </navigator>
+      <navigator url="../follow/follow?id={{userData.userId}}" class="my-content-menu" >
         <view class="menu-icon">
           <view class="iconfont icon-shoucang"></view>
         </view>
@@ -107,14 +107,14 @@
             <text>我的关注</text>
           </view>
           <view class="menu-type-num">
-            <text>10</text>
+            <text>{{userData.follow}}</text>
           </view>
         </view>
 
-      </view>
+      </navigator>
     </view>
     <view class="my-content-div">
-      <view class="my-content-menu">
+      <navigator class="my-content-menu">
         <view class="menu-icon">
           <view class="iconfont icon-erweima"></view>
         </view>
@@ -124,8 +124,8 @@
           </view>
         </view>
 
-      </view>
-      <view class="my-content-menu">
+      </navigator>
+      <navigator url="../wallet/wallet?balance={{userData.balance}}&ticketNum={{userData.ticketNum}}&notUsed={{userData.point.notUsed}}" class="my-content-menu">
         <view class="menu-icon">
           <view class="iconfont icon-qianbao"></view>
         </view>
@@ -134,8 +134,8 @@
             <text>我的钱包</text>
           </view>
         </view>
-      </view>
-      <view class="my-content-menu">
+      </navigator>
+      <navigator class="my-content-menu">
         <view class="menu-icon">
           <view class="iconfont icon-shezhi"></view>
         </view>
@@ -144,8 +144,7 @@
             <text>账户设置</text>
           </view>
         </view>
-
-      </view>
+      </navigator>
     </view>
 
   </view>

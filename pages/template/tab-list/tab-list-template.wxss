@@ -1,0 +1,22 @@
+.tab-nav {
+  height: 80rpx;
+  line-height: 80rpx;
+  width: 100%;
+}
+ .tab-nav-row{
+   display: flex;
+   flex-direction: row;
+ }
+.tab-nav .tab-nav-row view {
+  flex: 1;
+  height: 80rpx;
+  line-height: 80rpx;
+  background: #fff;
+  font-size: 30rpx;
+  text-align: center;
+  color: #333;
+}
+.tab-nav view.on {
+  border-bottom: 2rpx solid #F23232;
+  color: #F23232;
+}

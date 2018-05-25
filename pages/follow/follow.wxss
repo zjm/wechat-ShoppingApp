@@ -1,0 +1,3 @@
+/* pages/follow/follow.wxss */
+@import "../template/tab-list/tab-list-template";
+@import "../template/goods-item-row/goods-item-row-template";

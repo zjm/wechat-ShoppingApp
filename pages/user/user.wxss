@@ -107,7 +107,9 @@ page {
   height: 40rpx;
   color: #ed3b3d;
 }
-
+.menu-type-num text{
+  color:#f23232;
+}
 .personal .icon-renwu {
   color: #a5c9e9;
 }

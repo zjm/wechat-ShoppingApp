@@ -1,0 +1,33 @@
+<!--pages/point/point.wxml-->
+
+<view>
+  <view class="point-content">
+    <view class="point-content-no">
+      <view class="point-content-num" wx:if="{{notUsed}}">
+        <text class="point-num">{{pointData.notUsed}}</text>
+        <text class="point-text">可用积分</text> 
+      </view>
+      <view class="point-content-num"  wx:if="{{sum}}">
+        <text class="point-num">{{pointData.sum}}</text>
+        <text class="point-text">累计积分</text>  
+      </view>
+      <text class="point-help" bindtap="showHelp"> 帮助说明</text>
+    </view>
+
+    <view class="point-list-title">积分收支明细</view>
+    <view class="point-history">
+      <view class="point-list" wx:for="{{pointData.history}}" wx:key="{{key}}">
+        <view class="point-list-left">
+          <view class="point-get-from">{{item.name}}</view>
+          <view class="point-get-time">{{item.time}}</view>
+        </view>
+        <view class="point-list-right">
+          <text class="point-change {{item.change>0?'point-add':'point-red'}}">{{item.change>0?'+':''}}{{item.change}}</text>
+        </view>
+      </view>
+    </view>
+
+  </view>
+
+
+</view>

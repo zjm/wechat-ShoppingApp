@@ -184,8 +184,8 @@ var menulist = [
 
 ]
 
- 
-    var goodsitem = [
+
+var goodsitem = [
   {
     title: "A3DFCE",
     types: "ICC",
@@ -379,8 +379,8 @@ var menulist = [
 
 var bannerList = [
   {
-    imgSrc:"http://img.onbus.cn:9001/uploads/shopping/27/images/FF71EC7B-9464-4FCE-ACF6-003A68F8CBB2.JPG",
-    id:2
+    imgSrc: "http://img.onbus.cn:9001/uploads/shopping/27/images/FF71EC7B-9464-4FCE-ACF6-003A68F8CBB2.JPG",
+    id: 2
   },
   {
     imgSrc: "http://img.onbus.cn:9001/uploads/shopping/27/images/FD2D0BCD-4712-4986-BA47-953961598F29.jpg",
@@ -401,10 +401,10 @@ var ticketData = [
   {
     name: "满1000减50",
     id: 0,
-    startDate:"2018-05-21",
-    endDate:"2018-07-21",
-    goal:1000,
-    off:50
+    startDate: "2018-05-21",
+    endDate: "2018-07-21",
+    goal: 1000,
+    off: 50
   },
   {
     name: "满200减15",
@@ -442,15 +442,17 @@ var ticketData = [
 
 var storeList = [
   {
-    name:"佛山店",
-    id:0,
-    telNum:"13456789010",
-    img:"http://img.onbus.cn:9001/uploads/shopping/27/images/5CA9226F-24F9-4E73-AAD1-C9A613CCE89F.JPG",
-    addr:"广东佛山市禅城区石湾镇街道XXX西区1234号"
+    name: "佛山店",
+    id: 0,
+    classify: 0,
+    telNum: "13456789010",
+    img: "http://img.onbus.cn:9001/uploads/shopping/27/images/5CA9226F-24F9-4E73-AAD1-C9A613CCE89F.JPG",
+    addr: "广东佛山市禅城区石湾镇街道XXX西区1234号"
   },
   {
     name: "佛山店",
     id: 1,
+    classify: 1,
     telNum: "13456789011",
     img: "http://img.onbus.cn:9001/uploads/shopping/27/images/5CA9226F-24F9-4E73-AAD1-C9A613CCE89F.JPG",
     addr: "123广东佛山市禅城区石湾镇街道XXX西区1234号"
@@ -458,6 +460,7 @@ var storeList = [
   {
     name: "佛山店",
     id: 2,
+    classify: 1,
     telNum: "13456789012",
     img: "http://img.onbus.cn:9001/uploads/shopping/27/images/5CA9226F-24F9-4E73-AAD1-C9A613CCE89F.JPG",
     addr: "456广东佛山市禅城区石湾镇街道XXX西区1234号"
@@ -465,6 +468,7 @@ var storeList = [
   {
     name: "佛山店",
     id: 3,
+    classify: 1,
     telNum: "13456789013",
     img: "http://img.onbus.cn:9001/uploads/shopping/27/images/5CA9226F-24F9-4E73-AAD1-C9A613CCE89F.JPG",
     addr: "789广东佛山市禅城区石湾镇街道XXX西区1234号"
@@ -472,6 +476,7 @@ var storeList = [
   {
     name: "佛山店",
     id: 4,
+    classify: 2,
     telNum: "13456789014",
     img: "http://img.onbus.cn:9001/uploads/shopping/27/images/5CA9226F-24F9-4E73-AAD1-C9A613CCE89F.JPG",
     addr: "666广东佛山市禅城区石湾镇街道XXX西区1234号"
@@ -479,23 +484,99 @@ var storeList = [
   {
     name: "佛山店",
     id: 5,
+    classify: 2,
     telNum: "13456789015",
     img: "http://img.onbus.cn:9001/uploads/shopping/27/images/5CA9226F-24F9-4E73-AAD1-C9A613CCE89F.JPG",
-    addr: "456广东佛山市禅城区石湾镇街道XXX西区1234号"
+    addr: "888广东佛山市禅城区石湾镇街道XXX西区1234号"
   },
   {
     name: "佛山店",
     id: 6,
+    classify: 0,
     telNum: "13456789016",
     img: "http://img.onbus.cn:9001/uploads/shopping/27/images/5CA9226F-24F9-4E73-AAD1-C9A613CCE89F.JPG",
-    addr: "广东佛山市禅城区石湾镇街道XXX西区1234号"
+    addr: "广东123佛山市禅城区石湾镇街道XXX西区1234号"
   }
-]
+];
+
+
+var followData = [
+  {
+    img: "http://rf.onbus.cn/shopping/mobile/img/touxiang.png",
+    name: "张三",
+    time: "2017-12-31"
+  },
+  {
+    img: "http://rf.onbus.cn/shopping/mobile/img/touxiang.png",
+    name: "李四",
+    time: "2017-12-31"
+  }
+];
+
+
+var userData = {
+  userName: "234hhh",
+  userLevel: 1,
+  userVip: "普通会员",
+  userId: 12450,
+  joinTime: "2018-01-01",
+  shareName: "张三",
+  point: {
+    sum: 12300,
+    notUsed: 2300,
+    canUse: 1000
+  },
+  follow: followData.length,
+  balance: 1000,
+  ticketNum: ticketData.length
+
+
+};
+
+var pointData = {
+    sum:12300,
+    notUsed:2300,
+    canUse:1000,
+    history:[
+      {
+        name:"购物获得",
+        time:"2018-01-01 12:34:45",
+        change: 200
+      },
+      {
+        name: "购物获得",
+        time: "2018-02-02 12:34:45",
+        change: 400
+      },
+      {
+        name: "购物获得",
+        time: "2018-03-03 12:34:45",
+        change: 800
+      },
+      {
+        name: "购物使用",
+        time: "2018-03-03 12:34:45",
+        change: -300
+      }
+    ]
+  };
+
+  var otherUserData = [
+    {
+
+    }
+  ];
+
+
+
 
 module.exports = {
   menuList: menulist,
   goodsItem: goodsitem,
   bannerList: bannerList,
   ticketData: ticketData,
-  storeList:storeList
+  storeList: storeList,
+  followData:followData,
+  userData: userData,
+  pointData: pointData
 }

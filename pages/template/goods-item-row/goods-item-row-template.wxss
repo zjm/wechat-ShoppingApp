@@ -21,8 +21,8 @@
   height: 150rpx;
 }
 
-.item-title,.item-text {
-  font-size: 28rpx;
+.item-title,.item-text,.item-total {
+  font-size: 27rpx;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -33,3 +33,4 @@
   color: #f23232;
   font-size: 28rpx;
 }
+

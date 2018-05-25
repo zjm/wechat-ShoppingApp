@@ -1,0 +1,71 @@
+/* pages/point/point.wxss */
+page{
+  height: 100%;
+  background-color: #F9F9F9;
+
+}
+.point-content-no{
+    position: relative;
+    height:200rpx;
+    border-bottom:1rpx solid #ddd;
+    text-align: center;
+    margin: 0 10rpx;
+}
+.point-content-num{
+    line-height:200rpx;
+}
+
+.point-num{
+    font-size:40rpx;
+}
+.point-content-num text{
+    color: #F72B2B;
+}
+
+.point-list-title{
+    font-size:30rpx;
+    text-align: center;
+    line-height:80rpx;
+    border-bottom:1rpx solid #ddd;
+}
+
+.point-list{
+    padding: 20rpx;
+    border-bottom:1rpx solid #ddd;
+    color: #8C8C8C;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #fff;
+    align-items: center;
+}
+/* .point-list div p {
+    font-size:0.6rem;
+} */
+
+.point-content .point-help{
+    display: block;
+    position: absolute;
+    right: 20rpx;
+    top:20rpx;
+    border: 1rpx solid #ddd;
+    padding: 5rpx 10rpx;
+}
+
+.point-list-left{
+    display: flex;
+    flex-direction: column;
+    line-height: 50rpx;
+}
+
+
+.point-change{
+    font-size:40rpx;
+    font-weight:bolder;
+}
+.point-list-right .point-add{color: #F72B2B; }
+.point-list-right .point-red{color: #53B954; }
+
+.point-get-from{
+    color: #333;
+}

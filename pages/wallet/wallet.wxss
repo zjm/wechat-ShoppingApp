@@ -1,0 +1,33 @@
+/* pages/wallet/wallet.wxss */
+page{
+  height: 100%;
+  background-color: #f9f9f9;
+}
+.wal-list-nav {
+    height: 200rpx;
+    background-color: #707486;
+}
+
+.wal-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 200rpx;
+    align-items: center;
+}
+
+.list-nav {
+    flex: 1;
+    text-align: center;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 20rpx 0;
+    
+}
+/* .list-nav view{
+      font-size: 30rpx;
+} */
+ .wal-num{
+    font-size:32rpx;
+}

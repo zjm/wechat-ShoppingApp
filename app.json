@@ -9,7 +9,12 @@
     "pages/order/order",
     "pages/orderlist/orderlist",    
     "pages/location/location",
-    "pages/search/search"
+    "pages/search/search",
+    "pages/point/point",
+    "pages/follow/follow",
+    "pages/wallet/wallet"    
+    
+    
   ],
   "window": {
     "backgroundTextStyle": "light",
