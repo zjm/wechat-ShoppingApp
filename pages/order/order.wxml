@@ -1,6 +1,6 @@
 <!--pages/order/order.wxml-->
 <import src="../template/goods-item-row/goods-item-row-template" />  
-<view class="container" style="height:{{clientHeight}};overflow:{{overflow}};">
+<view style="height:{{clientHeight}};overflow:{{overflow}};">
   <form bindsubmit="placeOrder">
     <!-- wx:if="{{showAddr}}"  -->
     <view class="order" bindtap='getAddress' wx:if="{{showAddr}}">

@@ -1,3 +1,18 @@
 /* pages/follow/follow.wxss */
 @import "../template/tab-list/tab-list-template";
+@import "../template/no-more/no-more-template";
 @import "../template/goods-item-row/goods-item-row-template";
+
+page{
+  height: 100%;
+  background-color: #f1f1f1;
+}
+
+.item-container{
+  margin: 20rpx 0;
+  /* border-bottom: 1rpx solid #ddd;
+  border-top: 1rpx solid #ddd; */
+}
+
+
+

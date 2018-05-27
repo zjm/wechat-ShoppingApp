@@ -1,0 +1,7 @@
+<template name="noMoreTemplate">
+  <view class="no-more">
+      <text class="line"></text>
+      <text class="txt">没有更多了</text>
+      <text class="line"></text>
+    </view>
+</template>

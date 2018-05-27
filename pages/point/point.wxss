@@ -1,7 +1,7 @@
 /* pages/point/point.wxss */
 page{
   height: 100%;
-  background-color: #F9F9F9;
+  background-color: #F1F1F1;
 
 }
 .point-content-no{
@@ -9,7 +9,7 @@ page{
     height:200rpx;
     border-bottom:1rpx solid #ddd;
     text-align: center;
-    margin: 0 10rpx;
+    background-color: #fff;
 }
 .point-content-num{
     line-height:200rpx;

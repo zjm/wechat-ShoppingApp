@@ -1,33 +1,68 @@
 /* pages/wallet/wallet.wxss */
-page{
+
+page {
   height: 100%;
-  background-color: #f9f9f9;
+  background-color: #f1f1f1;
 }
+
 .wal-list-nav {
-    height: 200rpx;
-    background-color: #707486;
+  background-color: #707486;
 }
 
 .wal-nav {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    height: 200rpx;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height: 300rpx;
+  align-items: center;
 }
 
 .list-nav {
-    flex: 1;
-    text-align: center;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    padding: 20rpx 0;
-    
+  flex: 1;
+  text-align: center;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 50rpx 0;
 }
+
 /* .list-nav view{
       font-size: 30rpx;
 } */
- .wal-num{
-    font-size:32rpx;
+
+.wal-num {
+  font-size: 36rpx;
+}
+
+/*  */
+
+.row-div {
+  border-bottom: 1rpx solid #f1f1f1;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 5rpx 20rpx;
+  line-height: 90rpx;
+  font-size: 30rpx;
+  background-color: #fff;
+}
+
+.row+.row {
+  border-top: 1rpx solid #f1f1f1;
+}
+
+.row view, .iconfont {
+  font-size: 30rpx;
+}
+.icon-xinyongqiahuankuan{
+  color: #FF4400;
+  margin-right: 10rpx;
+}
+.icon-qianbao{
+  color: #2C9F67;
+  margin-right: 10rpx;
+  
 }

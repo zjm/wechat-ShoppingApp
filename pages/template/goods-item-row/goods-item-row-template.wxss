@@ -8,7 +8,7 @@
   background-color: #fff;
 }
 .goods-item+.goods-item {
-  border-top: 1rpx solid #ddd;
+  border-top: 1rpx solid #f1f1f1;
 }
 .item-img {
   width: 150rpx;

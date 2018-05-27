@@ -1,51 +1,163 @@
 //classify.js
 Page({
   data: {
-    animation: ''
-  },
-  onLoad: function (options) {
-    // 页面初始化 options为页面跳转所带来的参数
-  },
-  onReady: function () {
-    // 页面渲染完成
-    //实例化一个动画
-    this.animation = wx.createAnimation({
-      // 动画持续时间，单位ms，默认值 400
-      duration: 1000,
-      /**  
-       *  linear  动画一直较为均匀
-       *  ease    从匀速到加速在到匀速
-       *  ease-in 缓慢到匀速
-       *  ease-in-out 从缓慢到匀速再到缓慢
-       *  step-start 动画一开始就跳到 100% 直到动画持续时间结束 一闪而过
-       *  step-end   保持 0% 的样式直到动画持续时间结束        一闪而过
-       */
-      timingFunction: 'linear',
-      // 延迟多长时间开始
-      delay: 100,
-      /**
-       * 以什么为基点做动画  效果自己演示
-       * left,center right是水平方向取值，对应的百分值为left=0%;center=50%;right=100%
-       * top center bottom是垂直方向的取值，其中top=0%;center=50%;bottom=100%
-       */
-      transformOrigin: 'left top 0',
-      success: function (res) {
-        console.log(res)
+    cateItems: [
+      {
+        cate_id: 1,
+        cate_name: "护肤",
+        ishaveChild: true,
+        children:
+        [
+          {
+            child_id: 1,
+            name: '洁面皂',
+            image: "http://mz.djmall.xmisp.cn/files/logo/20161208/148117972563.jpg"
+          },
+          {
+            child_id: 2,
+            name: '卸妆',
+            image: "http://mz.djmall.xmisp.cn/files/logo/20161207/148110444480.jpg"
+          },
+          {
+            child_id: 3,
+            name: '洁面乳',
+            image: "http://mz.djmall.xmisp.cn/files/logo/20161208/148117973270.jpg"
+          },
+          {
+            child_id: 4,
+            name: '面部祛角质',
+            image: "http://mz.djmall.xmisp.cn/files/logo/20161208/148117981591.jpg"
+          }
+        ]
+      },
+      {
+        cate_id: 2,
+        cate_name: "彩妆",
+        ishaveChild: true,
+        children:
+        [
+          {
+            child_id: 1,
+            name: '气垫bb',
+            image: "http://mz.djmall.xmisp.cn/files/logo/20161212/14815381301.jpg"
+          },
+          {
+            child_id: 2,
+            name: '修容/高光',
+            image: "http://mz.djmall.xmisp.cn/files/logo/20161212/14815381411.jpg"
+          },
+          {
+            child_id: 3,
+            name: '遮瑕',
+            image: "http://mz.djmall.xmisp.cn/files/logo/20161212/148153815181.jpg"
+          },
+          {
+            child_id: 4,
+            name: '腮红',
+            image: "http://mz.djmall.xmisp.cn/files/logo/20161212/148153815759.jpg"
+          },
+          {
+            child_id: 5,
+            name: '粉饼',
+            image: "http://mz.djmall.xmisp.cn/files/logo/20161212/148153816983.jpg"
+          },
+          {
+            child_id: 6,
+            name: '粉底',
+            image: "http://mz.djmall.xmisp.cn/files/logo/20161212/148153817721.jpg"
+          },
+          {
+            child_id: 7,
+            name: '蜜粉/散粉',
+            image: "http://mz.djmall.xmisp.cn/files/logo/20161212/148153819354.jpg"
+          },
+          {
+            child_id: 8,
+            name: '隔离霜',
+            image: "http://mz.djmall.xmisp.cn/files/logo/20161215/148179053369.jpg"
+          }
+        ]
+      },
+      {
+        cate_id: 3,
+        cate_name: "香水/香氛",
+        ishaveChild: true,
+        children:
+        [
+          {
+            child_id: 1,
+            name: '淡香水EDT',
+            image: "http://mz.djmall.xmisp.cn/files/logo/20161213/14815978910.jpg"
+          },
+          {
+            child_id: 2,
+            name: '浓香水EDP',
+            image: "http://mz.djmall.xmisp.cn/files/logo/20161213/148159789883.jpg"
+          },
+          {
+            child_id: 3,
+            name: '香体走珠',
+            image: "http://mz.djmall.xmisp.cn/files/logo/20161213/14815979307.jpg"
+          },
+          {
+            child_id: 4,
+            name: '古龙香水男士的最爱',
+            image: "http://mz.djmall.xmisp.cn/files/logo/20161213/148159765589.jpg"
+          }
+        ]
+      },
+      {
+        cate_id: 4,
+        cate_name: "个人护理",
+        ishaveChild: false,
+        children: []
       }
+    ],
+    curNav: 1,
+    curIndex: 0
+  },
+
+  //事件处理函数  
+  switchRightTab: function (e) {
+    // 获取item项的id，和数组的下标值  
+    let id = e.target.dataset.id,
+      index = parseInt(e.target.dataset.index);
+    // 把点击到的某一项，设为当前index  
+    this.setData({
+      curNav: id,
+      curIndex: index
     })
   },
 
-  /**
-   * 旋转
-   */
-  rotate: function () {
-    //顺时针旋转10度
-    //
-    this.animation.width(300).rotate(150).step()
-    this.setData({
-      //输出动画
-      animation: this.animation.export()
+  onLoad: function(){
+    wx.getSystemInfo({
+      success: function (res) {
+        console.log(res.model)
+        console.log(res.pixelRatio)
+        console.log(res.windowWidth)
+        console.log(res.windowHeight)
+        console.log(res.language)
+        console.log(res.version)
+        console.log(res.platform)
+      }
     })
+    // var windowHeight = this.data.windowHeight;
+    // wx.getSystemInfo({
+    //   success: function (res) {
+    //     console.log(res.windowHeight)
+    //     that.setData({
+    //       windowHeight: res.windowHeight
+    //     })
+
+    //   }
+    // })
+    var windowHeight = 0;
+    var res = wx.getSystemInfoSync();
+    var that = this;
+    this.setData({
+      windowHeight: res.windowHeight - res.statusBarHeight
+    })
+    console.log(this.data.windowHeight)
   },
 
   onShow: function () {

@@ -3,6 +3,7 @@
 
 page {
   height: 100%;
+  background-color: #f1f1f1;
 }
 
 .order-row {
@@ -16,12 +17,12 @@ page {
 }
 
 .order-row+.order-row {
-  border-top: 1rpx solid #ddd;
+  border-top: 1rpx solid #f1f1f1;
 }
 
 .order {
-  border-top: 1rpx solid #ddd;
-  border-bottom: 1rpx solid #ddd;
+  border-top: 1rpx solid #f1f1f1;
+  border-bottom: 1rpx solid #f1f1f1;
   margin-bottom: 15rpx;
 }
 
@@ -57,9 +58,14 @@ page {
   font-size: 28rpx;
 }
 
+.order-addr .row view{
+  font-size: 30rpx;
+}
+
+
 /*订单列表  */
 .invoice{
-  border-top: 1rpx solid #ddd;
+  border-top: 1rpx solid #f1f1f1;
 }
 
 /*  */
@@ -188,7 +194,7 @@ overflow: auto;
   padding: 20rpx 0;
   justify-content: space-between;
   line-height: 50rpx;
-  border-bottom: 1rpx solid #ddd;
+  border-bottom: 1rpx solid #f1f1f1;
 }
 
 

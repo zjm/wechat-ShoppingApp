@@ -1,0 +1,17 @@
+.no-more {
+  text-align: center;
+  margin: 20rpx 0;
+  color:#c7c7c7;
+}
+
+.no-more .line {
+  display: inline-block;
+  width: 25%;
+  border-top: 1px solid #ccc;
+}
+
+.no-more .txt {
+  color: #c7c7c7;
+  font-size: 30rpx;
+  vertical-align: -10rpx;
+}

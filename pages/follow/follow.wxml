@@ -1,22 +1,32 @@
 <!--pages/follow/follow.wxml-->
 <!-- <import src="../template/tab-list/tab-list-template" />   -->
-<import src="../template/goods-item-row/goods-item-row-template" />  
+<import src="../template/goods-item-row/goods-item-row-template" />
+<import src="../template/no-more/no-more-template" />
 
-  <view class="tab">
-    <view class="tab-nav">
-      <view class="tab-nav-row">
-        <view wx:for="{{navlist}}" wx:key="unique" class='{{selected==index?"on":""}}' data-current="{{index}}" bindtap="tab">{{item}}</view>
-      </view>
-    </view>
-    <view wx:for="{{conlist}}" wx:key="unique" wx:for-item="classify" bindtap="eventchange" wx:if="{{selected==index}}">
-      <!-- {{item}} -->
-      <view class="goods-item" wx:for="{{classify}}"   wx:key="{{item.id}}">
-          <image src="{{item.img}}" class="item-img" />
-          <view class="item">
-            <view class="item-title">型号：{{item.name}}</view>
-            <view class="item-text" bindtap="telTap" data-tel-num="{{item.telNum}}"><text class="iconfont icon-dianhua"></text>{{item.telNum}}</view>
-            <view class="item-total"><text class="iconfont icon-weizhi"></text>{{item.addr}}</view>
-          </view>
-        </view>
+
+<view class="tab">
+  <view class="tab-nav">
+    <view class="tab-nav-row">
+      <view wx:for="{{navlist}}" wx:key="key" class='{{selected==index?"on":""}}' data-current="{{index}}" bindtap="tab">{{item}}</view>
     </view>
   </view>
+  <view class="item-container" wx:for="{{conlist}}" wx:key="key" wx:for-item="classify"  wx:if="{{selected==index}}">
+    <!-- {{item}} -->
+    <view wx:if="{{classify==''}}">
+      暂无
+    </view>
+    <view class="goods-item" wx:for="{{classify}}" wx:key="{{item.id}}">
+      <image src="{{item.img}}" class="item-img" />
+      <view class="item">
+        <view class="item-title">型号：{{item.name}}</view>
+        <view class="item-text"  data-tel-num="{{item.telNum}}">
+          <text class="iconfont icon-dianhua"></text>{{item.telNum}}</view>
+        <view class="item-total">
+          <text class="iconfont icon-weizhi"></text>{{item.addr}}</view>
+      </view>
+    </view>
+    <template is="noMoreTemplate" />
+    
+  </view>
+
+</view>

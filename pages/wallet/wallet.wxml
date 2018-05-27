@@ -1,13 +1,35 @@
 <!--pages/wallet/wallet.wxml-->
 <view>
-    <view class="wal-list-nav">
-        <view class="wal-nav">
-            <view class="list-nav"><view class="wal-num wal-balance-num">{{balance}}</view><view>余额</view></view>
-            <view class="list-nav"><view class="wal-num wal-ticket-num">{{ticketNum}}</view><view>优惠券</view></view>
-            <view class="list-nav"><view class="wal-num wal-point-num">{{notUsed}}</view><view>积分</view></view>
-        </view>
+  <view class="wal-list-nav">
+    <view class="wal-nav">
+      <view class="list-nav">
+        <view class="wal-num wal-balance-num">{{balance}}</view>
+        <view>余额</view>
+      </view>
+      <view class="list-nav">
+        <view class="wal-num wal-ticket-num">{{ticketNum}}</view>
+        <view>优惠券</view>
+      </view>
+      <view class="list-nav">
+        <view class="wal-num wal-point-num">{{notUsed}}</view>
+        <view>积分</view>
+      </view>
     </view>
+  </view>
 
-    <view></view>
+  <view class="row-div">
+    <view class="row">
+      <view>
+        <text class="iconfont icon-xinyongqiahuankuan"></text>充值
+      </view>
+      <text class="iconfont icon-xiayiyeqianjinchakangengduo"></text>
+    </view>
+    <view class="row">
+      <view>
+        <text class="iconfont icon-qianbao"></text>提现
+      </view>
+      <text class="iconfont icon-xiayiyeqianjinchakangengduo"></text>
+    </view>
+  </view>
 
 </view>

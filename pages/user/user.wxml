@@ -23,7 +23,7 @@
     </view>
     <view class="my-header-div">
       <text class="share-text">我的分享人：</text>
-      <text class="share-idname">{{userData.shareName}}</text>
+      <text class="share-idname">{{userData.shareName?userData.shareName:"没有分享人"}}</text>
     </view>
   </view>
   <view class="my-content">
