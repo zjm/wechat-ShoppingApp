@@ -567,13 +567,125 @@ var pointData = {
     }
   ];
 
-
+var categoryData =  [
+  {
+    cateId: 1,
+    cateName: "护肤",
+    ishaveChild: true,
+    children:
+    [
+      {
+        childId: 1,
+        name: '洁面皂',
+        image: "http://mz.djmall.xmisp.cn/files/logo/20161208/148117972563.jpg"
+      },
+      {
+        childId: 2,
+        name: '卸妆',
+        image: "http://mz.djmall.xmisp.cn/files/logo/20161207/148110444480.jpg"
+      },
+      {
+        childId: 3,
+        name: '洁面乳',
+        image: "http://mz.djmall.xmisp.cn/files/logo/20161208/148117973270.jpg"
+      },
+      {
+        childId: 4,
+        name: '面部祛角质',
+        image: "http://mz.djmall.xmisp.cn/files/logo/20161208/148117981591.jpg"
+      }
+    ]
+  },
+  {
+    cateId: 2,
+    cateName: "彩妆",
+    ishaveChild: true,
+    children:
+    [
+      {
+        childId: 1,
+        name: '气垫bb',
+        image: "http://mz.djmall.xmisp.cn/files/logo/20161212/14815381301.jpg"
+      },
+      {
+        childId: 2,
+        name: '修容/高光',
+        image: "http://mz.djmall.xmisp.cn/files/logo/20161212/14815381411.jpg"
+      },
+      {
+        childId: 3,
+        name: '遮瑕',
+        image: "http://mz.djmall.xmisp.cn/files/logo/20161212/148153815181.jpg"
+      },
+      {
+        childId: 4,
+        name: '腮红',
+        image: "http://mz.djmall.xmisp.cn/files/logo/20161212/148153815759.jpg"
+      },
+      {
+        childId: 5,
+        name: '粉饼',
+        image: "http://mz.djmall.xmisp.cn/files/logo/20161212/148153816983.jpg"
+      },
+      {
+        childId: 6,
+        name: '粉底',
+        image: "http://mz.djmall.xmisp.cn/files/logo/20161212/148153817721.jpg"
+      },
+      {
+        childId: 7,
+        name: '蜜粉/散粉',
+        image: "http://mz.djmall.xmisp.cn/files/logo/20161212/148153819354.jpg"
+      },
+      {
+        childId: 8,
+        name: '隔离霜',
+        image: "http://mz.djmall.xmisp.cn/files/logo/20161215/148179053369.jpg"
+      }
+    ]
+  },
+  {
+    cateId: 3,
+    cateName: "香水/香氛",
+    ishaveChild: true,
+    children:
+    [
+      {
+        childId: 1,
+        name: '淡香水EDT',
+        image: "http://mz.djmall.xmisp.cn/files/logo/20161213/14815978910.jpg"
+      },
+      {
+        childId: 2,
+        name: '浓香水EDP',
+        image: "http://mz.djmall.xmisp.cn/files/logo/20161213/148159789883.jpg"
+      },
+      {
+        childId: 3,
+        name: '香体走珠',
+        image: "http://mz.djmall.xmisp.cn/files/logo/20161213/14815979307.jpg"
+      },
+      {
+        childId: 4,
+        name: '古龙香水男士的最爱',
+        image: "http://mz.djmall.xmisp.cn/files/logo/20161213/148159765589.jpg"
+      }
+    ]
+  },
+  {
+    cateId: 4,
+    cateName: "个人护理",
+    ishaveChild: false,
+    children: []
+  }
+];
 
 
 module.exports = {
   menuList: menulist,
   goodsItem: goodsitem,
   bannerList: bannerList,
+  categoryData: categoryData,
   ticketData: ticketData,
   storeList: storeList,
   followData:followData,

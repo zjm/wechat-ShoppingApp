@@ -10,10 +10,10 @@
     "pages/orderlist/orderlist",    
     "pages/location/location",
     "pages/search/search",
+    "pages/result/result",
     "pages/point/point",
     "pages/follow/follow",
     "pages/wallet/wallet"    
-    
     
   ],
   "window": {

@@ -5,22 +5,22 @@
   <!--左侧栏-->
 
 
-  <scroll-view class="nav_left" scroll-y="true" style="height:{{windowHeight}}px;">
-    <block wx:for="{{cateItems}}">
+  <scroll-view class="nav-left" scroll-y="true" style="height:{{windowHeight}}px;">
+    <block wx:for="{{cateItems}}" wx:key="key">
       <!--当前项的id等于item项的id，那个就是当前状态-->
       <!--用data-index记录这个数据在数组的下标位置，使用data-id设置每个item的id值，供打开2级页面使用-->
-      <view class="nav_left_items {{curNav == item.cate_id ? 'active' : ''}}" bindtap="switchRightTab" data-index="{{index}}" data-id="{{item.cate_id}}">{{item.cate_name}}</view>
+      <view class="nav-left-items {{curNav == item.cateId ? 'active' : ''}}" bindtap="switchRightTab" data-index="{{index}}" data-id="{{item.cateId}}">{{item.cateName}}</view>
     </block>
   </scroll-view>
   <!--右侧栏-->
   
-    <scroll-view  class="nav_right" scroll-y="true" style="height:{{windowHeight}}px;">
+    <scroll-view  class="nav-right" scroll-y="true" style="height:{{windowHeight}}px;">
       <!--如果有数据，才遍历项-->
-      <view wx:if="{{cateItems[curIndex].ishaveChild}}">
-        <block wx:for="{{cateItems[curIndex].children}}">
-          <view class="nav_right_items">
+      <view wx:if="{{cateItems[curIndex].children.length>0}}">
+        <block wx:for="{{cateItems[curIndex].children}}" wx:key="key">
+          <view class="nav-right-items">
             <!--界面跳转 -->
-            <navigator url="../../detail/detail}}">
+            <navigator url="../detail/detail?id={{cateItems[curIndex].children[index].childId}}">
               <image src="{{item.image}}"></image>
               <text>{{item.name}}</text>
             </navigator>
@@ -28,7 +28,7 @@
         </block>
       </view>
       <!--如果无数据，则显示数据-->
-      <view class="nodata_text" wx:else>该分类暂无数据</view>
+      <view class="nodata-text" wx:else>该分类暂无数据</view>
 
     </scroll-view>
 </view>

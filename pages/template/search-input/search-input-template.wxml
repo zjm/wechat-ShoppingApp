@@ -1,0 +1,14 @@
+<template name="searchInputTemplate">
+  <view class="weui-search-bar">
+    <view class="weui-search-bar__form">
+      <view class="weui-search-bar__box">
+        <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+        <input type="text" confirm-type="search" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" auto-focus bindinput="inputTyping" bindtap="searchLogShowed" bindconfirm="searchBtn" disabled="{{isDisabled}}" />
+        <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+          <icon type="clear" size="14"></icon>
+        </view>
+      </view>
+    </view>
+    <view class="weui-search-bar__cancel-btn" bindtap="searchData">搜索</view>
+  </view>
+</template>

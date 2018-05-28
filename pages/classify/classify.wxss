@@ -10,14 +10,14 @@ page{
   flex-direction: row;
 }
  /*左侧栏*/  
-.nav_left{  
+.nav-left{  
   width: 200rpx;
   background: #f5f5f5;  
   text-align: center;  
   height: 1080rpx; 
 }  
 /*左侧栏item*/  
-.nav_left .nav_left_items{  
+.nav-left .nav-left-items{  
   height: 100rpx;   
   line-height: 100rpx;  
   width: 200rpx;
@@ -28,12 +28,12 @@ page{
   font-size: 30rpx; 
 }  
 /*左侧栏list的item被选中时*/  
-.nav_left .nav_left_items.active{    
+.nav-left .nav-left-items.active{    
   background: #fff;  
   color: #f0145a; 
 }  
 /*右侧栏*/  
-.nav_right{  
+.nav-right{  
 
   height: 1080rpx; 
   flex: 1;
@@ -42,16 +42,16 @@ page{
   background: #fff;  
 }  
 /*右侧栏list的item*/  
-.nav_right .nav_right_items{  
+.nav-right .nav-right-items{  
   height: 120px;  
   text-align: center;  
 }  
-.nav_right .nav_right_items image{  
+.nav-right .nav-right-items image{  
   width: 60px;  
   height: 60px;  
   margin-top: 15px;  
 }  
-.nav_right .nav_right_items text{  
+.nav-right .nav-right-items text{  
   /*给text设成块级元素*/  
   display: block;  
   margin-top: 15px;  
@@ -61,7 +61,7 @@ page{
   white-space: nowrap;  
   text-overflow: ellipsis;  
 } 
-.nodata_text{
+.nodata-text{
   color: black;
   font-size: 28rpx;  
   text-align: center;  
