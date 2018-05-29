@@ -67,56 +67,19 @@ Page(Object.assign({}, Quantity, {
     })
   },
 
+// 隐藏层滑入
   showLayer: function () {
-
-    // 显示遮罩层  
-    var animation = wx.createAnimation({
-      duration: 200,
-      timingFunction: "ease-out",
-      delay: 0
-    })
-    this.animation = animation
-    animation.translateY(300).step()
-    this.setData({
-      animationData: animation.export(),
-      isShow: true,
-      // 禁止背景滚动
-      clientHeight: "100%",
-      overflow: "hidden"
-    })
-    setTimeout(function () {
-      animation.translateY(0).step()
-      this.setData({
-        animationData: animation.export()
-      })
-    }.bind(this), 50)
-
-
+    var that = this;
+    utils.showLayer(that, "translateY", 300,0);
   },
 
+// 隐藏层滑出
   hideLayer: function () {
-    // 隐藏遮罩层  
-    var animation = wx.createAnimation({
-      duration: 200,
-      timingFunction: "linear",
-      delay: 0
-    })
-    this.animation = animation
-    animation.translateY(300).step()
-    this.setData({
-      animationData: animation.export(),
-    })
-    setTimeout(function () {
-      animation.translateY(0).step()
-      this.setData({
-        animationData: animation.export(),
-        isShow: false,
-        // 恢复背景滚动
-        clientHeight: "100%",
-        overflow: "auto"
-      })
-    }.bind(this), 200)
+    var that = this;
+    utils.hideLayer(that, "translateY", 500);
   },
+
+
   buyTap: function (event) {
     // 根据按钮不同区分“下一步”触发的事件
     var name = event.target.dataset.name;
@@ -164,7 +127,7 @@ Page(Object.assign({}, Quantity, {
     // }
 
     var cartData = [];
-    var detailArr = { num: num, price: price, id: id, title: title, img: img, active: true };
+    var detailArr = { num: num, price: price, id: id, title: title, coverImg: img, active: true };
     var oldCartData = [];
     oldCartData = wx.getStorageSync('cartData');
     // 如果缓存没有购物车数据，新建，已存在时，把新数据push到旧数据
@@ -232,7 +195,7 @@ Page(Object.assign({}, Quantity, {
     //   return false;
     // }
     var detailArr = [];
-    detailArr = { num: num, price: price, id: id,title: title, img: img };
+    detailArr = { num: num, price: price, id: id, title: title, coverImg: img };
     var orderData = [];
     orderData.push(detailArr);
     // 保存在缓存中

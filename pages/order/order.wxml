@@ -1,4 +1,5 @@
 <!--pages/order/order.wxml-->
+<wxs module="filters" src="../../src/toFixed.wxs"></wxs>
 <import src="../template/goods-item-row/goods-item-row-template" />  
 <view style="height:{{clientHeight}};overflow:{{overflow}};">
   <form bindsubmit="placeOrder">
@@ -141,7 +142,7 @@
     <view class="footer">
       <view class="footer-row {{showCart?'':'bdt'}}">
         <view class="box-cart">合计：
-          <text>￥{{totalMoney}}</text>
+          <text>￥{{filters.toFix(totalMoney)}}</text>
         </view>
         <button class="box-right" formType="submit">
           提交订单

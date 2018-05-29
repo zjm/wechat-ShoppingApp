@@ -1,7 +1,7 @@
 .goods-item-container {
   display: flex;
   flex-direction: column;
-  margin: 0 11.5rpx;
+  /* margin: 0 11.5rpx; */
   background-color: #fefefe;
   box-shadow: 6rpx 6rpx 10rpx #C1C1C1;
 }

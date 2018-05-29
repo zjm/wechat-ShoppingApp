@@ -132,14 +132,12 @@
 
   <view class="goods-title">{{isTitle?goodsTitle:"实景案例"}}</view>
 
-  <view class="goods-container clearfix">
+  <view class="goods-container">
     <block wx:for="{{goodsItem}}" wx:for-item="goods" wx:key="key">
       <view class="single-view-container">
         <template is="goodsItemTemplate" data="{{...goods}}" />
       </view>
     </block>
-
-
   </view>
 
 

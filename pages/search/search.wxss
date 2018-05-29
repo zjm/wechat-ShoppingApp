@@ -20,7 +20,10 @@
   padding: 0 20rpx;
 }
 
+.weui-search-bar__cancel-btn view{
+  font-size:30rpx;
 
+}
 
 .weui-panel__hd::after {
   border-bottom: none;

@@ -1,4 +1,8 @@
 // pages/result/result.js
+var listData = require('../../data/test-data.js');
+var utils = require("../../utils/util.js")
+var app = getApp();
+
 Page({
 
   /**
@@ -121,7 +125,16 @@ Page({
     characteristicSelected: [false, false, false, false, false, false, false],
     discountSelected: null,
     selectedNumb: 0,
-    sortSelected: "综合排序"
+    sortSelected: "综合排序",
+    isShow: false,
+    clientHeight: "100%",
+    overflow: "auto",
+    inpData: {
+      inputVal: "", // 搜索的内容
+      isDisabled: true,
+      isSwitch: false  //模板内的isSwitch
+    },
+    isSwitch: false //本页面内的isSwitch
   },
   finish: function () {
     var that = this;
@@ -202,11 +215,51 @@ Page({
       mask2Hidden: false
     })
   },
+
+  // 隐藏层滑入
+  showLayer: function () {
+    var that = this;
+    utils.showLayer(that, "translateX", 500, 75);
+  },
+
+  // 隐藏层滑出
+  hideLayer: function () {
+    var that = this;
+    utils.hideLayer(that, "translateX", 500);
+  },
+
+  // 列表展示切换
+  switchTap: function(){
+    var isSwitch = this.data.isSwitch;
+    isSwitch = !isSwitch;
+    this.setData({
+      isSwitch: isSwitch,
+      inpData: {
+        isSwitch: isSwitch,
+        isDisabled: true
+      }
+    })
+  },
+
+
+
+
+
+
+
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var value = options.value;
+      this.setData({
+        goodsItem: listData.goodsItem,
+        inpData: {
+          inputVal: value,
+          isDisabled: true
+        }
+      })
   },
 
   /**

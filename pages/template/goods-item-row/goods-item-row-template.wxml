@@ -1,7 +1,7 @@
 
 <template name="goodsItemRowTemplate">
     <view class="goods-item" data-id="{{id}}">
-        <image src="{{img}}" class="item-img" />
+        <image src="{{coverImg}}" class="item-img" />
         <view class="item">
           <view class="item-title">型号：{{title}}</view>
           <view class="item-text" wx:if="{{telnum}}">{{telnum}}</view>          

@@ -1,25 +1,76 @@
 <!--pages/result/result.wxml-->
 <import src="../template/search-input/search-input-template" />
+<import src="../template/goods-item/goods-item-template" />
+<import src="../template/goods-item-row/goods-item-row-template" />
 
-<view class="header">
-  <template is="searchInputTemplate" data="{{...inpData}}" />
-  <view class="sort-list">
-    <view class="sort" bindtap="onOverallTag">{{sortSelected}}
-      <text class="iconfont icon-xiangxiazhankai" style="width:20rpx;height:20rpx;"></text>
-    </view>
-    <view data-index="0" bindtap="onTapTag" class="sort {{selected == 0?'sort-active':''}}">
-      销量最高
-    </view>
-    <view data-index="1" bindtap="onTapTag" class="sort {{selected == 1?'sort-active':''}}">
-      距离最近
-    </view>
-    <view class="sort" bindtap="onFilter">筛选
-      <text class="iconfont icon-shaixuanguolv" style="width:22rpx;height:22rpx;"></text>
+<view  style="height:{{clientHeight}};overflow:{{overflow}};">
+
+  <view class="header">
+    <template is="searchInputTemplate" data="{{...inpData}}" />
+    <view class="sort-list">
+      <view class="sort" bindtap="onOverallTag">{{sortSelected}}
+        <text class="iconfont icon-xiangxiazhankai" style="width:20rpx;height:20rpx;"></text>
+      </view>
+      <view data-index="0" bindtap="onTapTag" class="sort {{selected == 0?'sort-active':''}}">
+        销量最高
+      </view>
+      <view data-index="1" bindtap="onTapTag" class="sort {{selected == 1?'sort-active':''}}">
+        距离最近
+      </view>
+      <view class="sort" bindtap="showLayer">筛选
+        <text class="iconfont icon-shaixuanguolv" style="width:22rpx;height:22rpx;"></text>
+      </view>
     </view>
   </view>
+
+
+  <view class="goods-container">
+    <block wx:for="{{goodsItem}}" wx:for-item="goods" wx:key="key">
+      <view class="single-view-container">
+        <template wx:if="{{!isSwitch}}" is="goodsItemTemplate" data="{{...goods}}" />
+        <template wx:if="{{isSwitch}}" is="goodsItemRowTemplate" data="{{...goods}}" />
+        
+      </view>
+    </block>
+  </view>
+
+  <!--弹出框-->
+  <view class="mask" bindtap="hideLayer" wx:if="{{isShow}}"></view>
+  <view animation="{{animationData}}" class="hidden-layer " wx:if="{{isShow}}">
+    <view class="filterList">
+      <view class="filterList-characteristic-title">类型</view>
+      <view class="filterList-characteristic-items">
+        <block wx:for="{{characteristicList}}" wx:key="">
+          <view class="filterList-characteristic-item {{characteristicSelected[index]==true?'characteristic-selected':''}}" catchtap="characteristicSelected" data-index="{{index}}">{{item.text}}</view>
+        </block>
+      </view>
+      <view class="filterList-discount-title">分类</view>
+      <view class="filterList-discount-items">
+        <block wx:for="{{discountList}}" wx:key="">
+          <view class="filterList-discount-item {{discountSelected==index?'discount-selected':''}}" catchtap="discountSelected" data-index="{{index}}">
+            <text class="filterList-discount-item-icon" style="background:{{item.iconColor}}">{{item.icon}}</text> {{item.text}}
+          </view>
+        </block>
+      </view>
+    </view>
+    <view class="filterList-footer">
+      <view class="filterList-footer-delect" catchtap="clearSelectedNumb">重置</view>
+      <view class="filterList-footer-finish" bindtap="finish">确定
+        <view class="filterList-footer-finish-number" hidden="{{selectedNumb==0}}">{{selectedNumb}}
+        </view>
+      </view>
+    </view>
+  </view>
+
+
+
+
+
 </view>
 
-<view class="mask" hidden="{{mask1Hidden}}" bindtap="mask1Cancel">
+
+
+<!-- <view class="mask" hidden="{{mask1Hidden}}" bindtap="mask1Cancel">
   <view class="sort-list">
     <view class="sort" bindtap="onOverallTag">{{sortSelected}}
       <text class="iconfont icon-xiangxiazhankai" style="width:20rpx;height:20rpx;"></text>
@@ -78,4 +129,4 @@
       </view>
     </view>
   </view>
-</view>
+</view> -->

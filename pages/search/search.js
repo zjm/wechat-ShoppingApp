@@ -12,7 +12,7 @@ Page({
       isDisabled: false
     },
     // inputVal: "321",
-    isShowHot: true,
+    isShowHot: true
     
 
   },
@@ -85,6 +85,7 @@ Page({
   // 点击叉叉icon 清除输入内容  
   clearInput: function () {
     var that = this;
+    searchTitle = "";
     that.setData({
       inpData: {
         inputVal: ""

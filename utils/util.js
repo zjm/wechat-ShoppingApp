@@ -50,10 +50,69 @@ function cartNum(){
   })
 }
 
+function showLayer(that,attr,start,end) {
+  // 隐藏层滑入  
+  // that --  动画作用对象
+  // attr --  动画属性 主要做位移动画
+  // start -- 初始位置
+  // end --  结束位置
+  var animation = wx.createAnimation({
+    duration: 200,
+    timingFunction: "ease-out",
+    delay: 0
+  })
+  that.animation = animation
+
+  // 动画创建时元素的初始位置，translate Y轴正数代表下移距离，0代表元素底边刚好与屏幕底边重合
+  animation[attr](start).step()
+  that.setData({
+    animationData: animation.export(),
+    isShow: true,
+    // 禁止背景滚动
+    clientHeight: "100%",
+    overflow: "hidden"
+  })
+  // 隐藏层第二步动画,从初始位置移动到指定位置
+  setTimeout(function () {
+    animation[attr](end).step()
+    that.setData({
+      animationData: animation.export()
+    })
+  }.bind(that),100)
+}
+
+function hideLayer(that, attr, start) {
+  // 隐藏层滑出
+  var animation = wx.createAnimation({
+    duration: 200,
+    timingFunction: "linear",
+    delay: 0
+  })
+  that.animation = animation
+
+  // 滑出时，start的位置就是目标位置
+  animation[attr](start).step()
+  that.setData({
+    animationData: animation.export(),
+  })
+  setTimeout(function () {
+    // animation[attr](end).step()
+    that.setData({
+      animationData: animation.export(),
+      isShow: false,
+      // 恢复背景滚动
+      clientHeight: "100%",
+      overflow: "auto"
+    })
+  }.bind(that), 200)
+}
+
 
 module.exports = {
   formatTime: formatTime,
   showTip: showTip,
   showModal: showModal,
-  cartNum: cartNum
+  cartNum: cartNum,
+  showLayer: showLayer,
+  hideLayer: hideLayer
 }

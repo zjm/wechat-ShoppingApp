@@ -17,6 +17,7 @@ Page({
     showAddr: false,
     showAddAddr: true,
     totalMoney: 0,   // 合计金额
+    sumMoney:0,
     date: "",
 
     // 发票信息 
@@ -72,7 +73,7 @@ Page({
           total += res.data[i].num * res.data[i].price;
         }
         that.setData({
-          totalMoney: total.toFixed(2),
+          totalMoney: total,
           detail: res.data
         })
 
@@ -272,51 +273,15 @@ Page({
 
 
   showLayer: function () {
-    // 显示遮罩层  
-    var animation = wx.createAnimation({
-      duration: 200,
-      timingFunction: "ease-out",
-      delay: 0
-    })
-    this.animation = animation
-    animation.translateY(300).step()
-    this.setData({
-      animationData: animation.export(),
-      isShow: true,
-      // 禁止背景滚动
-      clientHeight: "100%",
-      overflow: "hidden"
-    })
-    setTimeout(function () {
-      animation.translateY(0).step()
-      this.setData({
-        animationData: animation.export()
-      })
-    }.bind(this), 50)
+    // 隐藏层滑入
+    var that = this;
+    utils.showLayer(that, "translateY", 300, 0);
   },
 
   hideLayer: function () {
-    // 隐藏遮罩层  
-    var animation = wx.createAnimation({
-      duration: 200,
-      timingFunction: "linear",
-      delay: 0
-    })
-    this.animation = animation
-    animation.translateY(300).step()
-    this.setData({
-      animationData: animation.export(),
-    })
-    setTimeout(function () {
-      animation.translateY(0).step()
-      this.setData({
-        animationData: animation.export(),
-        isShow: false,
-        // 恢复背景滚动
-        clientHeight: "100%",
-        overflow: "auto"
-      })
-    }.bind(this), 200)
+    // 隐藏层滑出  
+    var that = this;
+    utils.hideLayer(that, "translateY", 300);
   },
 
 

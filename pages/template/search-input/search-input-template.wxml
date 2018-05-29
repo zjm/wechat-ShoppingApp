@@ -9,6 +9,9 @@
         </view>
       </view>
     </view>
-    <view class="weui-search-bar__cancel-btn" bindtap="searchData">搜索</view>
+    <view class="weui-search-bar__cancel-btn">
+      <view wx:if="{{!isDisabled}}" bindtap="searchData">搜索</view>
+      <text wx:if="{{isDisabled}}" class="iconfont  {{isSwitch?'icon-yingyongchengxu':'icon-liebiao'}}" bindtap="switchTap"></text>
+    </view>
   </view>
 </template>
