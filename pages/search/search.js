@@ -9,7 +9,8 @@ Page({
     searchLogList: [], // 存储搜索历史记录信息  
     inpData: {
       inputVal: "", // 搜索的内容
-      isDisabled: false
+      isDisabled: false,
+      isFocus: true
     },
     // inputVal: "321",
     isShowHot: true
@@ -25,6 +26,12 @@ Page({
   onShow: function () {
     // 页面显示  
     this.searchLogShowed();
+    // this.setData({
+    //   inpData: {
+    //     inputVal: searchTitle, // 搜索的内容
+    //     isFocus: true
+    //   },
+    // })
   },
 
 
@@ -77,6 +84,7 @@ Page({
     console.log("搜索事件" + searchTitle)
   },
 
+// 键盘搜索按钮点击事件
   searchBtn: function (e) {
     console.log('发生了键盘搜索事件，携带数据为：', e.detail.value)
     this.searchData();
@@ -99,7 +107,9 @@ Page({
     // 如果不做这个if判断，会导致 searchLogList 的数据类型由 list 变为 字符串  
     if ("" != wx.getStorageSync('searchLog')) {
       that.setData({
-        inputVal: e.detail.value,
+        inpData: {
+          inputVal: e.detail.value
+        },
         searchLogList: wx.getStorageSync('searchLog')
       });
     }
@@ -146,6 +156,12 @@ Page({
   },
   onHide: function () {
     // 页面隐藏  
+    // this.setData({
+    //   inpData: {
+    //     inputVal: searchTitle, // 搜索的内容
+    //     isFocus: false
+    //   },
+    // })
   },
   onUnload: function () {
     // 页面关闭  

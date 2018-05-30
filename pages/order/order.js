@@ -284,6 +284,9 @@ Page({
     utils.hideLayer(that, "translateY", 300);
   },
 
+  // preventMove: function () {
+  //   // 利用catchtouchmove阻止背景滚动 不用添加任何代码
+  // },
 
   placeOrder: function (event) {
     if (this.data.showAddAddr) {

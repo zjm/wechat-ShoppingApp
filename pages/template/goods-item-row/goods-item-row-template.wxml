@@ -4,8 +4,9 @@
         <image src="{{coverImg}}" class="item-img" />
         <view class="item">
           <view class="item-title">型号：{{title}}</view>
-          <view class="item-text" wx:if="{{telnum}}">{{telnum}}</view>          
-          <view class="item-total">￥{{price}} * {{num}}</view>
+          <text class="item-costprice" wx:if="{{costprice}}">￥{{costprice}}</text>
+          <!-- <view class="item-text" wx:if="{{telnum}}">{{telnum}}</view>           -->
+          <view class="item-total">￥{{price}} {{num?'*':num}} {{num}}</view>
         </view>
       </view>
 </template>

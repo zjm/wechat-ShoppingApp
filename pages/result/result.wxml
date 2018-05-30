@@ -2,25 +2,33 @@
 <import src="../template/search-input/search-input-template" />
 <import src="../template/goods-item/goods-item-template" />
 <import src="../template/goods-item-row/goods-item-row-template" />
-
-<view  style="height:{{clientHeight}};overflow:{{overflow}};">
+<!-- style="height:{{clientHeight}};overflow:{{overflow}};" -->
+<view >
 
   <view class="header">
     <template is="searchInputTemplate" data="{{...inpData}}" />
-    <view class="sort-list">
-      <view class="sort" bindtap="onOverallTag">{{sortSelected}}
+    <view class="sort-list  {{scrollTop>50 ? 'fixed':''}}" >
+      <view data-index="0" class="sort {{selected == 0?'sort-active':''}}" bindtap="onOverallTag">{{sortSelected}}
         <text class="iconfont icon-xiangxiazhankai" style="width:20rpx;height:20rpx;"></text>
       </view>
-      <view data-index="0" bindtap="onTapTag" class="sort {{selected == 0?'sort-active':''}}">
+      <view data-index="1" bindtap="onTapTag" class="sort {{selected == 1?'sort-active':''}}">
         销量最高
       </view>
-      <view data-index="1" bindtap="onTapTag" class="sort {{selected == 1?'sort-active':''}}">
+      <view data-index="2" bindtap="onTapTag" class="sort {{selected == 2?'sort-active':''}}">
         距离最近
       </view>
       <view class="sort" bindtap="showLayer">筛选
         <text class="iconfont icon-shaixuanguolv" style="width:22rpx;height:22rpx;"></text>
       </view>
     </view>
+    <!--排序弹出框  -->
+  <view class="hidden-layer2 " wx:if="{{isShow2}}" catchtouchmove="preventMove">
+    <view class="overall-sort-list">
+      <block wx:for="{{sortList}}" wx:key="">
+        <view class="overall-sort {{active == index?'sort-active':''}}" data-index="{{index}}" bindtap="sortSelected">{{item.sort}}</view>
+      </block>
+    </view>
+  </view>
   </view>
 
 
@@ -29,14 +37,19 @@
       <view class="single-view-container">
         <template wx:if="{{!isSwitch}}" is="goodsItemTemplate" data="{{...goods}}" />
         <template wx:if="{{isSwitch}}" is="goodsItemRowTemplate" data="{{...goods}}" />
-        
+
       </view>
     </block>
   </view>
 
-  <!--弹出框-->
-  <view class="mask" bindtap="hideLayer" wx:if="{{isShow}}"></view>
-  <view animation="{{animationData}}" class="hidden-layer " wx:if="{{isShow}}">
+
+  
+
+
+
+  <!--筛选弹出框-->
+  <view class="mask" bindtap="hideLayer" wx:if="{{isShow||isShow2}}" catchtouchmove="preventMove"></view>
+  <view animation="{{animationData}}" class="hidden-layer " wx:if="{{isShow}}" catchtouchmove="preventMove">
     <view class="filterList">
       <view class="filterList-characteristic-title">类型</view>
       <view class="filterList-characteristic-items">

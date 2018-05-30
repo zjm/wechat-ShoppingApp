@@ -117,9 +117,9 @@ Page({
         src: "/pages/images/8.png"
       }]
     },
-    selected: 0,
-    mask1Hidden: true,
-    mask2Hidden: true,
+    selected: 0, //菜单item选中
+    active:0, //下拉菜单item选中
+    scrollTop:0, //滚动条滚动距离
     animationData: "",
     location: "",
     characteristicSelected: [false, false, false, false, false, false, false],
@@ -127,7 +127,7 @@ Page({
     selectedNumb: 0,
     sortSelected: "综合排序",
     isShow: false,
-    clientHeight: "100%",
+    clientHeight: "auto",
     overflow: "auto",
     inpData: {
       inputVal: "", // 搜索的内容
@@ -148,19 +148,7 @@ Page({
       }
     });
   },
-  sortSelected: function (e) {
-    var that = this;
-    wx.request({
-      url: "https://www.easy-mock.com/mock/596257bc9adc231f357c4664/restaurant/overAll",
-      method: "GET",
-      success: function (res) {
-        that.setData({
-          restaurant: res.data.data.restaurant,
-          sortSelected: that.data.sortList[e.currentTarget.dataset.index].sort
-        })
-      }
-    });
-  },
+  
   clearSelectedNumb: function () {
     this.setData({
       characteristicSelected: [false],
@@ -205,15 +193,45 @@ Page({
       mask2Hidden: true
     })
   },
-  onOverallTag: function () {
+
+// 排序下拉菜单显示
+  onOverallTag: function (e) {
     this.setData({
-      mask1Hidden: false
+      selected: e.currentTarget.dataset.index,
+      isShow2: true,
+      // 禁止背景滚动
+      clientHeight: "100%",
+      overflow: "hidden"
     })
   },
-  onFilter: function () {
+  // 下拉菜单子项选中
+  sortSelected: function (e) {
+    var that = this;
+    var active = e.currentTarget.dataset.index;
+    // wx.request({
+    //   url: "https://www.easy-mock.com/mock/596257bc9adc231f357c4664/restaurant/overAll",
+    //   method: "GET",
+    //   success: function (res) {
+        that.setData({
+          // restaurant: res.data.data.restaurant,
+          isShow2: false,
+          sortSelected: that.data.sortList[e.currentTarget.dataset.index].sort,
+          active: active
+    //     })
+    //   }
+    });
+  },
+  
+  // 滚动到一定位置
+  onPageScroll: function (res) {
     this.setData({
-      mask2Hidden: false
+      scrollTop: res.scrollTop
     })
+    console.log(res.scrollTop)
+  },
+  preventMove:function(){
+// 利用catchtouchmove阻止背景滚动 不用添加任何代码
+// 只适合模态层不需要滚动的场景
   },
 
   // 隐藏层滑入
@@ -226,6 +244,10 @@ Page({
   hideLayer: function () {
     var that = this;
     utils.hideLayer(that, "translateX", 500);
+
+    this.setData({
+      isShow2:false
+    })
   },
 
   // 列表展示切换
@@ -240,9 +262,24 @@ Page({
       }
     })
   },
+// 结果页的该函数是返回搜索页面
+  searchLogShowed: function(e){
+    var value = e.detail.value;
+    wx.navigateBack({
+      delta:1
+    })
+    // wx.redirectTo({
+    //   url: '../search/search?value=' + value
+    // })
+  },
 
-
-
+  // 商品点击
+  goodsItemTap: function (event) {
+    var goodsId = event.currentTarget.dataset.goodsId;
+    wx.navigateTo({
+      url: "../detail/detail?id=" + goodsId
+    })
+  },
 
 
 

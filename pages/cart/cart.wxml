@@ -25,7 +25,7 @@
         <view class="goods-info">
         <view class="iconfont {{item.active? 'icon-zhengquewancheng-yuankuang':'icon-Raidobox-weixuan'}}"></view>
           <view class="img-box">
-            <image src="{{item.img}}" class="img" />
+            <image src="{{item.coverImg}}" class="img" />
           </view>
           <view class="text-box">
             <view class="goods-title">{{item.title}}</view>

@@ -22,82 +22,24 @@
 
   <swiper class="has-header" catchtap="onSwiperTap" vertical="{{false}}" indicator-dots="true" autoplay="true" interval="5000">
     <block wx:for="{{bannerList}}" wx:for-item="listItem" wx:for-index="listIndex" wx:key="key">
-        <swiper-item>
-          <image src="{{listItem.imgSrc}}" data-num="{{listItem.id}}" mode="widthFix"></image>
-        </swiper-item>
+      <swiper-item>
+        <image src="{{listItem.imgSrc}}" data-num="{{listItem.id}}" mode="widthFix"></image>
+      </swiper-item>
     </block>
   </swiper>
 
-  <view class="index-menu">
-    <view class="index-menu-row">
+  <view class="index-menu" wx:if="navList">
+    <block wx:for="{{navList}}"  wx:key="key">
       <view class="index-menu-a">
         <view>
-          <image src="http://www.qcrj.shop/fileSystem/langzi/article/20171108/fe5dd252-6c64-472b-9a14-0cc5353c7514.png"></image>
+          <image src="{{item.iconSrc}}"></image>
         </view>
         <view>
-          <text>菜单一</text>
+          <text>{{item.navName}}</text>
         </view>
       </view>
-      <view class="index-menu-a">
-        <view>
-          <image src="http://www.qcrj.shop/fileSystem/langzi/article/20171108/fe5dd252-6c64-472b-9a14-0cc5353c7514.png"></image>
-        </view>
-        <view>
-          <text>菜单一</text>
-        </view>
-      </view>
-      <view class="index-menu-a">
-        <view>
-          <image src="http://www.qcrj.shop/fileSystem/langzi/article/20171108/fe5dd252-6c64-472b-9a14-0cc5353c7514.png"></image>
-        </view>
-        <view>
-          <text>菜单一</text>
-        </view>
-      </view>
-      <view class="index-menu-a">
-        <view>
-          <image src="http://www.qcrj.shop/fileSystem/langzi/article/20171108/fe5dd252-6c64-472b-9a14-0cc5353c7514.png"></image>
-        </view>
-        <view>
-          <text>菜单一</text>
-        </view>
-      </view>
-    </view>
-    <view class="index-menu-row">
-      <view class="index-menu-a">
-        <view>
-          <image src="http://www.qcrj.shop/fileSystem/langzi/article/20171108/00025066-8477-4a65-8370-0b5f280741c0.png"></image>
-        </view>
-        <view>
-          <text>菜单五</text>
-        </view>
-      </view>
-      <view class="index-menu-a">
-        <view>
-          <image src="http://www.qcrj.shop/fileSystem/langzi/article/20171108/00025066-8477-4a65-8370-0b5f280741c0.png"></image>
-        </view>
-        <view>
-          <text>菜单五</text>
-        </view>
-      </view>
-      <view class="index-menu-a">
-        <view>
-          <image src="http://www.qcrj.shop/fileSystem/langzi/article/20171108/00025066-8477-4a65-8370-0b5f280741c0.png"></image>
-        </view>
-        <view>
-          <text>菜单五</text>
-        </view>
-      </view>
-      <view class="index-menu-a">
-        <view>
-          <image src="http://www.qcrj.shop/fileSystem/langzi/article/20171108/00025066-8477-4a65-8370-0b5f280741c0.png"></image>
-        </view>
-        <view>
-          <text>菜单五</text>
-        </view>
-      </view>
+    </block>
 
-    </view>
   </view>
 
 

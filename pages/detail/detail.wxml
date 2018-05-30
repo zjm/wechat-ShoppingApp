@@ -73,7 +73,7 @@
   </view>
 
   <!--弹出框-->
-  <view class="mask" bindtap="hideLayer" wx:if="{{isShow}}"></view>
+  <view class="mask" bindtap="hideLayer" wx:if="{{isShow}}" ></view>
   <view animation="{{animationData}}" class="hidden-layer " wx:if="{{isShow}}">
     <!--对话框标题-->
     <view class="goods-layer">

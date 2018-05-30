@@ -113,7 +113,8 @@
               </view>
             </label>
 
-            <label class="ticket-row" wx:for="{{ticketData}}" wx:for-item="ticketItem" wx:key="{{index}}" wx:for-index="ticketIndex" data-id="{{ticketItem.id}}"   >
+            <!-- 如果不满足条件 优惠券不显示  -->
+            <label class="ticket-row" wx:for="{{ticketData}}" wx:for-item="ticketItem" wx:key="{{index}}" wx:for-index="ticketIndex" data-id="{{ticketItem.id}}"  wx:if="{{totalMoney>ticketItem.goal}}"  >
               
                 <view class="ticket-row-txt">
                   <view class="ticket-name no-wrap {{totalMoney>ticketItem.goal? '':'disabled'}}">{{ticketItem.name}}{{totalMoney>ticketItem.goal? '':'(不可使用)'}}</view>

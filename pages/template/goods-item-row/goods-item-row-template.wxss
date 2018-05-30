@@ -33,4 +33,8 @@
   color: #f23232;
   font-size: 28rpx;
 }
-
+.item-costprice{
+  font-size: 22rpx;
+  color: #c1c1c1;
+  text-decoration: line-through;
+}

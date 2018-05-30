@@ -26,6 +26,7 @@ Page({
       timingFunction: 'ease',
     });
     this.setData({
+      navList: listData.navList,
       menuList: listData.menuList,
       goodsItem: listData.goodsItem,
       bannerList: listData.bannerList

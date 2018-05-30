@@ -1,8 +1,8 @@
 /* pages/detail/detail.wxss */
 @import "../template/cart-input/cart-input-template.wxss";
-page {
+ page {
   height: 100%;
-}
+} 
 
 
  swiper {
