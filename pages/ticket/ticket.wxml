@@ -1,0 +1,189 @@
+<!--pages/ticket/ticket.wxml-->
+<import src="../template/tab-list/tab-list-template" />
+<import src="../template/no-more/no-more-template" />
+
+<view class="has-footer">
+  <template is="tabListTemplate" data="{{selected,navlist}}" />
+
+  <view class="item-container" wx:for="{{conlist}}" wx:key="key" wx:for-item="classify" wx:if="{{selected==index}}">
+    <view wx:if="{{classify==''}}">
+      暂无
+    </view>
+
+    <view class="{{statusClass[selected]}}  my-ticket-tab" wx:for="{{classify}}" wx:key="{{item.id}}">
+
+      <view class="wal-content">
+        <view class="wal-content-ticket">
+          <view class="wal-content-ticket-left ticket">
+            <text class="status-info" wx:if="{{item.status}}">{{item.status}}</text>
+            <view class="ticket-left-money">
+              <text>￥</text>
+              <text class="ticket-amount">{{item.off}}</text>
+            </view>
+            <view class="ticket-left-m">
+              <text>{{item.name}}</text>
+            </view>
+          </view>
+
+          <view class="wal-content-ticket-center ticket">
+            <view class="ticket-center-info">
+              <text>使用范围：全品类</text>
+            </view>
+            <view class="ticket-center-info2">
+              <text>{{item.startDate}}-{{item.endDate}}</text>
+            </view>
+          </view>
+
+          <view class="wal-content-ticket-right ticket">
+            <view class="ticket-right-btn"  wx:if="{{item.status=='未使用'}}">
+              <text>立即使用</text>
+            </view>
+            <text class="i-used" wx:if="{{item.status=='已使用'}}"></text>
+          </view>
+        </view>
+
+      </view>
+
+      <!-- <view class="wal-content">
+        <view class="wal-content-ticket">
+          <view class="wal-content-ticket-left ticket">
+            <text class="status-info">新到</text>
+            <view class="ticket-left-money">
+              <text>￥</text>
+              <text class="ticket-amount">188</text>
+            </view>
+            <view class="ticket-left-m">
+              <text>满1000可用</text>
+            </view>
+          </view>
+
+          <view class="wal-content-ticket-center ticket">
+            <view class="ticket-center-info">
+              <text>使用范围：全品类</text>
+            </view>
+            <view class="ticket-center-info2">
+              <text>2017年12月31日到期</text>
+            </view>
+          </view>
+
+          <view class="wal-content-ticket-right ticket">
+            <view class="ticket-right-btn">
+              <text>立即使用</text>
+            </view>
+          </view>
+        </view>
+
+      </view> -->
+
+
+      <!-- <view class="wal-content">
+        <view class="wal-content-ticket">
+          <view class="wal-content-ticket-left ticket">
+            <text class="status-info">新到</text>
+            <view class="ticket-left-money">
+              <text>￥</text>
+              <text class="ticket-amount">188</text>
+            </view>
+            <view class="ticket-left-m">
+              <text>满1000可用</text>
+            </view>
+          </view>
+
+          <view class="wal-content-ticket-center ticket">
+            <view class="ticket-center-info">
+              <text>全品类</text>
+            </view>
+            <view class="ticket-center-info2">
+              <text>2017年12月31日到期</text>
+            </view>
+          </view>
+
+          <view class="wal-content-ticket-right ticket">
+            <view class="ticket-right-btn">
+              <text>立即使用</text>
+            </view>
+          </view>
+        </view>
+
+      </view> -->
+
+
+
+    </view>
+
+    <!-- <view class="ticket-used-history my-ticket-tab">
+      <view class="wal-content">
+        <view class="wal-content-ticket">
+          <view class="wal-content-ticket-left ticket">
+            <view class="ticket-left-money">
+              <text>￥</text>
+              <text class="ticket-amount">288</text>
+            </view>
+            <view class="ticket-left-m">
+              <text>满2000可用</text>
+            </view>
+          </view>
+
+          <view class="wal-content-ticket-center ticket">
+            <view class="ticket-center-info">
+              <text>全品类</text>
+            </view>
+            <view class="ticket-center-info2">
+              <text>2017年12月31日到期</text>
+            </view>
+          </view>
+
+          <view class="wal-content-ticket-right ticket">
+            <i class="i-used"></i>
+          </view>
+        </view>
+
+      </view>
+    </view>
+
+    <view class="ticket-used my-ticket-tab">
+      <view class="wal-content">
+        <view class="wal-content-ticket">
+          <view class="wal-content-ticket-left ticket">
+            <text class="status-info">已过期</text>
+            <view class="ticket-left-money">
+              <text>￥</text>
+              <text class="ticket-amount">388</text>
+            </view>
+            <view class="ticket-left-m">
+              <text>满3000可用</text>
+            </view>
+          </view>
+
+          <view class="wal-content-ticket-center ticket">
+            <view class="ticket-center-info">
+              <text>使用范围：全品类</text>
+            </view>
+            <view class="ticket-center-info2">
+              <text>2017年12月31日到期</text>
+            </view>
+          </view>
+
+          <view class="wal-content-ticket-right ticket">
+          </view>
+        </view>
+
+      </view>
+    </view> -->
+
+
+
+
+
+  </view>
+
+
+  <template is="noMoreTemplate" />
+
+  <navigator url="../ticketCenter/ticketCenter" class="go-ticket-center">
+    去领券中心
+  </navigator>
+
+
+
+</view>

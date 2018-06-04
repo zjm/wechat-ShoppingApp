@@ -8,8 +8,9 @@
   <view class="header">
     <template is="searchInputTemplate" data="{{...inpData}}" />
     <view class="sort-list  {{scrollTop>50 ? 'fixed':''}}" >
-      <view data-index="0" class="sort {{selected == 0?'sort-active':''}}" bindtap="onOverallTag">{{sortSelected}}
-        <text class="iconfont icon-xiangxiazhankai" style="width:20rpx;height:20rpx;"></text>
+      <view data-index="0" class="sort " bindtap="onOverallTag">
+        <text class="{{selected == 0?'sort-active':''}}">{{sortSelected}}</text>
+        <text class="iconfont icon-xiangxiazhankai" ></text>
       </view>
       <view data-index="1" bindtap="onTapTag" class="sort {{selected == 1?'sort-active':''}}">
         销量最高
@@ -17,8 +18,9 @@
       <view data-index="2" bindtap="onTapTag" class="sort {{selected == 2?'sort-active':''}}">
         距离最近
       </view>
-      <view class="sort" bindtap="showLayer">筛选
-        <text class="iconfont icon-shaixuanguolv" style="width:22rpx;height:22rpx;"></text>
+      <view class="sort" bindtap="showLayer">
+       <text>筛选</text>
+        <text class="iconfont icon-shaixuanguolv" ></text>
       </view>
     </view>
     <!--排序弹出框  -->
@@ -51,18 +53,10 @@
   <view class="mask" bindtap="hideLayer" wx:if="{{isShow||isShow2}}" catchtouchmove="preventMove"></view>
   <view animation="{{animationData}}" class="hidden-layer " wx:if="{{isShow}}" catchtouchmove="preventMove">
     <view class="filterList">
-      <view class="filterList-characteristic-title">类型</view>
+      <view class="filterList-characteristic-title">筛选条件</view>
       <view class="filterList-characteristic-items">
-        <block wx:for="{{characteristicList}}" wx:key="">
+        <block wx:for="{{filterList}}" wx:key="">
           <view class="filterList-characteristic-item {{characteristicSelected[index]==true?'characteristic-selected':''}}" catchtap="characteristicSelected" data-index="{{index}}">{{item.text}}</view>
-        </block>
-      </view>
-      <view class="filterList-discount-title">分类</view>
-      <view class="filterList-discount-items">
-        <block wx:for="{{discountList}}" wx:key="">
-          <view class="filterList-discount-item {{discountSelected==index?'discount-selected':''}}" catchtap="discountSelected" data-index="{{index}}">
-            <text class="filterList-discount-item-icon" style="background:{{item.iconColor}}">{{item.icon}}</text> {{item.text}}
-          </view>
         </block>
       </view>
     </view>

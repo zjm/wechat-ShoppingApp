@@ -6,14 +6,14 @@
         <view class="wal-num wal-balance-num">{{balance}}</view>
         <view>余额</view>
       </view>
-      <view class="list-nav">
+      <navigator url="../ticket/ticket" class="list-nav">
         <view class="wal-num wal-ticket-num">{{ticketNum}}</view>
         <view>优惠券</view>
-      </view>
-      <view class="list-nav">
+      </navigator>
+      <navigator url="../point/point?notUsed={{notUsed}}" class="list-nav">
         <view class="wal-num wal-point-num">{{notUsed}}</view>
         <view>积分</view>
-      </view>
+      </navigator>
     </view>
   </view>
 

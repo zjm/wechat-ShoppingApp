@@ -1,13 +1,7 @@
 <template name="tabListTemplate">
-  <view class="tab">
-    <view class="tab-nav">
-      <view class="tab-nav-row">
-        <view wx:for="{{navlist}}" wx:key="unique" class='{{selected==index?"on":""}}' data-current="{{index}}" bindtap="tab">{{item}}</view>
-      </view>
-    </view>
-    <view wx:for="{{conlist}}" wx:key="unique" bindtap="eventchange" wx:if="{{selected==index}}">
-      {{item}}
-      <view>滑动我也可以切换噢</view>
+  <view class="tab-nav">
+    <view class="tab-nav-row">
+      <view wx:for="{{navlist}}" wx:key="unique" class='{{selected==index?"on":""}}' data-current="{{index}}" bindtap="tab">{{item}}</view>
     </view>
   </view>
 </template>

@@ -9,7 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    characteristicList: [{
+    filterList: [{
       text: "免配送费"
     }, {
       text: "0元起送"
@@ -36,93 +36,11 @@ Page({
       sort: "配送费最低",
       image: "",
     }],
-    discountList: [{
-      icon: "减",
-      iconColor: "#FF635B",
-      text: "满减优惠"
-    }, {
-      icon: "领",
-      iconColor: "#FF7298",
-      text: "进店领券"
-    }, {
-      icon: "返",
-      iconColor: "#FB4343",
-      text: "满返代金券"
-    }, {
-      icon: "折",
-      iconColor: "#C183E2",
-      text: "折扣商品"
-    }, {
-      icon: "订",
-      iconColor: "#6FDF64",
-      text: "提前下单优惠"
-    }, {
-      icon: "赠",
-      iconColor: "#FDC41E",
-      text: "满赠活动"
-    }, {
-      icon: "免",
-      iconColor: "#43B697",
-      text: "满免配送"
-    }],
-    categoryList: {
-      pageone: [{
-        name: "美食",
-        src: "/pages/images/1.png"
-      }, {
-        name: "甜点饮品",
-        src: "/pages/images/2.png"
-      }, {
-        name: "美团超市",
-        src: "/pages/images/3.png"
-      }, {
-        name: "正餐精选",
-        src: "/pages/images/4.png"
-      }, {
-        name: "生鲜果蔬",
-        src: "/pages/images/5.png"
-      }, {
-        name: "全部商家",
-        src: "/pages/images/6.png"
-      }, {
-        name: "免配送费",
-        src: "/pages/images/7.png"
-      }, {
-        name: "新商家",
-        src: "/pages/images/8.png"
-      }],
-      pagetwo: [{
-        name: "美食",
-        src: "/pages/images/1.png"
-      }, {
-        name: "甜点饮品",
-        src: "/pages/images/2.png"
-      }, {
-        name: "美团超市",
-        src: "/pages/images/3.png"
-      }, {
-        name: "正餐精选",
-        src: "/pages/images/4.png"
-      }, {
-        name: "生鲜果蔬",
-        src: "/pages/images/5.png"
-      }, {
-        name: "全部商家",
-        src: "/pages/images/6.png"
-      }, {
-        name: "免配送费",
-        src: "/pages/images/7.png"
-      }, {
-        name: "新商家",
-        src: "/pages/images/8.png"
-      }]
-    },
     selected: 0, //菜单item选中
     active:0, //下拉菜单item选中
     scrollTop:0, //滚动条滚动距离
     animationData: "",
     location: "",
-    characteristicSelected: [false, false, false, false, false, false, false],
     discountSelected: null,
     selectedNumb: 0,
     sortSelected: "综合排序",
@@ -147,6 +65,8 @@ Page({
         })
       }
     });
+
+    this.hideLayer();
   },
   
   clearSelectedNumb: function () {
@@ -157,7 +77,7 @@ Page({
     })
   },
   characteristicSelected: function (e) {
-    var info = this.data.characteristicSelected;
+    var info = this.data.arrF;
     info[e.currentTarget.dataset.index] = !info[e.currentTarget.dataset.index];
     this.setData({
       characteristicSelected: info,
@@ -165,19 +85,7 @@ Page({
     })
     console.log(e.currentTarget.dataset.index);
   },
-  discountSelected: function (e) {
-    if (this.data.discountSelected != e.currentTarget.dataset.index) {
-      this.setData({
-        discountSelected: e.currentTarget.dataset.index,
-        selectedNumb: this.data.selectedNumb + (this.data.discountSelected == null ? 1 : 0)
-      })
-    } else {
-      this.setData({
-        discountSelected: null,
-        selectedNumb: this.data.selectedNumb - 1
-      })
-    }
-  },
+  
   onTapTag: function (e) {
     this.setData({
       selected: e.currentTarget.dataset.index
@@ -222,12 +130,12 @@ Page({
     });
   },
   
-  // 滚动到一定位置
+  // 监听滚动
   onPageScroll: function (res) {
     this.setData({
       scrollTop: res.scrollTop
     })
-    console.log(res.scrollTop)
+    // console.log(res.scrollTop)
   },
   preventMove:function(){
 // 利用catchtouchmove阻止背景滚动 不用添加任何代码
@@ -289,9 +197,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var arrF = [];
+    var filterList = this.data.filterList;
+    for (var i in filterList){
+      arrF.push(false);
+    }
+    console.log(arrF)
     var value = options.value;
       this.setData({
         goodsItem: listData.goodsItem,
+        arrF:arrF,
         inpData: {
           inputVal: value,
           isDisabled: true

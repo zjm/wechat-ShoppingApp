@@ -3,10 +3,11 @@
 /**app.wxss**/
 view{
    font-size: 24rpx; 
+   color: 333;
 }
 text {
     font-size: 24rpx;
-    color: #666;
+    color: #333;
 } 
 .container{
   background-color: #F9F9F9;

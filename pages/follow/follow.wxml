@@ -2,14 +2,11 @@
 <!-- <import src="../template/tab-list/tab-list-template" />   -->
 <import src="../template/goods-item-row/goods-item-row-template" />
 <import src="../template/no-more/no-more-template" />
+<import src="../template/tab-list/tab-list-template" />
 
 
 <view class="tab">
-  <view class="tab-nav">
-    <view class="tab-nav-row">
-      <view wx:for="{{navlist}}" wx:key="key" class='{{selected==index?"on":""}}' data-current="{{index}}" bindtap="tab">{{item}}</view>
-    </view>
-  </view>
+  <template is="tabListTemplate" data="{{selected,navlist}}"  />
   <view class="item-container" wx:for="{{conlist}}" wx:key="key" wx:for-item="classify"  wx:if="{{selected==index}}">
     <!-- {{item}} -->
     <view wx:if="{{classify==''}}">

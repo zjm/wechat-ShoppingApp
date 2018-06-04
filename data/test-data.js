@@ -325,6 +325,7 @@ var bannerList = [
 var ticketData = [
   {
     name: "满1000减50",
+    status:"未使用",
     id: 0,
     startDate: "2018-05-21",
     endDate: "2018-07-21",
@@ -333,6 +334,7 @@ var ticketData = [
   },
   {
     name: "满200减15",
+    status: "未使用",
     id: 1,
     startDate: "2018-05-21",
     endDate: "2018-07-21",
@@ -341,14 +343,16 @@ var ticketData = [
   },
   {
     name: "满500减100",
+    status: "已过期",
     id: 2,
     startDate: "2018-05-21",
-    endDate: "2018-07-21",
+    endDate: "2018-05-31",
     goal: 500,
     off: 100
   },
   {
     name: "满1000减50",
+    status: "已使用",
     id: 3,
     startDate: "2018-05-21",
     endDate: "2018-07-21",
@@ -357,6 +361,7 @@ var ticketData = [
   },
   {
     name: "满100减10",
+    status: "已使用",
     id: 4,
     startDate: "2018-05-21",
     endDate: "2018-07-21",
