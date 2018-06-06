@@ -1,16 +1,59 @@
 <!--pages/orderlist/orderlist.wxml-->
-<view class="container">
-  <view class="tab">
-    <view  class="tab-nav">
-      <view class="tab-nav-row">
-        <view wx:for="{{navlist}}" wx:key="unique" class='{{selected==index?"on":""}}' data-current="{{index}}" bindtap="tab">{{item}}</view>
-      </view>
+<import src="../template/tab-list/tab-list-template" />
+<import src="../template/no-more/no-more-template" />
+<import src="../template/goods-item-row/goods-item-row-template" />
+
+
+<view class="tab">
+  <template is="tabListTemplate" data="{{selected,navlist}}" />
+  <view class="item-container" wx:for="{{conlist}}" wx:key="key" wx:for-item="classify" wx:if="{{selected==index}}">
+    <view wx:if="{{classify==''}}">
+      暂无
     </view>
-    <swiper class="tab-box" current="{{selected}}" bindchange="eventchange">
-      <swiper-item wx:for="{{conlist}}" wx:key="unique">
-        {{item}}
-        <view>滑动我也可以切换噢</view>
-      </swiper-item>
-    </swiper>
+
+    <block wx:for="{{classify}}" wx:for-item="orderlist" wx:key="{{orderlist.id}}">
+
+      <view class="order-div" >
+        <view class="store-title">
+          <view class="store-title-name">
+            <view class="store-title-a">
+              <i class="iconfont icon-dianpu"></i>
+              <text>{{orderlist.store}}</text>
+              <i class="iconfont icon-xiayiyeqianjinchakangengduo"></i>
+            </view>
+          </view>
+          <view class="edit">
+            <view class="order-status">
+              {{orderlist.status}}
+            </view>
+            <view class="order-edit" bindtap="deleteTap" data-id="{{index}}">
+              <i class="iconfont icon-lajixiang"></i>
+            </view>
+          </view>
+
+        </view>
+
+        <block wx:for="{{orderlist.list}}" wx:key="key">
+          <template is="goodsItemRowTemplate" data="{{...item}}" />
+        </block>
+
+        <view class="order-info">
+          <view class="pay-txt">
+            共
+            <text class="shop-num">{{orderlist.sum}}</text>件商品
+            <text class="true-payed">实付款:</text>
+            <text class="pay-num">￥{{orderlist.pay}}</text>
+          </view>
+          <view class="order-info-btn">
+            <text>删除订单</text>
+            <text>评价</text>
+            <text class="buy-again">再次购买</text>
+          </view>
+        </view>
+      </view>
+
+    </block>
+
   </view>
+  <template is="noMoreTemplate" />
 </view>

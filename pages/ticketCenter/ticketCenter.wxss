@@ -67,6 +67,9 @@ page {
 }
 
 /*进度条  */
+.progress-bar{
+  height: 80rpx;
+}
 .ticket-list .progress-bar-block {
   width: 120rpx;
   margin-left: 15rpx;
@@ -151,11 +154,11 @@ page {
 
 .ticket-right .had {
   width: 130rpx;
-  height: 100rpx;
+  height: 80rpx;
   background: url(http://rf.onbus.cn/shopping/mobile/img/lingqu.png);
-  background-size: 130rpx 100rpx;
+  background-size: 130rpx 80rpx;
   display: block;
-  margin: 0rpx 0 20rpx 10rpx;
+  margin: 0rpx 0 10rpx 10rpx;
 }
 
 /* .change-block{

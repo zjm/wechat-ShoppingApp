@@ -1,0 +1,22 @@
+/* pages/more/more.wxss */
+
+.more{
+  padding: 0 15rpx;
+  
+  border-bottom: 1rpx solid #f1f1f1;
+}
+navigator{
+  display: flex;
+  justify-content: space-between;
+  height: 90rpx;
+  align-items: center;
+}
+navigator+navigator{
+  border-top: 1rpx solid #f1f1f1;
+}
+navigator view,navigator text{
+  font-size: 28rpx;
+}
+.iconfont {
+  margin-right: 10rpx;
+}

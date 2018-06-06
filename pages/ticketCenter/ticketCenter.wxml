@@ -1,114 +1,127 @@
 <!--pages/ticketCenter/ticketCenter.wxml-->
 <view class="ticket-list">
-    <view class="ticket-li">
-        <view class="ticket-a">
-            <view class="ticket-left">
-                <view class="pro-content">
-                    <text class="pro-info">京东自营部分手机商品【限VIP、京享值5000以上用户】</text>
-                    <view class="pro-price">
-                        <text class="big-price">150</text>
-                        <text class="price-info">满2980可用</text>
-                    </view>
-                </view>
-            </view>
-
-            <view class="ticket-right">
-                <view class="change-block no-ticket">
-                    <view class="progress-bar-block">
-                        <view class="t-progress-bar"><text style="width:100%"></text></view>
-                    </view>
-                    <text class="progress-text">全部抢完</text>
-                    <text class="ticket-btn-go-look">进场看看</text>
-                </view>
-            </view>
-
+  <view class="ticket-li">
+    <view class="ticket-a">
+      <view class="ticket-left">
+        <view class="pro-content">
+          <text class="pro-info">京东自营部分手机商品【限VIP、京享值5000以上用户】</text>
+          <view class="pro-price">
+            <text class="big-price">150</text>
+            <text class="price-info">满2980可用</text>
+          </view>
         </view>
+      </view>
+
+      <view class="ticket-right">
+        <view class="change-block no-ticket">
+          <view class="progress-bar-block">
+            <view class="t-progress-bar">
+              <text style="width:100%"></text>
+            </view>
+          </view>
+          <text class="progress-text">全部抢完</text>
+          <text class="ticket-btn-go-look">进场看看</text>
+        </view>
+      </view>
 
     </view>
 
+  </view>
 
 
-    <view class="ticket-li">
-        <view class="ticket-a">
-            <view class="ticket-left">
-                
-                <view class="pro-content">
-                    <text class="pro-info">京东自营部分手机商品【限VIP、京享值5000以上用户】</text>
-                    <view class="pro-price">
-                        <text class="big-price">100</text>
-                        <text class="price-info">满1980可用</text>
-                    </view>
-                </view>
-            </view>
 
-            <view class="ticket-right">
-                <view class="change-block">
-                    <view class="progress-bar-block">
-                        <view class="t-progress-bar"><text style="width:20%"></text></view>
-                    </view>
-                    <text class="progress-text">已抢20%</text>
-                    <text class="ticket-btn btn-receive">立即领取</text>
-                </view>
-            </view>
+  <view class="ticket-li">
+    <view class="ticket-a">
+      <view class="ticket-left">
 
+        <view class="pro-content">
+          <text class="pro-info">京东自营部分手机商品【限VIP、京享值5000以上用户】</text>
+          <view class="pro-price">
+            <text class="big-price">100</text>
+            <text class="price-info">满1980可用</text>
+          </view>
         </view>
+      </view>
+
+      <view class="ticket-right">
+        <view class="change-block">
+          <view class="progress-bar" wx:if="{{!isGet}}">
+            <view class="progress-bar-block">
+              <view class="t-progress-bar">
+                <text style="width:20%"></text>
+              </view>
+            </view>
+            <text class="progress-text">已抢20%</text>
+          </view>
+          <i class="had" wx:if="{{isGet}}"></i>
+
+          <text class="ticket-btn btn-receive" bindtap="btnTap">{{isGet?'去使用':'立即领取'}}</text>
+        </view>
+      </view>
 
     </view>
 
-
-    <view class="ticket-li">
-        <view class="ticket-a">
-            <view class="ticket-left">
-                
-                <view class="pro-content">
-                    <text class="pro-info">全品类【除特殊商品外】</text>
-                    <view class="pro-price">
-                        <text class="big-price">100</text>
-                        <text class="price-info">满1980可用</text>
-                    </view>
-                </view>
-            </view>
-
-            <view class="ticket-right">
-                <view class="change-block">
-                    <text class="progress-time-text">距离开抢</text>
-                    <view class="progress-time-block">
-                        <view class="progress-time">
-                            <text class="progress-time-sp time-h" >00</text>:<text class="progress-time-sp time-m">00</text>:<text class="progress-time-sp time-s">00</text>
-                        </view>
-                    </view>
-
-                    <text class="ticket-btn btn-remind-me">提醒我</text>
-                </view>
-            </view>
+  </view>
 
 
+  <view class="ticket-li">
+    <view class="ticket-a">
+      <view class="ticket-left">
 
+        <view class="pro-content">
+          <text class="pro-info">全品类【除特殊商品外】</text>
+          <view class="pro-price">
+            <text class="big-price">100</text>
+            <text class="price-info">满1980可用</text>
+          </view>
         </view>
+      </view>
+
+      <view class="ticket-right">
+        <view class="change-block">
+          <text class="progress-time-text">距离开抢</text>
+          <view class="progress-time-block">
+            <view class="progress-time">
+              <text class="progress-time-sp time-h">00</text>:
+              <text class="progress-time-sp time-m">00</text>:
+              <text class="progress-time-sp time-s">00</text>
+            </view>
+          </view>
+
+          <text class="ticket-btn btn-remind-me">提醒我</text>
+        </view>
+      </view>
+
+
 
     </view>
 
+  </view>
 
-    <view class="ticket-li">
-        <view class="ticket-a">
-            <view class="ticket-left">
-                
-                <view class="pro-content">
-                    <text class="pro-info">京东自营部分手机商品【限VIP、京享值5000以上用户】</text>
-                    <view class="pro-price">
-                        <text class="big-price">100</text>
-                        <text class="price-info">满1980可用</text>
-                    </view>
-                </view>
-            </view>
 
-            <view class="ticket-right">
-                <view class="change-block"><i class="had"></i><text class="ticket-btn btn-go-use">去使用</text></view>
-            </view>
+  <view class="ticket-li">
+    <view class="ticket-a">
+      <view class="ticket-left">
 
+        <view class="pro-content">
+          <text class="pro-info">京东自营部分手机商品【限VIP、京享值5000以上用户】</text>
+          <view class="pro-price">
+            <text class="big-price">100</text>
+            <text class="price-info">满1980可用</text>
+          </view>
         </view>
+      </view>
+
+      <view class="ticket-right">
+        <view class="change-block">
+          <i class="had"></i>
+          <text class="ticket-btn btn-go-use">去使用</text>
+        </view>
+      </view>
 
     </view>
+
+  </view>
 
 
 </view>

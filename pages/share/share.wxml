@@ -1,0 +1,16 @@
+<!--pages/share/share.wxml-->
+
+<view class="QR-Code-body">
+    <view class="QR-Code-user">
+        <view class="QR-avatar"><image src="http://rf.onbus.cn/shopping/mobile/img/touxiang.png" alt="#" /></view>
+        <view class="QR-userID">
+            <view class="QR-userID-name">巴士软件简介</view><text class=" quote">123456</text>
+
+        </view>
+        <view class="QR-title">ICC瓷砖</view>
+        <view class="QR-img"><image src="http://rf.onbus.cn/shopping/mobile/img/touxiang.png" alt="#" /></view>
+
+    </view>
+
+    <!-- <image class="bg-img" src="http://img.onbus.cn:9001/uploads/shopping/27/images/00E059A6-375C-4961-95A7-2BE72FB2CF8E.png" alt="#" mode="widthFix" /> -->
+</view>

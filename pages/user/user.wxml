@@ -114,7 +114,7 @@
       </navigator>
     </view>
     <view class="my-content-div">
-      <navigator class="my-content-menu">
+      <navigator class="my-content-menu" url="../share/share">
         <view class="menu-icon">
           <view class="iconfont icon-erweima"></view>
         </view>
@@ -135,13 +135,13 @@
           </view>
         </view>
       </navigator>
-      <navigator class="my-content-menu">
+      <navigator class="my-content-menu" url="../more/more">
         <view class="menu-icon">
-          <view class="iconfont icon-shezhi"></view>
+          <view class="iconfont icon-zhucetianjiahaoyou"></view>
         </view>
         <view class="menu-text">
           <view class="menu-type">
-            <text>账户设置</text>
+            <text>更多</text>
           </view>
         </view>
       </navigator>

@@ -15,7 +15,7 @@ const formatNumber = n => {
 }
 
 
-
+// 显示消息提示框
 function showTip(info, icon, fun, time) {
   if (!time) {
     time = 1500;
@@ -28,6 +28,7 @@ function showTip(info, icon, fun, time) {
   })
 }
 
+// ​显示模态弹窗
 function showModal(c, t, f, fun) {
   if (!t)
     t = '提示'

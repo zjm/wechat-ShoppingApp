@@ -610,6 +610,123 @@ var categoryData =  [
   }
 ];
 
+var orderList = [
+  {
+    store:"禅城店",
+    status:"已取消",
+    listNum:1234567,
+    pay: 1495,
+    sum: 15,
+    list:[
+      {
+        coverImg:"http://img.onbus.cn:9001/uploads/shopping/27/images/8346E166-47AD-4C49-992C-77202C06B385.jpg",
+        title:"J2I0",
+        num: 5,
+        price:99.00,
+        id:111
+      },
+      {
+        coverImg: "http://img.onbus.cn:9001/uploads/shopping/27/images/07CEEF2E-5D59-4841-ADD4-76C91C6C5BD3.JPG",
+        title: "A240",
+        num: 10,
+        price: 100.00,
+        id: 223
+      }
+    ]
+  },
+  {
+    store: "三水店",
+    status: "待付款",
+    listNum: 234567,
+    pay: 1495,
+    sum: 15,
+    list: [
+      {
+        coverImg: "http://img.onbus.cn:9001/uploads/shopping/27/images/8346E166-47AD-4C49-992C-77202C06B385.jpg",
+        title: "J2I0",
+        num: 5,
+        price: 99.00,
+        id: 111
+      },
+      {
+        coverImg: "http://img.onbus.cn:9001/uploads/shopping/27/images/07CEEF2E-5D59-4841-ADD4-76C91C6C5BD3.JPG",
+        title: "A240",
+        num: 10,
+        price: 100.00,
+        id: 223
+      }
+    ]
+  },
+  {
+    store: "禅城店",
+    status: "待收货",
+    listNum: 1234,
+    pay: 2345,
+    sum: 15,
+    list: [
+      {
+        coverImg: "http://img.onbus.cn:9001/uploads/shopping/27/images/8346E166-47AD-4C49-992C-77202C06B385.jpg",
+        title: "J2I0",
+        num: 5,
+        price: 299.00,
+        id: 111
+      },
+      {
+        coverImg: "http://img.onbus.cn:9001/uploads/shopping/27/images/07CEEF2E-5D59-4841-ADD4-76C91C6C5BD3.JPG",
+        title: "A240",
+        num: 10,
+        price: 1060.00,
+        id: 223
+      }
+    ]
+  },
+  {
+    store: "广州店",
+    status: "已完成",
+    listNum: 14567,
+    pay: 2222,
+    sum: 15,
+    list: [
+      {
+        coverImg: "http://img.onbus.cn:9001/uploads/shopping/27/images/8346E166-47AD-4C49-992C-77202C06B385.jpg",
+        title: "AYI0",
+        num: 5,
+        price: 949.00,
+        id: 111
+      },
+      {
+        coverImg: "http://img.onbus.cn:9001/uploads/shopping/27/images/07CEEF2E-5D59-4841-ADD4-76C91C6C5BD3.JPG",
+        title: "VB40",
+        num: 10,
+        price: 1050.00,
+        id: 223
+      }
+    ]
+  },
+  {
+    store: "江西店",
+    status: "已取消",
+    listNum: 22567,
+    pay: 14395,
+    sum: 135,
+    list: [
+      {
+        coverImg: "http://img.onbus.cn:9001/uploads/shopping/27/images/8346E166-47AD-4C49-992C-77202C06B385.jpg",
+        title: "J2I0",
+        num: 5,
+        price: 299.00,
+        id: 111
+      },
+      {
+        coverImg: "http://img.onbus.cn:9001/uploads/shopping/27/images/07CEEF2E-5D59-4841-ADD4-76C91C6C5BD3.JPG",
+        title: "A240",
+        num: 10,
+        price: 1400.00,
+        id: 223
+      }
+    ]
+  }
+];
 
 module.exports = {
   navList: navList,
@@ -621,5 +738,6 @@ module.exports = {
   storeList: storeList,
   followData:followData,
   userData: userData,
-  pointData: pointData
+  pointData: pointData,
+  orderList:orderList
 }

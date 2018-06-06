@@ -15,7 +15,10 @@
     "pages/follow/follow",
     "pages/wallet/wallet",
     "pages/ticket/ticket",
-    "pages/ticketCenter/ticketCenter"    
+    "pages/ticketCenter/ticketCenter",
+    "pages/share/share",
+    "pages/more/more",
+    "pages/setting/setting"   
     
   ],
   "window": {

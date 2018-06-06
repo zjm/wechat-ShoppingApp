@@ -1,0 +1,11 @@
+<!--pages/more/more.wxml-->
+<view class="more">
+  <navigator url="../setting/setting" >
+    <view> <text class="iconfont icon-shezhi"></text>账户设置</view>
+    <text class="iconfont icon-xiayiyeqianjinchakangengduo"></text>
+  </navigator>
+  <navigator url="../followGoods/followGoods">
+    <view><text class="iconfont icon-xihuan"></text>关注商品</view>
+    <text class="iconfont icon-xiayiyeqianjinchakangengduo"></text>
+  </navigator>
+</view>

@@ -1,24 +1,86 @@
 /* pages/orderlist/orderlist.wxss */
+@import "../template/no-more/no-more-template";
+@import "../template/tab-list/tab-list-template";
+@import "../template/goods-item-row/goods-item-row-template";
 
-.tab-nav {
-  height: 80rpx;
-  line-height: 80rpx;
-  width: 100%;
+page {
+  height: 100%;
+  background-color: #f9f9f9;
 }
- .tab-nav-row{
-   display: flex;
-   flex-direction: row;
- }
-.tab-nav .tab-nav-row view {
-  flex: 1;
+
+.order-div {
+  margin: 20rpx 0;
+  position: relative;
+}
+
+.store-title {
+  border-bottom: 1rpx solid #f1f1f1;
   height: 80rpx;
-  line-height: 80rpx;
-  background: #fff;
-  font-size: 30rpx;
+  background-color: #fff;
+  padding-left: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.store-title-a text {
+  margin: 0 20rpx;
+   font-size: 28rpx; 
+}
+.edit{
+  display: flex;
+}
+.order-edit {
+  width: 100rpx;
   text-align: center;
+}
+
+.order-status {
+  text-align: center;
+}
+
+/* .order-status.order-complete {
+  height: 3rem;
+  background: url("../img/shiyong2.png") no-repeat;
+  -webkit-background-size: 3rem 2rem;，
+  background-size: 3rem 2rem;
+  z-index: 10;
+} */
+
+.order-info {
+  background-color: #fff;
+}
+.true-payed{
+  margin-left: 20rpx;
+}
+
+.pay-num,.shop-num {
+  font-size: 30rpx;
+}
+
+.order-info-btn {
+  line-height: 100rpx;
+  padding: 0 20rpx;
+  text-align: right;
+}
+
+.pay-txt {
+  text-align: right;
+  padding: 0 20rpx;
+  line-height: 90rpx;
+  border-top: 1rpx solid #f1f1f1;
+  border-bottom: 1rpx solid #f1f1f1;
+}
+
+.order-info-btn text {
+  padding: 15rpx;
+  border: 1rpx solid #666;
+  border-radius: 50rpx;
+  margin-left: 30rpx;
   color: #333;
 }
-.tab-nav view.on {
-  border-bottom: 2rpx solid #F23232;
-  color: #F23232;
+
+.order-info-btn .buy-again {
+  border-color: #f15353;
+  color: #f15353;
 }

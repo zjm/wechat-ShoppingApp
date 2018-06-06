@@ -1,0 +1,60 @@
+<!--pages/setting/setting.wxml-->
+
+<view class="page-body">
+  <view class="page-section">
+    <view class="weui-cells__title">您的姓名<text class="warning">{{nickName==""?'(不能为空)':''}}</text></view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <input class="weui-input" type="text" placeholder="请输入您的姓名或昵称" />
+      </view>
+    </view>
+  </view>
+
+  <view class="page-section">
+    <view class="weui-cells__title">您的性别</view>
+    <view class="weui-cells weui-cells_after-title">
+      <radio-group bindchange="radioChange">
+        <label class="weui-cell weui-check__label">
+
+          <view class="weui-cell__hd">
+            <radio value="man" checked="true" />
+          </view>
+          <view class="weui-cell__bd">先生</view>
+        </label>
+        <label class="weui-cell weui-check__label">
+
+          <view class="weui-cell__hd">
+            <radio value="woman" />
+          </view>
+          <view class="weui-cell__bd">女士</view>
+        </label>
+      </radio-group>
+    </view>
+  </view>
+
+  <view class="page-section">
+    <view class="weui-cells__title">您的手机号码<text class="warning">{{telNum==""?'(不能为空)':''}}</text></view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input  tel">
+        <input class="weui-input" type="tel" placeholder="请输入您的手机号码" />
+        <view class="" >
+          <button class="weui-vcode-btn">获取验证码</button> 
+        </view>
+      </view>
+
+    </view>
+
+  </view>
+
+  <view class="page-section">
+    <view class="weui-cells__title">验证码<text class="warning">{{codeNum==""?'(不能为空)':''}}</text></view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <input class="weui-input" type="number" placeholder="请输入收到的验证码" />
+      </view>
+    </view>
+  </view>
+
+  <button type="primary" class="savebtn" bindtap="saveTap">保存</button>
+
+</view>
