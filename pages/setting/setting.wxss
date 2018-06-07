@@ -15,31 +15,8 @@ input {
   width: 100%;
 }
 
-.tel {
-  justify-content: space-between;
-   padding-right: 0; 
-}
 
-.btn {
-  width: 300rpx;
-  border-left: 1rpx solid #e5e5e5;
-  color: #09bb07;
-  text-align: center;
-}
 
-button.weui-vcode-btn {
-  background-color: transparent;
-  border-top: 0rpx solid #fff;
-  border-right: 0rpx solid #fff;
-  border-bottom: 0rpx solid #fff;
-  border-left: 0rpx solid #fff;
-  outline: 0;
-  box-shadow: none;
-  border-radius: 20px;
-  /* border: 1px solid red; */
-  
-
-}
 
 .savebtn{
   margin: 50rpx 25rpx;

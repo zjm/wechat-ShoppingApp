@@ -1,8 +1,8 @@
 var navList = [
   {
-    iconSrc:"http://www.qcrj.shop/fileSystem/langzi/article/20171108/fe5dd252-6c64-472b-9a14-0cc5353c7514.png",
-    navName:"菜单一",
-    id:0
+    iconSrc: "http://www.qcrj.shop/fileSystem/langzi/article/20171108/fe5dd252-6c64-472b-9a14-0cc5353c7514.png",
+    navName: "菜单一",
+    id: 0
   },
   {
     iconSrc: "http://www.qcrj.shop/fileSystem/langzi/article/20171108/00025066-8477-4a65-8370-0b5f280741c0.png",
@@ -325,7 +325,7 @@ var bannerList = [
 var ticketData = [
   {
     name: "满1000减50",
-    status:"未使用",
+    status: "未使用",
     id: 0,
     startDate: "2018-05-21",
     endDate: "2018-07-21",
@@ -464,40 +464,40 @@ var userData = {
 };
 
 var pointData = {
-    sum:12300,
-    notUsed:2300,
-    canUse:1000,
-    history:[
-      {
-        name:"购物获得",
-        time:"2018-01-01 12:34:45",
-        change: 200
-      },
-      {
-        name: "购物获得",
-        time: "2018-02-02 12:34:45",
-        change: 400
-      },
-      {
-        name: "购物获得",
-        time: "2018-03-03 12:34:45",
-        change: 800
-      },
-      {
-        name: "购物使用",
-        time: "2018-03-03 12:34:45",
-        change: -300
-      }
-    ]
-  };
-
-  var otherUserData = [
+  sum: 12300,
+  notUsed: 2300,
+  canUse: 1000,
+  history: [
     {
-
+      name: "购物获得",
+      time: "2018-01-01 12:34:45",
+      change: 200
+    },
+    {
+      name: "购物获得",
+      time: "2018-02-02 12:34:45",
+      change: 400
+    },
+    {
+      name: "购物获得",
+      time: "2018-03-03 12:34:45",
+      change: 800
+    },
+    {
+      name: "购物使用",
+      time: "2018-03-03 12:34:45",
+      change: -300
     }
-  ];
+  ]
+};
 
-var categoryData =  [
+var otherUserData = [
+  {
+
+  }
+];
+
+var categoryData = [
   {
     cateId: 1,
     cateName: "护肤",
@@ -612,18 +612,18 @@ var categoryData =  [
 
 var orderList = [
   {
-    store:"禅城店",
-    status:"已取消",
-    listNum:1234567,
+    store: "禅城店",
+    status: "已取消",
+    listNum: 1234567,
     pay: 1495,
     sum: 15,
-    list:[
+    list: [
       {
-        coverImg:"http://img.onbus.cn:9001/uploads/shopping/27/images/8346E166-47AD-4C49-992C-77202C06B385.jpg",
-        title:"J2I0",
+        coverImg: "http://img.onbus.cn:9001/uploads/shopping/27/images/8346E166-47AD-4C49-992C-77202C06B385.jpg",
+        title: "J2I0",
         num: 5,
-        price:99.00,
-        id:111
+        price: 99.00,
+        id: 111
       },
       {
         coverImg: "http://img.onbus.cn:9001/uploads/shopping/27/images/07CEEF2E-5D59-4841-ADD4-76C91C6C5BD3.JPG",
@@ -728,6 +728,33 @@ var orderList = [
   }
 ];
 
+var followGoods = [
+  {
+    coverImg: "http://img.onbus.cn:9001/uploads/shopping/27/images/8346E166-47AD-4C49-992C-77202C06B385.jpg",
+    title: "J2I0",
+    price: 2299.00,
+    id: 1
+  },
+  {
+    coverImg: "http://img.onbus.cn:9001/uploads/shopping/27/images/07CEEF2E-5D59-4841-ADD4-76C91C6C5BD3.JPG",
+    title: "A240",
+    price: 1400.00,
+    id: 2
+  },
+  {
+    coverImg: "http://img.onbus.cn:9001/uploads/shopping/27/images/8346E166-47AD-4C49-992C-77202C06B385.jpg",
+    title: "1234",
+    price: 1199.00,
+    id: 3
+  },
+  {
+    coverImg: "http://img.onbus.cn:9001/uploads/shopping/27/images/07CEEF2E-5D59-4841-ADD4-76C91C6C5BD3.JPG",
+    title: "5678",
+    price: 2200.00,
+    id: 4
+  }
+];
+
 module.exports = {
   navList: navList,
   menuList: menulist,
@@ -736,8 +763,9 @@ module.exports = {
   categoryData: categoryData,
   ticketData: ticketData,
   storeList: storeList,
-  followData:followData,
+  followData: followData,
   userData: userData,
   pointData: pointData,
-  orderList:orderList
+  orderList: orderList,
+  followGoods: followGoods
 }

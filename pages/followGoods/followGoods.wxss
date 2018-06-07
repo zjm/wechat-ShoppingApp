@@ -1,0 +1,25 @@
+/* pages/followGoods/followGoods.wxss */
+@import "../template/no-more/no-more-template";
+@import "../template/goods-item-row/goods-item-row-template";
+
+
+.item-container{
+  border-bottom: 1rpx solid #f1f1f1;
+}
+navigator{
+  position: relative;
+}
+navigator+navigator{
+  border-top: 1rpx solid #f1f1f1;
+}
+
+.iconfont{
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: block;
+  width: 80rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+}

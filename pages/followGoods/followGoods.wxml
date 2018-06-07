@@ -1,0 +1,27 @@
+<!--pages/followGoods/followGoods.wxml-->
+<import src="../template/goods-item-row/goods-item-row-template" />
+<import src="../template/no-more/no-more-template" />
+
+
+<view class="item-container">
+
+<navigator wx:for="{{followGoods}}" wx:key="key" url="../detail/detail?id={{item.id}}">
+  <text class="iconfont icon-lajixiang" catchtap="cancelFollow" data-index="{{index}}"></text>
+
+  <!-- {{item}} -->
+  <view wx:if="{{followGoods==''}}">
+    暂无
+  </view>
+  <view class="goods-item" data-id="{{item.id}}">
+    <image src="{{item.coverImg}}" class="item-img" />
+    <view class="item">
+      <view class="item-title">型号：{{item.title}}</view>
+      <text class="item-costprice" wx:if="{{costprice}}">￥{{item.costprice}}</text>
+      <view class="item-total">￥{{item.price}}</view>
+    </view>
+  </view>
+
+
+</navigator>
+</view>
+<template is="noMoreTemplate" />

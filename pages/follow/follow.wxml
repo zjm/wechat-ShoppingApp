@@ -1,6 +1,5 @@
 <!--pages/follow/follow.wxml-->
 <!-- <import src="../template/tab-list/tab-list-template" />   -->
-<import src="../template/goods-item-row/goods-item-row-template" />
 <import src="../template/no-more/no-more-template" />
 <import src="../template/tab-list/tab-list-template" />
 

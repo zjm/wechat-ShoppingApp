@@ -18,7 +18,9 @@
     "pages/ticketCenter/ticketCenter",
     "pages/share/share",
     "pages/more/more",
-    "pages/setting/setting"   
+    "pages/setting/setting",
+    "pages/address/address",
+    "pages/followGoods/followGoods"   
     
   ],
   "window": {
