@@ -1,0 +1,109 @@
+<!--pages/refund/refund.wxml-->
+
+
+<view class="page-body">
+  <view wx:for="{{refundGoods}}" wx:key="key">
+    <!-- {{item}} -->
+    <view class="goods-item" data-id="{{item.id}}">
+      <image src="{{item.coverImg}}" class="item-img" />
+      <view class="item">
+        <view class="item-title">型号：{{item.title}}</view>
+         <view class="item-total">￥{{item.price}}</view> 
+      </view>
+    </view>
+  </view>
+
+  <picker class="order-row " bindchange="bindPickerChange" value="{{index}}" range="{{reason}}" range-key="name">
+    <view class="order-row-left">退款理由</view>
+    <view class="picker">{{reason[index].name?reason[index].name:reason[0].name}}</view>
+  </picker>
+  <view class="order-row">
+    <view class="order-row-left">
+      退款金额
+    </view>
+    <view class="order-row-right fontcolor">
+      ￥{{price}}
+    </view>
+  </view>
+
+  <view class="weui-cells__title">退款说明</view>
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <textarea class="weui-textarea" placeholder="请输入退款说明(选填)" maxlength="200" style="height: 250rpx" bindinput="inputChange" />
+        <view class="weui-textarea-counter">{{inputLength||0}}/200</view>
+      </view>
+    </view>
+  </view>
+
+
+
+  <form>
+  <view class="weui-cells__title">上传凭证(最多5张)</view>
+    <view class="page-section">
+
+      <!-- <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">图片来源</view>
+          </view>
+          <view class="weui-cell__bd">
+            <picker range="{{sourceType}}" bindchange="sourceTypeChange" value="{{sourceTypeIndex}}" mode="selector">
+              <view class="weui-input">{{sourceType[sourceTypeIndex]}}</view>
+            </picker>
+          </view>
+        </view>
+
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">图片质量</view>
+          </view>
+          <view class="weui-cell__bd">
+            <picker range="{{sizeType}}" bindchange="sizeTypeChange" value="{{sizeTypeIndex}}" mode="selector">
+              <view class="weui-input">{{sizeType[sizeTypeIndex]}}</view>
+            </picker>
+          </view>
+        </view>
+         <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">数量限制</view>
+          </view>
+          <view class="weui-cell__bd">
+            <picker range="{{count}}" bindchange="countChange" value="{{countIndex}}" mode="selector">
+              <view class="weui-input">{{count[countIndex]}}</view>
+            </picker>
+          </view>
+        </view> 
+      </view> -->
+
+      <view class="weui-cells">
+        <view class="weui-cell">
+          <view class="weui-cell__bd">
+            <view class="weui-uploader">
+              <view class="weui-uploader__hd">
+                <view class="weui-uploader__title">点击可预览选好的图片</view>
+                <view class="weui-uploader__info">{{imageList.length}}/5</view>
+              </view>
+              <view class="weui-uploader__bd">
+                <view class="weui-uploader__files">
+                  <block wx:for="{{imageList}}" wx:for-item="image" wx:key="key">
+                    <view class="weui-uploader__file">
+                      <image class="weui-uploader__img" src="{{image}}" data-src="{{image}}" bindtap="previewImage"></image>
+                    </view>
+                  </block>
+                </view>
+                <view class="weui-uploader__input-box">
+                  <view class="weui-uploader__input" bindtap="chooseImage"></view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+    </view>
+
+    <button type="primary" class="savebtn" bindtap="saveTap" formType="submit">保存</button>
+  </form>
+
+</view>

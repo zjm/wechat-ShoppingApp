@@ -20,7 +20,9 @@
     "pages/more/more",
     "pages/setting/setting",
     "pages/address/address",
-    "pages/followGoods/followGoods"   
+    "pages/followGoods/followGoods",
+    "pages/listDetail/listDetail",
+    "pages/refund/refund"   
     
   ],
   "window": {

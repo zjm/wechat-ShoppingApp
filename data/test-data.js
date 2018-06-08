@@ -755,6 +755,29 @@ var followGoods = [
   }
 ];
 
+var detailGoods = [
+  {
+    coverImg: "http://img.onbus.cn:9001/uploads/shopping/27/images/8346E166-47AD-4C49-992C-77202C06B385.jpg",
+    title: "J2I0",
+    price: 2299.00,
+    id: 1
+  },
+  {
+    coverImg: "http://img.onbus.cn:9001/uploads/shopping/27/images/07CEEF2E-5D59-4841-ADD4-76C91C6C5BD3.JPG",
+    title: "A240",
+    price: 1400.00,
+    id: 2
+  }
+];
+var refundGoods = [
+  {
+    coverImg: "http://img.onbus.cn:9001/uploads/shopping/27/images/8346E166-47AD-4C49-992C-77202C06B385.jpg",
+    title: "J2I0",
+    price: 2299.00,
+    id: 1
+  }
+];
+
 module.exports = {
   navList: navList,
   menuList: menulist,
@@ -767,5 +790,7 @@ module.exports = {
   userData: userData,
   pointData: pointData,
   orderList: orderList,
-  followGoods: followGoods
+  followGoods: followGoods,
+  detailGoods: detailGoods,
+  refundGoods: refundGoods
 }

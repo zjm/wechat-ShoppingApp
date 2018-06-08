@@ -1,0 +1,45 @@
+/* pages/refund/refund.wxss */
+
+@import "../template/goods-item-row/goods-item-row-template";
+@import "/src/weui";
+
+page{
+  height: 100%;
+  background-color: #f9f9f9;
+}
+view{
+  font-size: 26rpx;
+}
+
+.order-row+.order-row {
+  border-top: 1rpx solid #f1f1f1;
+}
+.order-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  line-height: 60rpx;
+  align-items: center;
+  padding: 25rpx;
+  background-color: #fff;
+}
+.order-row view{
+  width: 350rpx;
+  display: inline-block
+}
+.picker,.order-row-right{
+  text-align:right;
+}
+.goods-item{
+  border-bottom: 1rpx solid #ddd;
+}
+.item-title{
+  font-size: 30rpx;
+}
+.fontcolor{
+  font-size: 28rpx;
+  color: #f23232;
+}
+.savebtn{
+  margin: 50rpx 20rpx;
+}

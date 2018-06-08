@@ -33,9 +33,9 @@
 
         </view>
 
-        <block wx:for="{{orderlist.list}}" wx:key="key">
+        <navigator wx:for="{{orderlist.list}}" wx:key="key" url="../listDetail/listDetail?id={{orderlist.listNum}}">
           <template is="goodsItemRowTemplate" data="{{...item}}" />
-        </block>
+        </navigator>
 
         <view class="order-info">
           <view class="pay-txt">
