@@ -19,7 +19,7 @@
             <view class="store-title-a">
               <i class="iconfont icon-dianpu"></i>
               <text>{{orderlist.store}}</text>
-              <i class="iconfont icon-xiayiyeqianjinchakangengduo"></i>
+              <!-- <i class="iconfont icon-xiayiyeqianjinchakangengduo"></i> -->
             </view>
           </view>
           <view class="edit">
@@ -33,7 +33,7 @@
 
         </view>
 
-        <navigator wx:for="{{orderlist.list}}" wx:key="key" url="../listDetail/listDetail?id={{orderlist.listNum}}">
+        <navigator wx:for="{{orderlist.list}}" wx:key="key" url="../orderDetail/orderDetail?id={{orderlist.listNum}}">
           <template is="goodsItemRowTemplate" data="{{...item}}" />
         </navigator>
 

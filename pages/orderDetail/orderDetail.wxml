@@ -6,18 +6,18 @@
   <view class="">
     <view class="order-state">
 
-      <view class="order-progress order-progress-b">
+      <view class="order-progress {{orderDetail.statusId>=2?'order-progress-b':''}} {{orderDetail.statusId>=3?'order-progress-a':''}}">
         <view>
           <text>提交订单</text>
-          <i class="{{}} i-complete"></i>
+          <i class="i-complete"></i>
         </view>
         <view>
           <text>配送中</text>
-          <i class="{{}}"></i>
+          <i class="{{orderDetail.statusId>=3?'i-complete':''}}"></i>
         </view>
         <view>
           <text>交易完成</text>
-          <i class="{{}}"></i>
+          <i class="{{orderDetail.statusId>=4?'i-complete':''}}"></i>
         </view>
       </view>
 
@@ -27,16 +27,16 @@
         <view class="list-inner-row">
           <text class="list-inner-title">订单状态：</text>
           <view class="list-inner-content">
-            <text>已签收</text>
+            <text>{{orderDetail.status||""}}</text>
           </view>
         </view>
         <view class="list-inner-row">
           <text class="list-inner-title">订单编号：</text>
-          <view class="list-inner-content">123456789</view>
+          <view class="list-inner-content">{{orderDetail.orderNum||""}}</view>
         </view>
         <view class="list-inner-row">
           <text class="list-inner-title">下单时间：</text>
-          <view class="list-inner-content">2017-12-12 12:12:12</view>
+          <view class="list-inner-content">{{orderDetail.orderTime||""}}</view>
         </view>
       </view>
 
@@ -46,30 +46,39 @@
 
     <view class="order-detail" id="detailview">
       <view>
-        <text>支付方式：</text>微信支付</view>
+        <text>支付方式：</text>{{orderDetail.payWay||"-"}}</view>
       <view>
         <text>商品金额：</text>
-        <b>¥199.80</b>
+        <b>¥{{orderDetail.sumPrice||"-"}}</b>
       </view>
       <view>
         <text>订单优惠：</text>
-        <b>¥50.00</b>
+        <b>¥{{orderDetail.off||"-"}}</b>
       </view>
       <view>
-        <text>收货地址：</text>广东佛山市禅城区城区石湾镇永星小区北门口保安亭</view>
+        <text>收货地址：</text>{{orderDetail.address||"-"}}</view>
       <view>
-        <text>收货人：</text>简介 123****4567</view>
+        <text>收货人：</text>{{orderDetail.nameTel||"-"}}</view>
       <view>
-        <text>配送方式：</text>普通快递</view>
+        <text>配送方式：</text>{{orderDetail.deliver||"-"}}</view>
       <view>
-        <text>送货时间：</text>2017-12-12</view>
+        <text>送货时间：</text>{{orderDetail.deliverTime||"-"}}</view>
       <view>
-        <text>发票信息：</text>电子普通发票</view>
+        <text>发票信息：</text>{{orderDetail.invoice||"-"}}</view>
     </view>
 
 
 
-    <view wx:for="{{detailGoods}}" wx:key="key">
+    <view class="store-title">
+      <view class="store-title-name">
+        <view class="store-title-a">
+          <i class="iconfont icon-dianpu"></i>
+          <text>{{orderDetail.store}}</text>
+          <!-- <i class="iconfont icon-xiayiyeqianjinchakangengduo"></i> -->
+        </view>
+      </view>
+    </view>
+    <view wx:for="{{orderDetail.detailGoods}}" wx:key="key">
       <!-- {{item}} -->
       <view class="goods-item" data-id="{{item.id}}">
         <image src="{{item.coverImg}}" class="item-img" />
@@ -90,19 +99,19 @@
     <view class="order-total">
       <view>
         <view>商品总额
-          <text>¥200.80</text>
+          <text>¥{{orderDetail.sumPrice}}</text>
         </view>
-        <view>返现
-          <text>- ¥0.00</text>
+        <view>获得积分
+          <text>+ {{orderDetail.getPoint}}</text>
         </view>
         <view>运费
-          <text>+ ¥0.00</text> </view>
+          <text>+ ¥{{orderDetail.freight}}</text> </view>
         <view>商品优惠：
-          <text>- ¥40.00</text>
+          <text>- ¥{{orderDetail.off}}</text>
         </view>
       </view>
       <view class="total">实付金额：
-        <strong>¥160.80</strong>
+        <strong>¥{{orderDetail.payPrice}}</strong>
       </view>
     </view>
 

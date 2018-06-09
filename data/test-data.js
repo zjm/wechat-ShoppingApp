@@ -755,20 +755,39 @@ var followGoods = [
   }
 ];
 
-var detailGoods = [
-  {
-    coverImg: "http://img.onbus.cn:9001/uploads/shopping/27/images/8346E166-47AD-4C49-992C-77202C06B385.jpg",
-    title: "J2I0",
-    price: 2299.00,
-    id: 1
-  },
-  {
-    coverImg: "http://img.onbus.cn:9001/uploads/shopping/27/images/07CEEF2E-5D59-4841-ADD4-76C91C6C5BD3.JPG",
-    title: "A240",
-    price: 1400.00,
-    id: 2
-  }
-];
+var orderDetail = {
+  store:"禅城店",
+  statusId:3,
+  status:"已签收",
+  orderNum: 123456789,
+  orderTime:"2017-12-12 12:12:12",
+  payWay:"微信支付",
+  sumPrice: 299.80,
+  off:50.00,
+  address:"广东佛山市禅城区城区中国陶瓷城",
+  nameTel:"学习 12356781234",
+  deliver:"普通快递",
+  deliverTime:"2017-12-21",
+  invoice:"电子发票",
+  getPoint:100,
+  freight:0.00,
+  payPrice:249.80,
+  detailGoods:[
+    {
+      coverImg: "http://img.onbus.cn:9001/uploads/shopping/27/images/8346E166-47AD-4C49-992C-77202C06B385.jpg",
+      title: "J2I0",
+      price: 2299.00,
+      id: 1
+    },
+    {
+      coverImg: "http://img.onbus.cn:9001/uploads/shopping/27/images/07CEEF2E-5D59-4841-ADD4-76C91C6C5BD3.JPG",
+      title: "A240",
+      price: 1400.00,
+      id: 2
+    }
+  ]
+  
+};
 var refundGoods = [
   {
     coverImg: "http://img.onbus.cn:9001/uploads/shopping/27/images/8346E166-47AD-4C49-992C-77202C06B385.jpg",
@@ -791,6 +810,6 @@ module.exports = {
   pointData: pointData,
   orderList: orderList,
   followGoods: followGoods,
-  detailGoods: detailGoods,
+  orderDetail: orderDetail,
   refundGoods: refundGoods
 }

@@ -15,24 +15,36 @@ Page({
     })
   },
   getLocation: function () {
-    wx.getLocation({
-      type: 'gcj02',
-      success: function (res) {
-        var latitude = res.latitude
-        var longitude = res.longitude
-        wx.request({
-          url: 'http://api.map.baidu.com/geocoder/v2/?ak=btsVVWf0TM1zUBEbzFz6QqWF&coordtype=gcj02ll&location=' + latitude + ',' + longitude + '&output=json&pois=0',
-          method: "get",
-          success: function (res) {
-            console.log(res.data.result.formatted_address)
-            wx.setStorageSync('location', res.data.result.formatted_address.substr(res.data.result.formatted_address.indexOf('市') + 1, 10))
-          }
-        })
-      }
-    })
-    wx.switchTab({
-      url: '/pages/index/index'
-    })
+    // wx.getLocation({
+    //   type: 'gcj02',
+    //   success: function (res) {
+    //     var latitude = res.latitude
+    //     var longitude = res.longitude
+    //     wx.request({
+    //       url: 'http://api.map.baidu.com/geocoder/v2/?ak=btsVVWf0TM1zUBEbzFz6QqWF&coordtype=gcj02ll&location=' + latitude + ',' + longitude + '&output=json&pois=0',
+    //       method: "get",
+    //       success: function (res) {
+    //         console.log(res.data.result.formatted_address)
+    //         wx.setStorageSync('location', res.data.result.formatted_address.substr(res.data.result.formatted_address.indexOf('市') + 1, 10))
+    //       }
+    //     })
+    //   }
+    // })
+    // wx.switchTab({
+    //   url: '/pages/index/index'
+    // })
+    
+      var that = this;
+      wx.chooseLocation({
+        success: function success(res) {
+          // console.log(res)
+          that.setData({
+            address: res.name || res.address || '点击定位当前位置'
+          });
+        }
+      });
+      // todo 添加地址后展示地址
+    
   },
   input: function (e){
     if(e.detail.value){

@@ -21,7 +21,7 @@
     "pages/setting/setting",
     "pages/address/address",
     "pages/followGoods/followGoods",
-    "pages/listDetail/listDetail",
+    "pages/orderDetail/orderDetail",
     "pages/refund/refund"   
     
   ],

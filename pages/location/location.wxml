@@ -13,7 +13,7 @@
     </block>
   </scroll-view>
 </view>
-<view class="getLocation" bindtap="getLocation">点击定位当前位置</view>
+<view class="getLocation" bindtap="getLocation"><text class="iconfont icon-weizhi"></text>{{address||"点击定位当前位置"}}</view>
 <view class="addLocation">新增收货地址
   <view class="iconfont icon-jia-xianxingyuankuang"></view>
 </view>

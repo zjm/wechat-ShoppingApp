@@ -16,10 +16,23 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var detailGoods = listData.detailGoods;
+    var orderDetail = listData.orderDetail;
     this.setData({
-      detailGoods:detailGoods
+      orderDetail: orderDetail
     })
+
+    // var detailId = options.id;
+    // console.log(detailId)
+    // var that = this;
+    // wx.request({
+    //   url: 'https://www.easy-mock.com/mock/5b1b3837496c9b36644e6465/orderDetail/id=' + detailId,
+    //   method: "GET",
+    //   success: function (res) {
+    //     that.setData({
+    //       orderDetail: res.data.orderDetail,
+    //     })
+    //   }
+    // });
   },
 
   /**

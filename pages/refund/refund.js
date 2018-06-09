@@ -102,7 +102,7 @@ Page({
     var refundGoods = listData.refundGoods;
     var sumPrice = 0;
     for(var i in refundGoods){
-      sumPrice += refundGoods[i].price;
+      sumPrice += parseInt(refundGoods[i].price);
     }
     this.setData({
       refundGoods:refundGoods,

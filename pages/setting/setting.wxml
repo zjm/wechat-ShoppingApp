@@ -1,13 +1,14 @@
 <!--pages/setting/setting.wxml-->
 <form bindsubmit="submitForm">
+<view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">{{errorTips}}</view>
   <view class="page-body">
     <view class="page-section">
       <view class="weui-cells__title">您的姓名
-        <text class="warning">{{nickName==""?'(不能为空)':''}}</text>
+        <!-- <text class="warning">{{nickName==""?'(不能为空)':''}}</text> -->
       </view>
       <view class="weui-cells weui-cells_after-title">
         <view class="weui-cell weui-cell_input">
-          <input class="weui-input" type="text" placeholder="请输入您的姓名或昵称" />
+          <input class="weui-input" type="text" name="nickName" placeholder="请输入您的姓名或昵称" />
         </view>
       </view>
     </view>
@@ -33,7 +34,7 @@
       </radio-group>
     </view> -->
       <view class="weui-cells weui-cells_after-title">
-        <radio-group name="gender" bindchange="radioChange">
+        <radio-group name="sex" bindchange="radioChange">
           <label class="weui-cell weui-check__label" wx:for="{{ radio }}" wx:key="{{ item.value }}">
             <radio class="weui-check" value="{{ item.value }}" checked="{{ item.checked }}" />
             <view class="weui-cell__bd">{{ item.name }}</view>
@@ -47,7 +48,7 @@
 
     <view class="page-section">
       <view class="weui-cells__title">您的手机号码
-        <text class="warning">{{telNum==""?'(不能为空)':''}}</text>
+        <!-- <text class="warning">{{telNum==""?'(不能为空)':''}}</text> -->
       </view>
       <view class="weui-cells weui-cells_after-title">
         <!-- <view class="weui-cell weui-cell_input  weui-cell_vcode">
@@ -60,10 +61,10 @@
         <view class="weui-cell weui-cell_input weui-cell_vcode">
 
           <view class="weui-cell__bd">
-            <input class="weui-input" placeholder="请输入手机号" />
+            <input class="weui-input" bindinput="inputTel" name="telNum" placeholder="请输入手机号" />
           </view>
           <view class="weui-cell__ft">
-            <view class="weui-vcode-btn" bindtap="countDown">{{hasTime?"重新发送("+countDown+")":"获取验证码"}}</view>
+            <view class="weui-vcode-btn" bindtap="countDown" >{{hasTime?"重新发送("+countDown+")":"获取验证码"}}</view>
           </view>
         </view>
 
@@ -73,16 +74,16 @@
 
     <view class="page-section">
       <view class="weui-cells__title">验证码
-        <text class="warning">{{codeNum==""?'(不能为空)':''}}</text>
+        <!-- <text class="warning">{{codeNum==""?'(不能为空)':''}}</text> -->
       </view>
       <view class="weui-cells weui-cells_after-title">
         <view class="weui-cell weui-cell_input">
-          <input class="weui-input" type="number" placeholder="请输入收到的验证码" />
+          <input class="weui-input" name="codeNum" type="number" placeholder="请输入收到的验证码" />
         </view>
       </view>
     </view>
 
-    <button type="primary" class="savebtn" bindtap="saveTap" formType="submit">保存</button>
+    <button type="primary" class="savebtn"  formType="submit">保存</button>
 
   </view>
 </form>
