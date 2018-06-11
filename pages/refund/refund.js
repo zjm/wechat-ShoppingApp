@@ -94,7 +94,42 @@ Page({
       inputLength:length
     })
   },
+  submitForm:function(e){
+    var that = this;
+    var imageList = this.data.imageList;
+    console.log(e.detail.value);
+    if (e.detail.value.why == null || e.detail.value.why == ""){
+      console.log("请选择退货理由");
+      return false;
+    }
+    if (imageList.length==0){
+      console.log("请选择上传图片");
+      return false;
+    }
 
+// for循环上传每张图，filePath的值只能是字符串，不能是数组
+    for (var i in imageList){
+      wx.uploadFile({
+        url: "https://14592619.qcloud.la/upload",
+        filePath: imageList[i],
+        name: 'data',
+        success: function (res) {
+          console.log('uploadImage success, res is:', res)
+          wx.showToast({
+            title: '上传成功',
+            icon: 'success',
+            duration: 1000
+          })
+        },
+        fail: function ({ errMsg }) {
+          console.log('uploadImage fail, errMsg is', errMsg)
+        }
+      })
+
+    }
+   
+   
+  },
   /**
    * 生命周期函数--监听页面加载
    */

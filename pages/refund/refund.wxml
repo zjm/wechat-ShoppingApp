@@ -8,38 +8,38 @@
       <image src="{{item.coverImg}}" class="item-img" />
       <view class="item">
         <view class="item-title">型号：{{item.title}}</view>
-         <view class="item-total">￥{{item.price}}</view> 
+        <view class="item-total">￥{{item.price}}</view>
       </view>
     </view>
   </view>
-
-  <picker class="order-row " bindchange="bindPickerChange" value="{{index}}" range="{{reason}}" range-key="name">
-    <view class="order-row-left">退款理由</view>
-    <view class="picker">{{reason[index].name?reason[index].name:reason[0].name}}</view>
-  </picker>
-  <view class="order-row">
-    <view class="order-row-left">
-      退款金额
-    </view>
-    <view class="order-row-right fontcolor">
-      ￥{{price}}
-    </view>
-  </view>
-
-  <view class="weui-cells__title">退款说明</view>
-  <view class="weui-cells weui-cells_after-title">
-    <view class="weui-cell">
-      <view class="weui-cell__bd">
-        <textarea class="weui-textarea" placeholder="请输入退款说明(选填)" maxlength="200" style="height: 250rpx" bindinput="inputChange" />
-        <view class="weui-textarea-counter">{{inputLength||0}}/200</view>
+  <form bindsubmit="submitForm">
+    <picker class="order-row " bindchange="bindPickerChange" name="why" value="{{reason[index].name}}" range="{{reason}}" range-key="name">
+      <view class="order-row-left">退款理由</view>
+      <view class="picker">{{reason[index].name?reason[index].name:"请选择"}}</view>
+    </picker>
+    <view class="order-row">
+      <view class="order-row-left">
+        退款金额
+      </view>
+      <view class="order-row-right fontcolor">
+        ￥{{price}}
       </view>
     </view>
-  </view>
+
+    <view class="weui-cells__title">退款说明</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <textarea class="weui-textarea" placeholder="请输入退款说明(选填)" maxlength="200" name="explain" style="height: 250rpx" bindinput="inputChange" />
+          <view class="weui-textarea-counter">{{inputLength||0}}/200</view>
+        </view>
+      </view>
+    </view>
 
 
 
-  <form>
-  <view class="weui-cells__title">上传凭证(最多5张)</view>
+
+    <view class="weui-cells__title">上传凭证(最多5张)</view>
     <view class="page-section">
 
       <!-- <view class="weui-cells weui-cells_after-title">
@@ -103,7 +103,7 @@
 
     </view>
 
-    <button type="primary" class="savebtn" bindtap="saveTap" formType="submit">保存</button>
+    <button type="primary" class="savebtn"  formType="submit">提交</button>
   </form>
 
 </view>
