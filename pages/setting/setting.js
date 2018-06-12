@@ -1,6 +1,6 @@
 // pages/setting/setting.js
 import WxValidate from '../../src/WxValidate.js'
-
+var utils = require("../../utils/util.js");
 
 var inpTelNum = ""; //记录输入的手机号码
 var getCodeNum = "1234"; //记录后台返回的验证码
@@ -52,7 +52,7 @@ Page({
 
     // 先检查手机号是否正确
     if (!/^(13[0-9]|15[012356789]|166|17[3678]|18[0-9]|14[57])[0-9]{8}$/.test(inpTelNum)) {
-      this.showTopTips("请输入正确的手机号")
+      utils.showTopTips(this,"请输入正确的手机号")
       return false
     }
 
@@ -97,19 +97,7 @@ Page({
     inpTelNum = e.detail.value;
   },
 
-  // 错误提示框显示与隐藏
-  showTopTips: function (msg) {
-    var that = this;
-    this.setData({
-      showTopTips: true,
-      errorTips:msg
-    });
-    setTimeout(function () {
-      that.setData({
-        showTopTips: false
-      });
-    }, 3000);
-  },
+
 
   // 错误类别判断
   // tips: function (data) {
@@ -198,7 +186,7 @@ Page({
     if (!this.WxValidate.checkForm(e)) {
       var error = this.WxValidate.errorList[0]
       console.log(error)
-      this.showTopTips(error.msg)
+      utils.showTopTips(this,error.msg)
       return false
     }
 
@@ -206,7 +194,7 @@ Page({
     //   hidden: !0,
     //   text: '提交成功',
     // })
-    this.showTopTips("成功")
+    utils.showTopTips(this,"成功")
   },
   /**
    * 生命周期函数--监听页面加载

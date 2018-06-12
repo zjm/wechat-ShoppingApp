@@ -18,18 +18,26 @@
   </view>
 
   <view class="row-div">
-    <view class="row">
+    <navigator class="row" url="../recharge/recharge">
       <view>
         <text class="iconfont icon-xinyongqiahuankuan"></text>充值
       </view>
       <text class="iconfont icon-xiayiyeqianjinchakangengduo"></text>
-    </view>
+    </navigator>
     <view class="row">
       <view>
         <text class="iconfont icon-qianbao"></text>提现
       </view>
       <text class="iconfont icon-xiayiyeqianjinchakangengduo"></text>
     </view>
+  </view>
+  <view class="row-div">
+    <navigator class="row" url="../billDetail/billDetail">
+      <view>
+        <text class="iconfont icon-zhangdan"></text>财务明细
+      </view>
+      <text class="iconfont icon-xiayiyeqianjinchakangengduo"></text>
+    </navigator>
   </view>
 
 </view>

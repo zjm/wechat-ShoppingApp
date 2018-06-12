@@ -22,7 +22,10 @@
     "pages/address/address",
     "pages/followGoods/followGoods",
     "pages/orderDetail/orderDetail",
-    "pages/refund/refund"   
+    "pages/refund/refund",
+    "pages/returnInfo/returnInfo",
+    "pages/billDetail/billDetail",
+    "pages/recharge/recharge"
     
   ],
   "window": {

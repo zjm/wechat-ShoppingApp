@@ -108,6 +108,22 @@ function hideLayer(that, attr, start) {
   }.bind(that), 200)
 }
 
+// 错误提示框显示与隐藏
+// msg是错误信息
+function showTopTips(that,msg) {
+  if (that.data.showTopTips) {
+    return false;
+  }
+  that.setData({
+    showTopTips: true,
+    errorTips: msg
+  });
+  var timer = setTimeout(function () {
+    that.setData({
+      showTopTips: false
+    });
+  }, 3000);
+}
 
 module.exports = {
   formatTime: formatTime,
@@ -115,5 +131,6 @@ module.exports = {
   showModal: showModal,
   cartNum: cartNum,
   showLayer: showLayer,
-  hideLayer: hideLayer
+  hideLayer: hideLayer,
+  showTopTips: showTopTips
 }

@@ -2,6 +2,7 @@
 
 
 <view class="page-body">
+<view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">{{errorTips}}</view>
   <view wx:for="{{refundGoods}}" wx:key="key">
     <!-- {{item}} -->
     <view class="goods-item" data-id="{{item.id}}">

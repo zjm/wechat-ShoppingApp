@@ -38,6 +38,7 @@ page {
 
 .row-div {
   border-bottom: 1rpx solid #f1f1f1;
+  margin-bottom: 20rpx;
 }
 
 .row {
@@ -64,5 +65,8 @@ page {
 .icon-qianbao{
   color: #2C9F67;
   margin-right: 10rpx;
-  
+}
+.icon-zhangdan{
+  margin-right: 10rpx;
+  color: #FFB400;
 }

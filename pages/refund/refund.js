@@ -88,24 +88,36 @@ Page({
     })
   },
 
-  inputChange:function(e){
-    var length = e.detail.value.length;
-    this.setData({
-      inputLength:length
-    })
-  },
+  // inputChange:function(e){
+  //   var length = e.detail.value.length;
+  //   this.setData({
+  //     inputLength:length
+  //   })
+  // },
+
+ 
+
+  // 提交按钮
   submitForm:function(e){
     var that = this;
     var imageList = this.data.imageList;
     console.log(e.detail.value);
     if (e.detail.value.why == null || e.detail.value.why == ""){
-      console.log("请选择退货理由");
+      utils.showTopTips(this,"请选择退款理由");
       return false;
     }
     if (imageList.length==0){
-      console.log("请选择上传图片");
+      utils.showTopTips(this,"请选择上传图片");
       return false;
     }
+    wx.showLoading({
+      title: '提交中',
+      mask:true
+    })
+
+
+      
+
 
 // for循环上传每张图，filePath的值只能是字符串，不能是数组
     for (var i in imageList){
@@ -115,14 +127,17 @@ Page({
         name: 'data',
         success: function (res) {
           console.log('uploadImage success, res is:', res)
-          wx.showToast({
-            title: '上传成功',
-            icon: 'success',
-            duration: 1000
+          wx.hideLoading()
+          wx.navigateTo({
+            url: '../returnInfo/returnInfo?msg=true',
           })
         },
         fail: function ({ errMsg }) {
           console.log('uploadImage fail, errMsg is', errMsg)
+          wx.hideLoading()
+          wx.navigateTo({
+            url: '../returnInfo/returnInfo?msg=false',
+          })
         }
       })
 

@@ -1,0 +1,13 @@
+<!--pages/recharge/recharge.wxml-->
+<form bindsubmit="requestPayment">
+  <view class="form-group">
+    <label class="recharge-title">充值金额</label>
+    <view class="input-div">
+      <text>￥</text>
+      <input type="number" name="paymoney" class="form-input money-input" focus="{{true}}" />
+    </view>
+
+  </view>
+  <button type="primary" class="savebtn" formType="submit">立即充值</button>
+
+</form>

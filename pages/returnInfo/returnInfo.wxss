@@ -1,0 +1,9 @@
+/* pages/returnInfo/returnInfo.wxss */
+@import "/src/weui";
+
+.weui-cell view{
+  font-size: 28rpx;
+}
+.weui-cell__bd{
+  text-align: left;
+}

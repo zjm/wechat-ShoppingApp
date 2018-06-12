@@ -1,0 +1,14 @@
+/* pages/billDetail/billDetail.wxss */
+@import "/src/weui.wxss";
+@import "../template/no-more/no-more-template";
+page{
+  background-color: #f9f9f9;
+  height: 100%;
+}
+.weui-form-preview {
+  margin-bottom: 25px;
+}
+
+view{
+  font-size: 26rpx;
+}

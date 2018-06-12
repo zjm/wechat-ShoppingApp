@@ -1,0 +1,34 @@
+/* pages/recharge/recharge.wxss */
+
+.form-group {
+}
+
+.recharge-title {
+  font-size: 30rpx;
+  margin: 20rpx;
+  display: block;
+}
+
+.input-div text {
+  font-size: 40rpx;
+}
+
+.input-div {
+  font-size: 45rpx;
+  border-bottom: 2rpx solid #f1f1f1;
+  padding: 30rpx;
+  display: flex;
+  align-items: center;
+}
+
+.form-input {
+  border: 0;
+  display: inline-block;
+  outline: none;
+  width: 100%;
+  height: 60rpx;
+}
+
+.savebtn {
+  margin: 60rpx 30rpx;
+}

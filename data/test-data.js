@@ -797,6 +797,27 @@ var refundGoods = [
   }
 ];
 
+var billDetail = [
+  {
+    name:"账户充值",
+    time:"2018-06-18 18:18:18",
+    money:1500,
+    way:"农业银行",
+  },
+  {
+    name: "账户提现",
+    time: "2018-06-18 18:18:18",
+    money: -2000,
+    way: "余额",
+  },
+  {
+    name: "账户提现",
+    time: "2018-06-18 18:18:18",
+    money: -2000,
+    way: "余额",
+  }
+]
+
 module.exports = {
   navList: navList,
   menuList: menulist,
@@ -811,5 +832,6 @@ module.exports = {
   orderList: orderList,
   followGoods: followGoods,
   orderDetail: orderDetail,
-  refundGoods: refundGoods
+  refundGoods: refundGoods,
+  billDetail: billDetail
 }
