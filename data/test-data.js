@@ -457,7 +457,7 @@ var userData = {
     canUse: 1000
   },
   follow: followData.length,
-  balance: 1000,
+  balance: 1200,
   ticketNum: ticketData.length
 
 

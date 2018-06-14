@@ -55,7 +55,7 @@
           </view>
         </view>
       </navigator>
-      <navigator class="my-point">
+      <navigator class="my-point" url="../withdraw/withdraw?point={{userData.point.canUse}}">
         <view class="point-icon">
           <view class="iconfont icon-jifen"></view>
         </view>

@@ -43,7 +43,7 @@
 
       <picker class="order-row invoice" bindchange="bindPickerChange" value="{{index}}" range="{{invoice}}" range-key="name">
         <view class="order-row-left">发票信息</view>
-        <view class="picker">{{invoice[index].name?invoice[index].name:invoice[0].name}}</view>
+        <view class="picker">{{invoice[index].name?invoice[index].name:"请选择发票"}}</view>
       </picker>
 
 

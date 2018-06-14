@@ -1,0 +1,66 @@
+<!--pages/recharge/recharge.wxml-->
+<view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">{{errorTips}}</view>
+<form bindsubmit="requestPayment">
+  <view class="form-group">
+    <label class="title">提现金额</label>
+    <view class="input-div">
+      <text>￥</text>
+      <input type="number" name="paymoney" class="form-input money-input" focus="{{true}}" bindinput="inputMoney" value="{{inputValue}}" />
+    </view>
+    <view class="row">
+      <view>
+        <text class="">可提现{{isPoint?"积分:":"金额:"}} {{isPoint?pointCanUse:balance}}，</text>
+        <text class="">实际到账金额: ￥{{isPoint?getPointCanUse:getBalance}}，</text>
+        <text class="highlight" bindtap="allInp">全部提现</text>
+      </view>
+      <text class="iconfont icon-bangzhu" bindtap="helpTap" wx:if="{{isPoint}}"></text>
+    </view>
+  </view>
+
+  <view class="row-div">
+    <picker name="payWay" class="row" bindchange="payWayChange" value="{{payWayIndex}}" range="{{payWay}}">
+      <view class="picker-left">
+        提现到
+      </view>
+      <view class="picker-right">
+        <!-- <text class="iconfont icon-weixinzhifu1"></text> -->
+        <text>{{payWay[payWayIndex]?payWay[payWayIndex]:"请选择提现方式"}}</text>
+        <text class="iconfont icon-xiayiyeqianjinchakangengduo"></text>
+      </view>
+    </picker >
+  </view>
+
+  <view class="row-div" wx:if="{{payWayIndex==1}}">
+    <picker name="bank"  class="row" bindchange="bankChange"  value="{{bankId}}" range="{{bank}}" range-key="name"> 
+      <view class="picker-left">
+        选择银行
+      </view>
+      <view class="picker-right">
+        <text class="iconfont icon-xinyongqiahuankuan"></text>
+        <text>{{bank[bankId]?bank[bankId].name:"请选择银行"}}</text>
+        <text class="iconfont icon-xiayiyeqianjinchakangengduo"></text>
+      </view>
+    </picker>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">银行卡</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" name="cardNum" type="number"  placeholder="请输入银行卡号" />
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">持卡人</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" name="cardUser" placeholder="请输入持卡人姓名" />
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <button type="primary" class="savebtn" formType="submit">提现</button>
+
+</form>

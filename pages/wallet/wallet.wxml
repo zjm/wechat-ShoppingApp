@@ -24,12 +24,12 @@
       </view>
       <text class="iconfont icon-xiayiyeqianjinchakangengduo"></text>
     </navigator>
-    <view class="row">
+    <navigator class="row" url="../withdraw/withdraw?balance={{balance}}">
       <view>
         <text class="iconfont icon-qianbao"></text>提现
       </view>
       <text class="iconfont icon-xiayiyeqianjinchakangengduo"></text>
-    </view>
+    </navigator>
   </view>
   <view class="row-div">
     <navigator class="row" url="../billDetail/billDetail">

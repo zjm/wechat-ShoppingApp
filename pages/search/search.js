@@ -58,6 +58,11 @@ Page({
   // 点击 搜索 按钮后 隐藏搜索记录，并加载数据  
   searchData: function () {
     var that = this;
+  // 判断输入值是否有空格 去空格
+    if (/\s+/.test(searchTitle)){
+      searchTitle = searchTitle.replace(/\s+/g, "");
+    }
+
     // 搜索后将搜索记录缓存到本地  
     if ("" != searchTitle) {
       var searchLogData = that.data.searchLogList;
@@ -74,6 +79,7 @@ Page({
       if (n == oldData.length) {
         searchLogData.push(searchTitle);
       }
+      
       wx.setStorageSync('searchLog', searchLogData);
     }
 
@@ -113,6 +119,12 @@ Page({
         searchLogList: wx.getStorageSync('searchLog')
       });
     }
+
+    that.setData({
+      inpData: {
+        inputVal: e.detail.value
+      }
+    })
     searchTitle = e.detail.value;
 
   },
